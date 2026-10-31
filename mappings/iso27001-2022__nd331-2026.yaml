@@ -1,0 +1,30 @@
+# Bảng đối chiếu ISO/IEC 27001:2022 Phụ lục A <-> Nghị định 331/2026/NĐ-CP
+#
+# TRẠNG THÁI: skeleton - chờ hoàn thiện catalogs/nd331-2026.yaml.
+#
+# Mẫu một dòng đối chiếu (bỏ dấu # khi dùng):
+#   - source: "5.24"                 # mã control ISO 27001
+#     target: "D12.K2.a"             # mã yêu cầu trong nd331-2026.yaml
+#     relationship: intersects       # equivalent | subset_of | superset_of | intersects | no_relationship
+#     rationale: Cả hai đều yêu cầu có kế hoạch ứng phó sự cố, nhưng NĐ yêu cầu thêm ...
+#     confidence: medium             # high | medium | low
+#     reviewed_by: thinhnx128
+#     reviewed_on: 2026-12-01
+#
+# Ý nghĩa quan hệ (theo cách tiếp cận tập hợp của NIST OLIR):
+#   equivalent   : hai yêu cầu có cùng phạm vi
+#   subset_of    : yêu cầu nguồn hẹp hơn, nằm trọn trong yêu cầu đích
+#   superset_of  : yêu cầu nguồn rộng hơn, bao trùm yêu cầu đích
+#   intersects   : giao nhau một phần
+#   no_relationship : đã xem xét, không liên quan (target để trống)
+kind: mapping
+id: iso27001-2022__nd331-2026
+source_catalog: iso27001-2022
+target_catalog: nd331-2026
+version: 0.0.1
+status: skeleton
+author: thinhnx128
+notice: >-
+  Đối chiếu là diễn giải chuyên môn của tác giả, không phải ý kiến pháp lý và không thay thế
+  hướng dẫn của cơ quan có thẩm quyền.
+entries: []

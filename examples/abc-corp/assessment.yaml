@@ -1,0 +1,70 @@
+# VÍ DỤ HƯ CẤU - hồ sơ đánh giá của Công ty CP ABC. Các control không liệt kê được coi là chưa đánh giá.
+# Hồ sơ thật của tổ chức tuyệt đối không commit lên repo công khai.
+kind: assessment
+organization: Công ty CP ABC (hư cấu)
+scope: Hệ thống thông tin dùng chung tại trụ sở chính
+catalog: iso27001-2022
+as_of: 2026-10-31
+controls:
+  "5.1":
+    status: implemented
+    justification: Yêu cầu bắt buộc của ISMS
+    evidence: [CS-01 v2.0 ban hành 01/2026]
+    owner: Trưởng ban ISMS
+  "5.9":
+    status: partial
+    justification: Cần biết tài sản để bảo vệ
+    evidence: [Sổ tài sản CNTT, chưa có tài sản thông tin]
+    owner: Bộ phận CNTT
+    due: 2026-12-31
+  "5.15":
+    status: implemented
+    evidence: [Ma trận phân quyền 2026]
+    owner: Bộ phận CNTT
+  "5.17":
+    status: implemented
+    evidence: [CS-02, cấu hình chính sách mật khẩu domain]
+    owner: Bộ phận CNTT
+  "5.18":
+    status: partial
+    notes: Chưa rà soát quyền định kỳ 6 tháng
+    owner: Bộ phận CNTT
+    due: 2027-03-31
+  "5.23":
+    status: planned
+    justification: Đang dùng dịch vụ email đám mây
+    owner: Bộ phận CNTT
+    due: 2027-06-30
+  "5.24":
+    status: partial
+    evidence: [CS-04]
+    owner: Trưởng ban ISMS
+  "5.26":
+    status: implemented
+    evidence: [Nhật ký xử lý sự cố 2026]
+  "6.3":
+    status: implemented
+    evidence: [Kế hoạch đào tạo nhận thức ATTT 2026, danh sách tham dự]
+    owner: Phòng Nhân sự
+  "7.12":
+    status: not_implemented
+    owner: Bộ phận CNTT
+    due: 2027-06-30
+  "8.4":
+    applicable: false
+    justification: Tổ chức không tự phát triển phần mềm, không quản lý mã nguồn
+  "8.25":
+    applicable: false
+    justification: Tổ chức không tự phát triển phần mềm
+  "8.13":
+    status: implemented
+    evidence: [CS-03, biên bản kiểm thử phục hồi quý III/2026]
+    owner: Bộ phận CNTT
+  "8.8":
+    status: partial
+    evidence: [Báo cáo quét lỗ hổng tháng 9/2026]
+    owner: Bộ phận CNTT
+  "8.15":
+    status: planned
+    owner: Bộ phận CNTT
+    due: 2027-03-31

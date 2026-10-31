@@ -1,0 +1,163 @@
+{
+  "$defs": {
+    "MappingEntry": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "title": "Source",
+          "type": "string"
+        },
+        "target": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Target"
+        },
+        "relationship": {
+          "$ref": "#/$defs/Relationship"
+        },
+        "rationale": {
+          "description": "Lý do đối chiếu, bắt buộc để phản biện được",
+          "minLength": 10,
+          "title": "Rationale",
+          "type": "string"
+        },
+        "confidence": {
+          "enum": [
+            "high",
+            "medium",
+            "low"
+          ],
+          "title": "Confidence",
+          "type": "string"
+        },
+        "reviewed_by": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed By"
+        },
+        "reviewed_on": {
+          "anyOf": [
+            {
+              "format": "date",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Reviewed On"
+        }
+      },
+      "required": [
+        "source",
+        "relationship",
+        "rationale",
+        "confidence"
+      ],
+      "title": "MappingEntry",
+      "type": "object"
+    },
+    "Relationship": {
+      "enum": [
+        "equivalent",
+        "subset_of",
+        "superset_of",
+        "intersects",
+        "no_relationship"
+      ],
+      "title": "Relationship",
+      "type": "string"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "mapping",
+      "default": "mapping",
+      "title": "Kind",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9_.-]*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "source_catalog": {
+      "title": "Source Catalog",
+      "type": "string"
+    },
+    "target_catalog": {
+      "title": "Target Catalog",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "skeleton",
+        "draft",
+        "reviewed"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "author": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Author"
+    },
+    "notice": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notice"
+    },
+    "entries": {
+      "items": {
+        "$ref": "#/$defs/MappingEntry"
+      },
+      "title": "Entries",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "source_catalog",
+    "target_catalog",
+    "version",
+    "status"
+  ],
+  "title": "Mapping",
+  "type": "object",
+  "$id": "https://github.com/thinhnx128/vn-compliance-crosswalk/schemas/mapping.schema.json"
+}

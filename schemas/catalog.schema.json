@@ -1,0 +1,200 @@
+{
+  "$defs": {
+    "Control": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "Mã yêu cầu/biện pháp, duy nhất trong danh mục",
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "description": "Nhãn ngắn tiếng Việt, tự diễn đạt",
+          "minLength": 1,
+          "title": "Title",
+          "type": "string"
+        },
+        "title_en": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Title En"
+        },
+        "summary": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Tóm tắt tự viết, không chép nguyên văn",
+          "title": "Summary"
+        },
+        "tags": {
+          "description": "Ví dụ: cap-do-3, dlcn-nhay-cam",
+          "items": {
+            "type": "string"
+          },
+          "title": "Tags",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "title": "Control",
+      "type": "object"
+    },
+    "Group": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "title": "Id",
+          "type": "string"
+        },
+        "title": {
+          "title": "Title",
+          "type": "string"
+        },
+        "controls": {
+          "items": {
+            "$ref": "#/$defs/Control"
+          },
+          "title": "Controls",
+          "type": "array"
+        }
+      },
+      "required": [
+        "id",
+        "title"
+      ],
+      "title": "Group",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "kind": {
+      "const": "catalog",
+      "default": "catalog",
+      "title": "Kind",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9_.-]*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "publisher": {
+      "title": "Publisher",
+      "type": "string"
+    },
+    "document_number": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Document Number"
+    },
+    "issued_on": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Issued On"
+    },
+    "effective_date": {
+      "anyOf": [
+        {
+          "format": "date",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Effective Date"
+    },
+    "source_url": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Source Url"
+    },
+    "status": {
+      "enum": [
+        "skeleton",
+        "draft",
+        "reviewed"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "notice": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notice"
+    },
+    "groups": {
+      "items": {
+        "$ref": "#/$defs/Group"
+      },
+      "title": "Groups",
+      "type": "array"
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "version",
+    "publisher",
+    "status"
+  ],
+  "title": "Catalog",
+  "type": "object",
+  "$id": "https://github.com/thinhnx128/vn-compliance-crosswalk/schemas/catalog.schema.json"
+}

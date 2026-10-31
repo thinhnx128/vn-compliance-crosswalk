@@ -1,0 +1,37 @@
+name: Đề xuất sửa đối chiếu
+description: Đề xuất thêm, sửa hoặc xóa một dòng đối chiếu giữa hai danh mục
+labels: [mapping]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn anh/chị đóng góp. Vui lòng **không** dán nội dung tiêu chuẩn ISO và **không** đưa
+        thông tin nội bộ của tổ chức.
+  - type: input
+    id: mapping
+    attributes:
+      label: Bảng đối chiếu
+      placeholder: iso27001-2022__nd331-2026
+    validations:
+      required: true
+  - type: input
+    id: entry
+    attributes:
+      label: Dòng liên quan (source -> target)
+      placeholder: 5.24 -> D12.K2.a
+    validations:
+      required: true
+  - type: dropdown
+    id: relationship
+    attributes:
+      label: Quan hệ đề xuất
+      options: [equivalent, subset_of, superset_of, intersects, no_relationship, xóa dòng này]
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Lý do và căn cứ
+      description: Dẫn điều, khoản của văn bản pháp luật; giải thích vì sao quan hệ hiện tại chưa đúng.
+    validations:
+      required: true

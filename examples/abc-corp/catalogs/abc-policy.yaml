@@ -1,0 +1,17 @@
+# VÍ DỤ HƯ CẤU - danh mục chính sách nội bộ của "Công ty CP ABC".
+# Minh họa cách một tổ chức nạp danh mục riêng (không công khai) bằng: vncc ... -d examples/abc-corp
+kind: catalog
+id: abc-policy
+title: Bộ chính sách ATTT nội bộ - Công ty CP ABC (hư cấu)
+version: "1.0"
+publisher: Công ty CP ABC
+status: draft
+groups:
+  - id: CS
+    title: Chính sách
+    controls:
+      - {id: CS-01, title: Chính sách ATTT chung}
+      - {id: CS-02, title: Quy định quản lý tài khoản và mật khẩu}
+      - {id: CS-03, title: Quy định sao lưu và phục hồi dữ liệu}
+      - {id: CS-04, title: Quy định ứng phó sự cố ATTT}
+      - {id: CS-05, title: Quy định quản lý nhà cung cấp dịch vụ CNTT}

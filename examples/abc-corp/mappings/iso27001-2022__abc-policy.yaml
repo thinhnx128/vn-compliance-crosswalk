@@ -1,0 +1,48 @@
+# VÍ DỤ HƯ CẤU - đối chiếu ISO 27001 Phụ lục A với chính sách nội bộ của Công ty CP ABC.
+kind: mapping
+id: iso27001-2022__abc-policy
+source_catalog: iso27001-2022
+target_catalog: abc-policy
+version: 1.0.0
+status: draft
+author: abc-isms-team
+entries:
+  - source: "5.1"
+    target: CS-01
+    relationship: equivalent
+    rationale: Chính sách chung của ABC là văn bản chính sách ATTT cấp cao duy nhất.
+    confidence: high
+  - source: "5.17"
+    target: CS-02
+    relationship: subset_of
+    rationale: Quy định CS-02 bao gồm thông tin xác thực và cả vòng đời tài khoản.
+    confidence: high
+  - source: "5.18"
+    target: CS-02
+    relationship: intersects
+    rationale: CS-02 quy định cấp và thu hồi quyền nhưng chưa có rà soát quyền định kỳ.
+    confidence: medium
+  - source: "8.13"
+    target: CS-03
+    relationship: equivalent
+    rationale: CS-03 quy định tần suất, phương tiện và kiểm thử phục hồi bản sao lưu.
+    confidence: high
+  - source: "5.24"
+    target: CS-04
+    relationship: intersects
+    rationale: CS-04 có quy trình ứng phó nhưng chưa có diễn tập định kỳ.
+    confidence: medium
+  - source: "5.26"
+    target: CS-04
+    relationship: subset_of
+    rationale: Ứng phó sự cố là một phần của quy định CS-04.
+    confidence: high
+  - source: "5.19"
+    target: CS-05
+    relationship: intersects
+    rationale: CS-05 chỉ áp dụng cho nhà cung cấp dịch vụ CNTT, không bao gồm nhà cung cấp khác.
+    confidence: medium
+  - source: "7.12"
+    relationship: no_relationship
+    rationale: Đã xem xét, bộ chính sách ABC chưa có nội dung về an ninh cáp.
+    confidence: high

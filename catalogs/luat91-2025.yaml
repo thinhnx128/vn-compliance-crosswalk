@@ -1,0 +1,15 @@
+# Khung danh mục yêu cầu Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15.
+#
+# TRẠNG THÁI: skeleton - CHƯA trích xuất nội dung. Không dùng để đánh giá tuân thủ.
+# Dự kiến bổ sung ở v0.2 cùng Nghị định 356/2025/NĐ-CP hướng dẫn thi hành.
+# Cách hoàn thiện: xem docs/them-van-ban.md.
+kind: catalog
+id: luat91-2025
+title: Luật Bảo vệ dữ liệu cá nhân
+version: "2025"
+publisher: Quốc hội nước CHXHCN Việt Nam
+document_number: 91/2025/QH15
+status: skeleton
+notice: >-
+  Khung chưa có nội dung. Cần xác nhận ngày hiệu lực và cấu trúc điều khoản từ văn bản gốc.
+groups: []

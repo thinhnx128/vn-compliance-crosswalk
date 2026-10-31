@@ -1,0 +1,22 @@
+# Khung danh mục yêu cầu Nghị định 331/2026/NĐ-CP (bảo vệ an ninh mạng đối với hệ thống thông tin,
+# xác định cấp độ).
+#
+# TRẠNG THÁI: skeleton - CHƯA trích xuất nội dung. Không dùng để đánh giá tuân thủ.
+#
+# Cách hoàn thiện (xem docs/them-van-ban.md):
+#   1. Đối chiếu bản gốc trên Công báo / Cơ sở dữ liệu quốc gia về VBQPPL.
+#   2. Ghi số hiệu, ngày ban hành, ngày hiệu lực, đường dẫn nguồn vào phần đầu tệp.
+#   3. Mỗi yêu cầu là một control: id theo điều/khoản/điểm (ví dụ "D12.K2.a"), title tự tóm tắt.
+#   4. Nếu yêu cầu phân theo cấp độ, gắn tags: [cap-do-1] ... [cap-do-5].
+#   5. Đổi status sang draft, mở pull request để rà soát chéo.
+kind: catalog
+id: nd331-2026
+title: Nghị định 331/2026/NĐ-CP - bảo vệ an ninh mạng đối với hệ thống thông tin
+version: "2026"
+publisher: Chính phủ nước CHXHCN Việt Nam
+document_number: 331/2026/NĐ-CP
+status: skeleton
+notice: >-
+  Khung chưa có nội dung. Ngày ban hành, ngày hiệu lực và cấu trúc điều khoản cần được xác nhận
+  từ văn bản gốc trước khi điền.
+groups: []

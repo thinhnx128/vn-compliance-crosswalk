@@ -1,0 +1,121 @@
+# Danh mục biện pháp kiểm soát Phụ lục A - ISO/IEC 27001:2022
+#
+# LƯU Ý BẢN QUYỀN: Tệp này CHỈ chứa mã điều khoản và nhãn ngắn do tác giả tự diễn đạt để định danh.
+# Không chứa nội dung tiêu chuẩn. Muốn áp dụng, tổ chức cần mua bản quyền tiêu chuẩn từ ISO
+# hoặc cơ quan tiêu chuẩn quốc gia.
+kind: catalog
+id: iso27001-2022
+title: ISO/IEC 27001:2022 - Phụ lục A
+version: "2022"
+publisher: ISO/IEC
+document_number: ISO/IEC 27001:2022
+status: reviewed
+notice: >-
+  Nhãn tiếng Việt và tiếng Anh là mô tả ngắn để định danh, do tác giả tự diễn đạt;
+  không phải văn bản chính thức của tiêu chuẩn.
+groups:
+  - id: "5"
+    title: Biện pháp tổ chức
+    controls:
+      - {id: "5.1", title: "Chính sách ATTT", title_en: "Information security policies"}
+      - {id: "5.2", title: "Vai trò và trách nhiệm ATTT", title_en: "Information security roles and responsibilities"}
+      - {id: "5.3", title: "Phân tách nhiệm vụ", title_en: "Segregation of duties"}
+      - {id: "5.4", title: "Trách nhiệm của lãnh đạo", title_en: "Management responsibilities"}
+      - {id: "5.5", title: "Liên hệ với cơ quan chức năng", title_en: "Contact with authorities"}
+      - {id: "5.6", title: "Liên hệ với nhóm chuyên môn", title_en: "Contact with special interest groups"}
+      - {id: "5.7", title: "Thông tin tình báo mối đe dọa", title_en: "Threat intelligence"}
+      - {id: "5.8", title: "ATTT trong quản lý dự án", title_en: "Information security in project management"}
+      - {id: "5.9", title: "Kiểm kê thông tin và tài sản liên quan", title_en: "Inventory of information and associated assets"}
+      - {id: "5.10", title: "Sử dụng chấp nhận được thông tin và tài sản", title_en: "Acceptable use of information and assets"}
+      - {id: "5.11", title: "Hoàn trả tài sản", title_en: "Return of assets"}
+      - {id: "5.12", title: "Phân loại thông tin", title_en: "Classification of information"}
+      - {id: "5.13", title: "Gắn nhãn thông tin", title_en: "Labelling of information"}
+      - {id: "5.14", title: "Truyền tải thông tin", title_en: "Information transfer"}
+      - {id: "5.15", title: "Kiểm soát truy cập", title_en: "Access control"}
+      - {id: "5.16", title: "Quản lý định danh", title_en: "Identity management"}
+      - {id: "5.17", title: "Thông tin xác thực", title_en: "Authentication information"}
+      - {id: "5.18", title: "Quyền truy cập", title_en: "Access rights"}
+      - {id: "5.19", title: "ATTT trong quan hệ với nhà cung cấp", title_en: "Information security in supplier relationships"}
+      - {id: "5.20", title: "Yêu cầu ATTT trong thỏa thuận với nhà cung cấp", title_en: "Information security in supplier agreements"}
+      - {id: "5.21", title: "ATTT trong chuỗi cung ứng CNTT-TT", title_en: "Information security in the ICT supply chain"}
+      - {id: "5.22", title: "Giám sát, rà soát và quản lý thay đổi dịch vụ nhà cung cấp", title_en: "Monitoring and change of supplier services"}
+      - {id: "5.23", title: "ATTT khi sử dụng dịch vụ đám mây", title_en: "Information security for cloud services"}
+      - {id: "5.24", title: "Lập kế hoạch và chuẩn bị quản lý sự cố", title_en: "Incident management planning and preparation"}
+      - {id: "5.25", title: "Đánh giá và quyết định về sự kiện ATTT", title_en: "Assessment and decision on security events"}
+      - {id: "5.26", title: "Ứng phó sự cố ATTT", title_en: "Response to security incidents"}
+      - {id: "5.27", title: "Rút kinh nghiệm từ sự cố", title_en: "Learning from security incidents"}
+      - {id: "5.28", title: "Thu thập chứng cứ", title_en: "Collection of evidence"}
+      - {id: "5.29", title: "ATTT khi gián đoạn hoạt động", title_en: "Information security during disruption"}
+      - {id: "5.30", title: "Sẵn sàng CNTT-TT cho kinh doanh liên tục", title_en: "ICT readiness for business continuity"}
+      - {id: "5.31", title: "Yêu cầu pháp lý, quy định và hợp đồng", title_en: "Legal, regulatory and contractual requirements"}
+      - {id: "5.32", title: "Quyền sở hữu trí tuệ", title_en: "Intellectual property rights"}
+      - {id: "5.33", title: "Bảo vệ hồ sơ", title_en: "Protection of records"}
+      - {id: "5.34", title: "Quyền riêng tư và bảo vệ dữ liệu cá nhân", title_en: "Privacy and protection of PII"}
+      - {id: "5.35", title: "Rà soát độc lập về ATTT", title_en: "Independent review of information security"}
+      - {id: "5.36", title: "Tuân thủ chính sách, quy tắc và tiêu chuẩn", title_en: "Compliance with policies and standards"}
+      - {id: "5.37", title: "Quy trình vận hành dạng văn bản", title_en: "Documented operating procedures"}
+  - id: "6"
+    title: Biện pháp về con người
+    controls:
+      - {id: "6.1", title: "Thẩm tra lý lịch", title_en: "Screening"}
+      - {id: "6.2", title: "Điều khoản và điều kiện tuyển dụng", title_en: "Terms and conditions of employment"}
+      - {id: "6.3", title: "Nhận thức, giáo dục và đào tạo ATTT", title_en: "Awareness, education and training"}
+      - {id: "6.4", title: "Quy trình kỷ luật", title_en: "Disciplinary process"}
+      - {id: "6.5", title: "Trách nhiệm sau khi nghỉ việc hoặc thay đổi công việc", title_en: "Responsibilities after termination or change"}
+      - {id: "6.6", title: "Thỏa thuận bảo mật", title_en: "Confidentiality agreements"}
+      - {id: "6.7", title: "Làm việc từ xa", title_en: "Remote working"}
+      - {id: "6.8", title: "Báo cáo sự kiện ATTT", title_en: "Security event reporting"}
+  - id: "7"
+    title: Biện pháp vật lý
+    controls:
+      - {id: "7.1", title: "Vành đai an ninh vật lý", title_en: "Physical security perimeters"}
+      - {id: "7.2", title: "Kiểm soát ra vào", title_en: "Physical entry"}
+      - {id: "7.3", title: "Bảo vệ văn phòng, phòng và cơ sở", title_en: "Securing offices, rooms and facilities"}
+      - {id: "7.4", title: "Giám sát an ninh vật lý", title_en: "Physical security monitoring"}
+      - {id: "7.5", title: "Bảo vệ trước đe dọa vật lý và môi trường", title_en: "Protection against physical and environmental threats"}
+      - {id: "7.6", title: "Làm việc trong khu vực an ninh", title_en: "Working in secure areas"}
+      - {id: "7.7", title: "Bàn làm việc sạch và màn hình sạch", title_en: "Clear desk and clear screen"}
+      - {id: "7.8", title: "Bố trí và bảo vệ thiết bị", title_en: "Equipment siting and protection"}
+      - {id: "7.9", title: "An ninh tài sản bên ngoài trụ sở", title_en: "Security of assets off-premises"}
+      - {id: "7.10", title: "Phương tiện lưu trữ", title_en: "Storage media"}
+      - {id: "7.11", title: "Hệ thống tiện ích hỗ trợ", title_en: "Supporting utilities"}
+      - {id: "7.12", title: "An ninh cáp", title_en: "Cabling security"}
+      - {id: "7.13", title: "Bảo trì thiết bị", title_en: "Equipment maintenance"}
+      - {id: "7.14", title: "Hủy bỏ hoặc tái sử dụng thiết bị an toàn", title_en: "Secure disposal or re-use of equipment"}
+  - id: "8"
+    title: Biện pháp công nghệ
+    controls:
+      - {id: "8.1", title: "Thiết bị đầu cuối của người dùng", title_en: "User endpoint devices"}
+      - {id: "8.2", title: "Quyền truy cập đặc quyền", title_en: "Privileged access rights"}
+      - {id: "8.3", title: "Hạn chế truy cập thông tin", title_en: "Information access restriction"}
+      - {id: "8.4", title: "Truy cập mã nguồn", title_en: "Access to source code"}
+      - {id: "8.5", title: "Xác thực an toàn", title_en: "Secure authentication"}
+      - {id: "8.6", title: "Quản lý năng lực", title_en: "Capacity management"}
+      - {id: "8.7", title: "Phòng chống mã độc", title_en: "Protection against malware"}
+      - {id: "8.8", title: "Quản lý lỗ hổng kỹ thuật", title_en: "Management of technical vulnerabilities"}
+      - {id: "8.9", title: "Quản lý cấu hình", title_en: "Configuration management"}
+      - {id: "8.10", title: "Xóa thông tin", title_en: "Information deletion"}
+      - {id: "8.11", title: "Che giấu dữ liệu", title_en: "Data masking"}
+      - {id: "8.12", title: "Ngăn ngừa rò rỉ dữ liệu", title_en: "Data leakage prevention"}
+      - {id: "8.13", title: "Sao lưu thông tin", title_en: "Information backup"}
+      - {id: "8.14", title: "Dự phòng phương tiện xử lý thông tin", title_en: "Redundancy of processing facilities"}
+      - {id: "8.15", title: "Ghi nhật ký", title_en: "Logging"}
+      - {id: "8.16", title: "Hoạt động giám sát", title_en: "Monitoring activities"}
+      - {id: "8.17", title: "Đồng bộ thời gian", title_en: "Clock synchronization"}
+      - {id: "8.18", title: "Sử dụng tiện ích đặc quyền", title_en: "Use of privileged utility programs"}
+      - {id: "8.19", title: "Cài đặt phần mềm trên hệ thống vận hành", title_en: "Software installation on operational systems"}
+      - {id: "8.20", title: "An ninh mạng", title_en: "Networks security"}
+      - {id: "8.21", title: "An ninh dịch vụ mạng", title_en: "Security of network services"}
+      - {id: "8.22", title: "Phân tách mạng", title_en: "Segregation of networks"}
+      - {id: "8.23", title: "Lọc web", title_en: "Web filtering"}
+      - {id: "8.24", title: "Sử dụng mật mã", title_en: "Use of cryptography"}
+      - {id: "8.25", title: "Vòng đời phát triển an toàn", title_en: "Secure development life cycle"}
+      - {id: "8.26", title: "Yêu cầu bảo mật ứng dụng", title_en: "Application security requirements"}
+      - {id: "8.27", title: "Nguyên tắc kiến trúc và thiết kế hệ thống an toàn", title_en: "Secure architecture and engineering principles"}
+      - {id: "8.28", title: "Lập trình an toàn", title_en: "Secure coding"}
+      - {id: "8.29", title: "Kiểm thử bảo mật trong phát triển và nghiệm thu", title_en: "Security testing in development and acceptance"}
+      - {id: "8.30", title: "Phát triển thuê ngoài", title_en: "Outsourced development"}
+      - {id: "8.31", title: "Tách biệt môi trường phát triển, kiểm thử và vận hành", title_en: "Separation of dev, test and production"}
+      - {id: "8.32", title: "Quản lý thay đổi", title_en: "Change management"}
+      - {id: "8.33", title: "Dữ liệu kiểm thử", title_en: "Test information"}
+      - {id: "8.34", title: "Bảo vệ hệ thống thông tin khi kiểm tra đánh giá", title_en: "Protection during audit testing"}
