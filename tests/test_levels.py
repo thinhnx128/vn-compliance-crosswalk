@@ -152,6 +152,9 @@ def test_site_generation(tmp_path):
     assert runner.invoke(app, ["site", "-o", str(out)]).exit_code == 0
     html = out.read_text(encoding="utf-8")
     assert "__CRITERIA__" not in html and '"D15.K4"' in html
+    assert "__" not in html.split("<script")[0]  # mọi placeholder đã được thay
+    assert 'class="wm"' in html and "data:image/svg+xml," in html  # watermark tác giả
+    assert '<meta name="author" content="Nguyễn Xuân Thịnh">' in html
 
 
 def test_export_xlsx(tmp_path):
@@ -165,6 +168,8 @@ def test_export_xlsx(tmp_path):
     assert str(sa["F17"].value).startswith("=IF(INDEX(")
     n = sum(1 for _ in repo.catalog("nd331-2026").controls())
     assert sa.max_row == 16 + n
+    assert wb.properties.creator == "Nguyễn Xuân Thịnh"
+    assert "thinhnx128" in sa.oddFooter.center.text
     assert wb["Đối chiếu"].max_row == 1 + len(repo.mappings["iso27001-2022__nd331-2026"].entries)
 
 

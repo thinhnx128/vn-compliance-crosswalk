@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "vn-compliance-crosswalk"
-version = "0.3.0"
+version = "0.3.1"
 description = "Đối chiếu ISO/IEC 27001:2022 với quy định Việt Nam (NĐ 331/2026, Luật 91/2025) dưới dạng dữ liệu; sinh SoA và báo cáo khoảng cách."
 readme = "README.md"
 requires-python = ">=3.10"

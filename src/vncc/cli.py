@@ -266,7 +266,16 @@ def site(out: Path = typer.Option(Path("docs/cap-do/index.html"), "--out", "-o")
     from importlib import resources
 
     tpl = (resources.files("vncc") / "templates" / "cap_do.html").read_text(encoding="utf-8")
-    html = tpl.replace("__CRITERIA__", levels.criteria_json().replace("</", "<\\/"))
+    from . import branding
+
+    html = (
+        tpl.replace("__WATERMARK__", branding.watermark_data_uri())
+        .replace("__AUTHOR__", branding.AUTHOR)
+        .replace("__HANDLE__", branding.HANDLE)
+        .replace("__GITHUB__", branding.GITHUB_URL)
+        .replace("__LINKEDIN__", branding.LINKEDIN_URL)
+        .replace("__CRITERIA__", levels.criteria_json().replace("</", "<\\/"))
+    )
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(html, encoding="utf-8")
     typer.echo(f"Đã ghi: {out}")

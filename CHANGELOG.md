@@ -3,6 +3,13 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), phiên bản theo [SemVer](https://semver.org/).
 Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từng tệp YAML.
 
+## [0.3.1] - 2026-11
+
+### Thêm mới
+- Watermark tác giả trên trang xác định cấp độ (lớp chữ chìm, không chặn thao tác, hiện cả khi in và
+  chụp màn hình), dòng ghi tác giả ở chân trang và thẻ meta tác giả.
+- Gói Excel ghi tác giả trong thuộc tính tệp, trang Hướng dẫn và chân trang khi in.
+
 ## [0.3.0] - 2026-11
 
 ### Thêm mới

@@ -16,6 +16,7 @@ from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 
 from . import __version__
+from .branding import AUTHOR, CREDIT, GITHUB_URL
 from .levels import criteria_data
 from .metrics import RULE
 from .models import LEVEL_TAG, STATUS_LABELS, applies_to_level
@@ -68,6 +69,7 @@ def export_xlsx(repo: Repository, mapping_id: str, out: str | Path) -> Path:
     ws["A1"] = f"Gói tự đánh giá {dst.title}"
     ws["A1"].font = TITLE_FONT
     rows = [
+        ("Tác giả", f"{AUTHOR} ({GITHUB_URL})"),
         ("Phiên bản gói", f"vn-compliance-crosswalk {__version__}, xuất ngày {date.today().isoformat()}"),
         (
             "Văn bản",
@@ -344,6 +346,12 @@ def export_xlsx(repo: Repository, mapping_id: str, out: str | Path) -> Path:
             for cell in row:
                 cell.alignment = WRAP_TOP
 
+    wb.properties.creator = AUTHOR
+    wb.properties.title = f"Gói tự đánh giá {dst.document_number or dst.title}"
+    for sheet in wb.worksheets:
+        sheet.oddFooter.center.text = CREDIT
+        sheet.oddFooter.right.text = "Trang &P/&N"
+        sheet.oddHeader.right.text = f"vn-compliance-crosswalk {__version__}"
     wb.active = 1  # mở thẳng trang Tự đánh giá
     out = Path(out)
     out.parent.mkdir(parents=True, exist_ok=True)

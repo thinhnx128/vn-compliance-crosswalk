@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Xác định cấp độ HTTT - NĐ 331/2026</title>
+<meta name="author" content="__AUTHOR__">
 <meta name="description" content="Công cụ xác định cấp độ hệ thống thông tin sơ bộ theo Nghị định 331/2026/NĐ-CP. Chạy hoàn toàn trên trình duyệt, không gửi dữ liệu đi đâu.">
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--ink:#16202c;--muted:#5b6675;--line:#dfe3e8;--accent:#1f4e78;--accent-ink:#fff;
@@ -42,10 +43,16 @@ button{border:1px solid var(--accent);background:var(--accent);color:var(--accen
 button.ghost{background:transparent;color:var(--accent)}
 footer{margin-top:28px;color:var(--muted);font-size:.88rem}
 a{color:var(--accent)}
+/* watermark tác giả: lớp chữ chìm phủ toàn trang, không chặn thao tác, vẫn hiện khi chụp màn hình và in */
+.wm{position:fixed;inset:0;pointer-events:none;z-index:50;background-image:url("__WATERMARK__");background-repeat:repeat;opacity:.09;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm{opacity:.13}}
+:root[data-theme="dark"] .wm{opacity:.13}
+.credit{font-weight:600;color:var(--ink)}
 pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px;font-size:.85rem;display:none}
 </style>
 </head>
 <body>
+<div class="wm" aria-hidden="true"></div>
 <div class="wrap">
   <header>
     <h1>Xác định cấp độ hệ thống thông tin</h1>
@@ -71,6 +78,7 @@ pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);borde
     </aside>
   </div>
   <footer>
+    <p class="credit">Tác giả: __AUTHOR__ · <a href="__GITHUB__">GitHub __HANDLE__</a> · <a href="__LINKEDIN__">LinkedIn</a></p>
     <p id="notice"></p>
     <p>Mã nguồn và dữ liệu: <a href="https://github.com/thinhnx128/vn-compliance-crosswalk">github.com/thinhnx128/vn-compliance-crosswalk</a>.
     Dùng câu trả lời đã xuất với lệnh <code>vncc level --answers tep.yaml</code>.</p>

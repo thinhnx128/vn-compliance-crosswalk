@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Xác định cấp độ HTTT - NĐ 331/2026</title>
+<meta name="author" content="Nguyễn Xuân Thịnh">
 <meta name="description" content="Công cụ xác định cấp độ hệ thống thông tin sơ bộ theo Nghị định 331/2026/NĐ-CP. Chạy hoàn toàn trên trình duyệt, không gửi dữ liệu đi đâu.">
 <style>
 :root{--bg:#f6f7f9;--card:#fff;--ink:#16202c;--muted:#5b6675;--line:#dfe3e8;--accent:#1f4e78;--accent-ink:#fff;
@@ -42,10 +43,16 @@ button{border:1px solid var(--accent);background:var(--accent);color:var(--accen
 button.ghost{background:transparent;color:var(--accent)}
 footer{margin-top:28px;color:var(--muted);font-size:.88rem}
 a{color:var(--accent)}
+/* watermark tác giả: lớp chữ chìm phủ toàn trang, không chặn thao tác, vẫn hiện khi chụp màn hình và in */
+.wm{position:fixed;inset:0;pointer-events:none;z-index:50;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22440%22%20height%3D%22260%22%3E%3Cg%20transform%3D%22rotate%28-24%20220%20130%29%22%20fill%3D%22%237a8594%22%20font-family%3D%22Segoe%20UI%2CArial%2Csans-serif%22%20text-anchor%3D%22middle%22%3E%3Ctext%20x%3D%22220%22%20y%3D%22124%22%20font-size%3D%2218%22%20font-weight%3D%22600%22%3ENguy%E1%BB%85n%20Xu%C3%A2n%20Th%E1%BB%8Bnh%3C%2Ftext%3E%3Ctext%20x%3D%22220%22%20y%3D%22148%22%20font-size%3D%2213%22%3Egithub.com%2Fthinhnx128%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fsvg%3E");background-repeat:repeat;opacity:.09;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .wm{opacity:.13}}
+:root[data-theme="dark"] .wm{opacity:.13}
+.credit{font-weight:600;color:var(--ink)}
 pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:10px;font-size:.85rem;display:none}
 </style>
 </head>
 <body>
+<div class="wm" aria-hidden="true"></div>
 <div class="wrap">
   <header>
     <h1>Xác định cấp độ hệ thống thông tin</h1>
@@ -71,6 +78,7 @@ pre{white-space:pre-wrap;background:var(--bg);border:1px solid var(--line);borde
     </aside>
   </div>
   <footer>
+    <p class="credit">Tác giả: Nguyễn Xuân Thịnh · <a href="https://github.com/thinhnx128">GitHub thinhnx128</a> · <a href="https://www.linkedin.com/in/thinhnx128">LinkedIn</a></p>
     <p id="notice"></p>
     <p>Mã nguồn và dữ liệu: <a href="https://github.com/thinhnx128/vn-compliance-crosswalk">github.com/thinhnx128/vn-compliance-crosswalk</a>.
     Dùng câu trả lời đã xuất với lệnh <code>vncc level --answers tep.yaml</code>.</p>
