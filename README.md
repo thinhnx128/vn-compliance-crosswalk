@@ -9,6 +9,13 @@ và tự sinh Tuyên bố áp dụng (SoA), báo cáo khoảng cách.**
 
 *[English below](#english)*
 
+## Dùng ngay, không cần cài đặt
+
+| Công cụ | Dùng để | Truy cập |
+|---|---|---|
+| **Xác định cấp độ HTTT** | Trả lời vài câu hỏi theo Điều 9, 11–15 NĐ 331/2026, nhận cấp độ sơ bộ kèm căn cứ và thẩm quyền phê duyệt. Chạy trên trình duyệt, không gửi dữ liệu đi đâu | [Mở công cụ](https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/) |
+| **Gói Excel tự đánh giá NĐ 331** | Chọn cấp độ, bảng yêu cầu áp dụng tự lọc; điền trạng thái, bằng chứng, người phụ trách; số liệu tổng hợp tự tính. Kèm danh mục, bảng đối chiếu, độ phủ, tiêu chí cấp độ | [Tải bản mới nhất](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest) |
+
 ## Vì sao có dự án này
 
 Doanh nghiệp Việt Nam vận hành ISMS theo ISO/IEC 27001 đồng thời phải tuân thủ quy định trong nước
@@ -80,6 +87,13 @@ vncc gap hoso-nd331.yaml -o gap-nd331.md
 
 # Độ phủ bảng đối chiếu: yêu cầu NĐ chưa có biện pháp ISO tương ứng
 vncc coverage iso27001-2022__nd331-2026
+
+# Xác định cấp độ HTTT: hỏi–đáp, hoặc đọc tệp câu trả lời xuất từ công cụ web
+vncc level
+vncc level --answers cau-tra-loi.yaml --json
+
+# Xuất gói Excel tự đánh giá
+vncc export-xlsx -o goi-nd331.xlsx
 ```
 
 Chạy thử với ví dụ hư cấu "Công ty CP ABC" (có danh mục chính sách nội bộ riêng):
@@ -134,7 +148,8 @@ Loại quan hệ theo cách tiếp cận tập hợp của NIST OLIR: `equivalen
 ## Lộ trình
 
 - **v0.1:** danh mục ISO 27001:2022, mô hình dữ liệu, SoA, báo cáo khoảng cách, ví dụ hư cấu.
-- **v0.2 (hiện tại):** danh mục và đối chiếu NĐ 331/2026, lọc theo cấp độ, báo cáo độ phủ.
+- **v0.2:** danh mục và đối chiếu NĐ 331/2026, lọc theo cấp độ, báo cáo độ phủ.
+- **v0.3 (hiện tại):** công cụ xác định cấp độ (web và dòng lệnh, dùng chung một bộ tiêu chí), gói Excel tự đánh giá, phát hành tự động.
 - **v0.3:** đối chiếu toàn văn Điều 33–37 NĐ 331; điều khoản chính ISO/IEC 27001 (4–10); Luật 91/2025 và NĐ 356/2025.
 - **v0.4:** xuất định dạng NIST OSCAL; trang tra cứu tĩnh trên GitHub Pages.
 
@@ -164,8 +179,15 @@ report shows that more than a third of the Decree's obligations (level determina
 appraisal, 24/72-hour incident reporting, annual reporting) have no Annex A counterpart. Each mapping entry records a set-theoretic relationship (NIST OLIR
 style), a rationale and a confidence level, so mappings can be reviewed like code.
 
+No-install tools: a [security-level wizard](https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/)
+for Decree 331/2026 (runs fully in the browser) and an
+[Excel self-assessment pack](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest)
+attached to every release.
+
 ```bash
 pip install "git+https://github.com/thinhnx128/vn-compliance-crosswalk"
+vncc level                      # interactive security-level wizard
+vncc export-xlsx -o pack.xlsx   # Excel self-assessment pack
 vncc init iso27001-2022 -o assessment.yaml
 vncc soa assessment.yaml -o soa.xlsx
 vncc gap assessment.yaml -o gap.md

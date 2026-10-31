@@ -7,7 +7,8 @@ from pathlib import Path
 
 import typer
 
-from . import __version__
+from . import __version__, levels
+from .export import export_xlsx
 from .models import MODELS, Assessment
 from .reports import assessment_template, coverage_markdown, gap_markdown, write_soa
 from .repository import DataError, Repository, load_file
@@ -176,6 +177,115 @@ def coverage(
         typer.echo(f"Đã ghi: {out}")
     else:
         typer.echo(text)
+
+
+@app.command()
+def level(
+    answers: Path | None = typer.Option(
+        None,
+        "--answers",
+        "-a",
+        exists=True,
+        dir_okay=False,
+        help="Tệp YAML/JSON câu trả lời; bỏ trống để hỏi–đáp.",
+    ),
+    as_json: bool = typer.Option(False, "--json", help="In kết quả dạng JSON."),
+) -> None:
+    """Xác định cấp độ HTTT sơ bộ theo tiêu chí NĐ 331/2026 (Điều 9, 11–15)."""
+    import yaml
+
+    if answers:
+        raw = yaml.safe_load(answers.read_text(encoding="utf-8")) or {}
+    else:
+        raw = _ask()
+    try:
+        r = levels.determine(raw)
+    except ValueError as exc:
+        typer.secho(str(exc), fg="red", err=True)
+        raise typer.Exit(2) from exc
+    if as_json:
+        typer.echo(
+            json.dumps(
+                {
+                    "level": r.level,
+                    "matches": [m.__dict__ for m in r.matches],
+                    "approval": r.approval,
+                    "warnings": r.warnings,
+                    "answers": r.answers,
+                },
+                ensure_ascii=False,
+                indent=2,
+            )
+        )
+        return
+    typer.echo("")
+    typer.secho(f"Cấp độ sơ bộ: {r.level or 'chưa xác định'}", bold=True)
+    for m in r.matches:
+        typer.echo(f"  - Cấp độ {m.level}, {m.article}: {m.label}")
+    for w in r.warnings:
+        typer.secho(f"  ! {w}", fg="yellow")
+    if r.approval:
+        typer.echo(f"Thẩm quyền: {r.approval}")
+    typer.echo("Lưu ý:")
+    for t in r.reminders:
+        typer.echo(f"  - {t}")
+    typer.echo(levels.criteria_data()["notice"])
+
+
+def _ask() -> dict:
+    """Hỏi–đáp trên dòng lệnh theo đúng bộ câu hỏi của trang web."""
+    data = levels.criteria_data()
+    a: dict = {}
+    for q in data["questions"]:
+        cond = q.get("show_if")
+        if cond and not levels._test({**a}, cond):
+            continue
+        typer.secho(q["label"], bold=True)
+        if q["type"] in ("choice", "multi"):
+            for i, o in enumerate(q["options"], 1):
+                typer.echo(f"  {i}. {o['label']}")
+            if q["type"] == "choice":
+                default = next(
+                    (str(i) for i, o in enumerate(q["options"], 1) if o["value"] == q.get("default")), None
+                )
+                n = typer.prompt("  Chọn số", default=default)
+                a[q["id"]] = q["options"][int(n) - 1]["value"]
+            else:
+                picks = typer.prompt("  Chọn các số, cách nhau bởi dấu phẩy", default="1")
+                a[q["id"]] = [q["options"][int(x) - 1]["value"] for x in picks.split(",") if x.strip()]
+        elif q["type"] == "bool":
+            a[q["id"]] = typer.confirm("  ", default=q.get("default", False))
+        elif q["type"] == "int":
+            a[q["id"]] = typer.prompt("  Số lượng", default=q.get("default", 0), type=int)
+    return a
+
+
+@app.command()
+def site(out: Path = typer.Option(Path("docs/cap-do/index.html"), "--out", "-o")) -> None:
+    """Sinh trang web xác định cấp độ (tệp HTML tự chứa) từ bộ tiêu chí dùng chung."""
+    from importlib import resources
+
+    tpl = (resources.files("vncc") / "templates" / "cap_do.html").read_text(encoding="utf-8")
+    html = tpl.replace("__CRITERIA__", levels.criteria_json().replace("</", "<\\/"))
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(html, encoding="utf-8")
+    typer.echo(f"Đã ghi: {out}")
+
+
+@app.command("export-xlsx")
+def export_xlsx_cmd(
+    mapping: str = typer.Argument("iso27001-2022__nd331-2026", help="Mã bảng đối chiếu"),
+    out: Path = typer.Option(None, "--out", "-o", help="Mặc định: dist/<mapping>-v<phiên bản>.xlsx"),
+    data_dir: list[Path] | None = DataDirs,
+) -> None:
+    """Xuất gói Excel: tự đánh giá theo cấp độ, danh mục, đối chiếu, độ phủ, tiêu chí cấp độ."""
+    repo = _repo(data_dir)
+    if mapping not in repo.mappings:
+        typer.secho(f"Không có bảng đối chiếu '{mapping}'", fg="red", err=True)
+        raise typer.Exit(1)
+    target = out or Path("dist") / f"{mapping}-v{__version__}.xlsx"
+    export_xlsx(repo, mapping, target)
+    typer.echo(f"Đã ghi: {target}")
 
 
 @app.command()

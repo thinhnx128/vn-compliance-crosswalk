@@ -1,0 +1,41 @@
+name: Release
+
+# Gắn thẻ vX.Y.Z và đẩy lên là tự động: kiểm thử, xuất gói Excel, tạo Release kèm tệp Excel.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+      - name: Phiên bản trong mã phải khớp thẻ
+        run: test "v$(vncc version)" = "${GITHUB_REF_NAME}"
+      - name: Xuất gói Excel
+        run: vncc export-xlsx -o "dist/vn-compliance-crosswalk-nd331-${GITHUB_REF_NAME}.xlsx"
+      - name: Lấy ghi chú phát hành từ CHANGELOG
+        run: |
+          ver="${GITHUB_REF_NAME#v}"
+          awk -v v="$ver" '/^## \[/{p = index($0, "[" v "]") > 0; next} p' CHANGELOG.md > dist/notes.md
+          cat >> dist/notes.md <<'EOF'
+
+          ---
+          **Tải về:** tệp Excel đính kèm bên dưới (tự đánh giá NĐ 331 theo cấp độ, danh mục, đối chiếu, độ phủ).
+          **Công cụ xác định cấp độ:** https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/
+          Đối chiếu là diễn giải chuyên môn, không phải ý kiến pháp lý.
+          EOF
+      - name: Tạo Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" dist/*.xlsx \
+            --title "${GITHUB_REF_NAME}" --notes-file dist/notes.md --verify-tag

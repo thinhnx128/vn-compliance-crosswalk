@@ -3,6 +3,17 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), phiên bản theo [SemVer](https://semver.org/).
 Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từng tệp YAML.
 
+## [0.3.0] - 2026-11
+
+### Thêm mới
+- Công cụ xác định cấp độ HTTT theo NĐ 331/2026 (Điều 9, 11–15): bộ tiêu chí dạng dữ liệu
+  (`src/vncc/nd331_cap_do.json`) dùng chung cho lệnh `vncc level` (hỏi–đáp hoặc đọc tệp) và trang web
+  `docs/cap-do/` (sinh bằng `vncc site`); kết quả của trang web và CLI được kiểm thử trùng khớp.
+- Lệnh `vncc export-xlsx`: gói Excel tự đánh giá có ô chọn cấp độ, cột áp dụng và bảng tổng hợp dùng
+  công thức sống; kèm danh mục, bảng đối chiếu, độ phủ, tiêu chí cấp độ.
+- Quy trình phát hành tự động: gắn thẻ `vX.Y.Z` là tạo Release kèm gói Excel.
+- Trang chủ GitHub Pages (`docs/index.md`).
+
 ## [0.2.0] - 2026-11
 
 ### Thêm mới
