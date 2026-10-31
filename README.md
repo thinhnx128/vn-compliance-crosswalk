@@ -24,14 +24,31 @@ mức tin cậy**, nên ai cũng có thể phản biện qua pull request.
 | Danh mục | Mã | Trạng thái |
 |---|---|---|
 | ISO/IEC 27001:2022 Phụ lục A (93 biện pháp) | `iso27001-2022` | Đầy đủ mã và nhãn |
-| Nghị định 331/2026/NĐ-CP | `nd331-2026` | Khung, đang trích xuất |
-| Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 | `luat91-2025` | Khung, dự kiến v0.2 |
+| Nghị định 331/2026/NĐ-CP ngày 19/8/2026 (64 yêu cầu, 9 nhóm, gắn thẻ cấp độ) | `nd331-2026` | Bản nháp, cần rà soát chéo |
+| Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 | `luat91-2025` | Khung, dự kiến v0.3 |
 
-| Bảng đối chiếu | Trạng thái |
-|---|---|
-| `iso27001-2022__nd331-2026` | Khung, chờ danh mục NĐ 331 |
+| Bảng đối chiếu | Dòng | Trạng thái |
+|---|---:|---|
+| `iso27001-2022__nd331-2026` | 68 | Bản nháp, chưa rà soát chéo |
 
-Danh mục ở trạng thái `skeleton` **không được dùng để đánh giá tuân thủ**.
+Danh mục `skeleton` **không được dùng để đánh giá tuân thủ**. Trong danh mục NĐ 331, các mục gắn
+thẻ `can-doi-chieu` (Điều 33–37) chưa đối chiếu được toàn văn, phải kiểm tra văn bản gốc.
+
+### Phát hiện chính từ bảng đối chiếu NĐ 331
+
+Chạy `vncc coverage iso27001-2022__nd331-2026` cho thấy chỉ khoảng **6/10 yêu cầu của NĐ 331 có biện
+pháp tương ứng trong Phụ lục A** của ISO/IEC 27001. Phần còn lại chủ yếu là nghĩa vụ hành chính, pháp
+lý đặc thù của Việt Nam mà một ISMS đạt chứng nhận vẫn chưa có sẵn:
+
+- xác định HTTT, nguyên tắc một chủ quản, cấm chia tách hình thức để hạ cấp độ;
+- lập hồ sơ đề xuất cấp độ, thẩm định độc lập, phê duyệt theo thẩm quyền;
+- ban hành Quy chế bảo đảm an ninh mạng **trước** khi phê duyệt cấp độ;
+- báo cáo sự cố 24 giờ, 72 giờ cho cơ quan chuyên trách và báo cáo định kỳ hằng năm;
+- các mốc chuyển tiếp: 6 tháng phê duyệt cấp độ, 12 tháng đáp ứng đầy đủ điều kiện.
+
+Một phần nguyên nhân là danh mục ISO ở đây mới gồm Phụ lục A; các điều khoản chính (ví dụ 6.1 đánh
+giá rủi ro, 9.2 đánh giá nội bộ) sẽ được bổ sung ở phiên bản sau. Tiêu chí xác định cấp độ tóm tắt
+tại [docs/nd331-cap-do.md](docs/nd331-cap-do.md).
 
 ## Cài đặt
 
@@ -55,6 +72,14 @@ vncc gap hoso.yaml -o gap.md
 
 # Tra cứu một biện pháp và các yêu cầu liên quan
 vncc show iso27001-2022 5.24
+vncc show nd331-2026 D31.K2.d
+
+# Tự đánh giá tuân thủ NĐ 331 cho một HTTT cấp độ 2 (chỉ sinh yêu cầu áp dụng cho cấp độ 2)
+vncc init nd331-2026 --level 2 -o hoso-nd331.yaml
+vncc gap hoso-nd331.yaml -o gap-nd331.md
+
+# Độ phủ bảng đối chiếu: yêu cầu NĐ chưa có biện pháp ISO tương ứng
+vncc coverage iso27001-2022__nd331-2026
 ```
 
 Chạy thử với ví dụ hư cấu "Công ty CP ABC" (có danh mục chính sách nội bộ riêng):
@@ -62,6 +87,7 @@ Chạy thử với ví dụ hư cấu "Công ty CP ABC" (có danh mục chính s
 ```bash
 vncc soa examples/abc-corp/assessment.yaml -d examples/abc-corp -o soa.xlsx
 vncc gap examples/abc-corp/assessment.yaml -d examples/abc-corp
+vncc gap examples/abc-corp/assessment-nd331-cap-do-2.yaml
 ```
 
 ### SoA sinh ra gồm
@@ -95,9 +121,12 @@ Ba loại tệp YAML, phân biệt bằng trường `kind`. JSON Schema nằm tr
 
 | kind | Nội dung |
 |---|---|
-| `catalog` | Danh mục yêu cầu: nhóm, mã, nhãn ngắn tự diễn đạt, thẻ (ví dụ `cap-do-3`) |
+| `catalog` | Danh mục yêu cầu: nhóm, mã, nhãn ngắn tự diễn đạt, thẻ (`cap-do-N`, chủ thể thực hiện, `can-doi-chieu`) |
 | `mapping` | Đối chiếu giữa hai danh mục: quan hệ, lý do, mức tin cậy, người rà soát |
-| `assessment` | Hồ sơ đánh giá của một tổ chức: áp dụng, trạng thái, bằng chứng, người phụ trách |
+| `assessment` | Hồ sơ đánh giá của một tổ chức: cấp độ HTTT (tùy chọn), áp dụng, trạng thái, bằng chứng, người phụ trách |
+
+**Lọc theo cấp độ:** yêu cầu không gắn thẻ `cap-do-N` áp dụng cho mọi cấp độ; yêu cầu có thẻ chỉ áp
+dụng cho các cấp độ đã gắn. Đặt `level` trong hồ sơ hoặc dùng `--level` ở `init`, `soa`, `gap`.
 
 Loại quan hệ theo cách tiếp cận tập hợp của NIST OLIR: `equivalent`, `subset_of`, `superset_of`,
 `intersects`, `no_relationship`. Tra cứu hai chiều tự động đảo `subset_of` ↔ `superset_of`.
@@ -105,8 +134,9 @@ Loại quan hệ theo cách tiếp cận tập hợp của NIST OLIR: `equivalen
 ## Lộ trình
 
 - **v0.1:** danh mục ISO 27001:2022, mô hình dữ liệu, SoA, báo cáo khoảng cách, ví dụ hư cấu.
-- **v0.2:** danh mục và đối chiếu NĐ 331/2026 (kèm hồ sơ theo cấp độ), Luật 91/2025, NĐ 356/2025.
-- **v0.3:** xuất định dạng NIST OSCAL; trang tra cứu tĩnh trên GitHub Pages.
+- **v0.2 (hiện tại):** danh mục và đối chiếu NĐ 331/2026, lọc theo cấp độ, báo cáo độ phủ.
+- **v0.3:** đối chiếu toàn văn Điều 33–37 NĐ 331; điều khoản chính ISO/IEC 27001 (4–10); Luật 91/2025 và NĐ 356/2025.
+- **v0.4:** xuất định dạng NIST OSCAL; trang tra cứu tĩnh trên GitHub Pages.
 
 ## Bản quyền và miễn trừ
 
@@ -127,8 +157,11 @@ sửa một dòng đối chiếu: dùng mẫu issue **"Đề xuất sửa đối
 ## English
 
 **Machine-readable crosswalks between ISO/IEC 27001:2022 and Vietnamese regulations (Decree
-331/2026 on cybersecurity of information systems, Personal Data Protection Law 91/2025), with SoA
-and gap-report generators.** Each mapping entry records a set-theoretic relationship (NIST OLIR
+331/2026 on cybersecurity of information systems, Personal Data Protection Law 91/2025), with SoA,
+gap-report and coverage generators.** Version 0.2 ships a 64-requirement catalog of Decree 331/2026
+tagged by security level (1–5) and a 68-entry draft mapping to ISO/IEC 27001 Annex A; the coverage
+report shows that more than a third of the Decree's obligations (level determination dossiers, independent
+appraisal, 24/72-hour incident reporting, annual reporting) have no Annex A counterpart. Each mapping entry records a set-theoretic relationship (NIST OLIR
 style), a rationale and a confidence level, so mappings can be reviewed like code.
 
 ```bash

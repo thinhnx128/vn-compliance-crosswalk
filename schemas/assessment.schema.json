@@ -116,6 +116,21 @@
       "title": "As Of",
       "type": "string"
     },
+    "level": {
+      "anyOf": [
+        {
+          "maximum": 5,
+          "minimum": 1,
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Cấp độ HTTT được đánh giá; lọc control theo thẻ cap-do-N",
+      "title": "Level"
+    },
     "controls": {
       "additionalProperties": {
         "$ref": "#/$defs/ControlState"

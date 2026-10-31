@@ -1,30 +1,383 @@
-# Bảng đối chiếu ISO/IEC 27001:2022 Phụ lục A <-> Nghị định 331/2026/NĐ-CP
+# Bảng đối chiếu ISO/IEC 27001:2022 Phụ lục A -> Nghị định 331/2026/NĐ-CP
 #
-# TRẠNG THÁI: skeleton - chờ hoàn thiện catalogs/nd331-2026.yaml.
+# Ý nghĩa quan hệ (theo cách tiếp cận tập hợp của NIST OLIR), xét từ biện pháp ISO (source):
+#   equivalent   : cùng phạm vi
+#   subset_of    : biện pháp ISO hẹp hơn, nằm trọn trong yêu cầu của Nghị định
+#   superset_of  : biện pháp ISO rộng hơn, bao trùm yêu cầu của Nghị định
+#   intersects   : giao nhau một phần - triển khai biện pháp ISO là bằng chứng một phần cho yêu cầu NĐ
 #
-# Mẫu một dòng đối chiếu (bỏ dấu # khi dùng):
-#   - source: "5.24"                 # mã control ISO 27001
-#     target: "D12.K2.a"             # mã yêu cầu trong nd331-2026.yaml
-#     relationship: intersects       # equivalent | subset_of | superset_of | intersects | no_relationship
-#     rationale: Cả hai đều yêu cầu có kế hoạch ứng phó sự cố, nhưng NĐ yêu cầu thêm ...
-#     confidence: medium             # high | medium | low
-#     reviewed_by: thinhnx128
-#     reviewed_on: 2026-12-01
-#
-# Ý nghĩa quan hệ (theo cách tiếp cận tập hợp của NIST OLIR):
-#   equivalent   : hai yêu cầu có cùng phạm vi
-#   subset_of    : yêu cầu nguồn hẹp hơn, nằm trọn trong yêu cầu đích
-#   superset_of  : yêu cầu nguồn rộng hơn, bao trùm yêu cầu đích
-#   intersects   : giao nhau một phần
-#   no_relationship : đã xem xét, không liên quan (target để trống)
+# Giới hạn: danh mục ISO ở đây chỉ gồm Phụ lục A. Các điều khoản chính của ISO/IEC 27001 (4–10,
+# ví dụ 6.1 đánh giá rủi ro, 9.2 đánh giá nội bộ) liên quan mật thiết tới Điều 10, 27, 31 nhưng
+# chưa nằm trong bảng này. Xem `vncc coverage` để biết yêu cầu NĐ chưa có biện pháp ISO tương ứng.
 kind: mapping
 id: iso27001-2022__nd331-2026
 source_catalog: iso27001-2022
 target_catalog: nd331-2026
-version: 0.0.1
-status: skeleton
+version: 0.2.0
+status: draft
 author: thinhnx128
 notice: >-
-  Đối chiếu là diễn giải chuyên môn của tác giả, không phải ý kiến pháp lý và không thay thế
-  hướng dẫn của cơ quan có thẩm quyền.
-entries: []
+  Đối chiếu là diễn giải chuyên môn của tác giả, không phải ý kiến pháp lý và không thay thế hướng
+  dẫn của cơ quan có thẩm quyền. Chưa qua rà soát chéo.
+entries:
+  # ---------------------------------------------------------------- Tổ chức, vai trò
+  - source: "5.2"
+    target: D31.K1
+    relationship: intersects
+    rationale: ISO yêu cầu xác định và phân công vai trò ATTT; NĐ yêu cầu cụ thể hơn là chỉ định đơn vị chuyên trách về an ninh mạng và bố trí nhân sự chuyên trách.
+    confidence: high
+  - source: "5.2"
+    target: D32.K1
+    relationship: intersects
+    rationale: Nhiệm vụ tham mưu, đôn đốc, kiểm tra của đơn vị chuyên trách là một tập vai trò ATTT cần được phân công theo 5.2.
+    confidence: medium
+  - source: "5.2"
+    target: D5.K2
+    relationship: intersects
+    rationale: Chỉ định đơn vị vận hành chủ trì là một quyết định phân vai, có thể ghi nhận trong ma trận vai trò ATTT.
+    confidence: low
+  - source: "5.4"
+    target: D31.K1
+    relationship: intersects
+    rationale: Cả hai đặt trách nhiệm trực tiếp cho lãnh đạo; NĐ gắn trách nhiệm pháp lý cho người đứng đầu chủ quản.
+    confidence: high
+  - source: "5.3"
+    target: D18.K4
+    relationship: intersects
+    rationale: Phân tách nhiệm vụ của ISO hỗ trợ yêu cầu tách khâu thẩm định khỏi đơn vị vừa chuyên trách vừa vận hành.
+    confidence: medium
+  - source: "5.5"
+    target: D32.K2
+    relationship: intersects
+    rationale: Duy trì liên hệ với cơ quan chức năng là nền cho việc phối hợp với lực lượng chuyên trách bảo vệ an ninh mạng.
+    confidence: medium
+  - source: "6.1"
+    target: D32.K3
+    relationship: intersects
+    rationale: Thẩm tra lý lịch hỗ trợ một phần yêu cầu nhân sự đạt tiêu chuẩn theo Luật An ninh mạng, nhưng tiêu chuẩn của Luật rộng hơn.
+    confidence: low
+
+  # ---------------------------------------------------------------- Thuê dịch vụ, nhà cung cấp
+  - source: "5.20"
+    target: D5.K3.a
+    relationship: intersects
+    rationale: Cả hai yêu cầu đưa trách nhiệm bảo mật vào hợp đồng nhà cung cấp; NĐ nêu đích danh quản trị dữ liệu, kiểm soát truy cập, an ninh mạng.
+    confidence: high
+  - source: "5.19"
+    target: D5.K3.a
+    relationship: intersects
+    rationale: Quản lý ATTT trong quan hệ nhà cung cấp là khung chung cho điều khoản hợp đồng thuê dịch vụ CNTT.
+    confidence: medium
+  - source: "5.22"
+    target: D5.K3.b
+    relationship: intersects
+    rationale: Quản lý thay đổi dịch vụ nhà cung cấp bao gồm cả việc gia hạn, chuyển giao khi hợp đồng kết thúc.
+    confidence: medium
+  - source: "5.23"
+    target: D30.K8
+    relationship: intersects
+    rationale: Chính sách sử dụng dịch vụ đám mây của ISO là chỗ đặt yêu cầu tách biệt logic cho HTTT cấp độ 3–4 thuê đám mây.
+    confidence: medium
+  - source: "5.23"
+    target: D19.K2
+    relationship: intersects
+    rationale: Đánh giá ATTT trước khi mua dịch vụ đám mây có thể lồng ghép thuyết minh đề xuất cấp độ vào kế hoạch thuê.
+    confidence: low
+
+  # ---------------------------------------------------------------- Xác định HTTT, phân loại
+  - source: "5.9"
+    target: D7.K1
+    relationship: intersects
+    rationale: Sổ tài sản thông tin là nguồn dữ liệu để xác định từng HTTT theo chức năng, dữ liệu và đối tượng phục vụ.
+    confidence: medium
+  - source: "5.9"
+    target: D7.K2
+    relationship: intersects
+    rationale: Xác định phạm vi HTTT cần dữ liệu về tài sản, phụ thuộc và luồng dữ liệu vốn được ghi trong sổ tài sản.
+    confidence: medium
+  - source: "5.12"
+    target: D9.K1
+    relationship: intersects
+    rationale: Lược đồ phân loại thông tin của tổ chức cần ánh xạ được sang bốn loại thông tin của NĐ (công cộng, riêng, cá nhân, bí mật nhà nước).
+    confidence: high
+  - source: "5.34"
+    target: D9.K1
+    relationship: intersects
+    rationale: Nhận diện dữ liệu cá nhân theo 5.34 là đầu vào để xác định HTTT có xử lý thông tin cá nhân và số chủ thể dữ liệu.
+    confidence: medium
+
+  # ---------------------------------------------------------------- Rủi ro
+  - source: "5.7"
+    target: D10.K3
+    relationship: intersects
+    rationale: Thông tin tình báo mối đe dọa hỗ trợ bước nhận diện rủi ro trong nội dung tối thiểu của đánh giá rủi ro.
+    confidence: low
+  - source: "5.9"
+    target: D10.K3
+    relationship: intersects
+    rationale: Xác định và phân loại tài sản là nội dung đầu tiên của đánh giá rủi ro theo NĐ.
+    confidence: medium
+
+  # ---------------------------------------------------------------- Dự án, vòng đời
+  - source: "5.8"
+    target: D19.K1
+    relationship: intersects
+    rationale: Lồng ghép ATTT vào quản lý dự án là cơ chế để đưa thuyết minh đề xuất cấp độ vào hồ sơ đầu tư.
+    confidence: high
+  - source: "5.8"
+    target: D28.K3
+    relationship: intersects
+    rationale: Cổng kiểm soát ATTT trong dự án có thể dùng làm bước đánh giá điều kiện an ninh mạng trước vận hành.
+    confidence: medium
+  - source: "8.32"
+    target: D28.K3
+    relationship: intersects
+    rationale: Quy trình quản lý thay đổi là nơi kích hoạt đánh giá điều kiện an ninh mạng khi có thay đổi lớn.
+    confidence: medium
+  - source: "8.32"
+    target: D25
+    relationship: intersects
+    rationale: Thay đổi đáng kể qua quản lý thay đổi cần kích hoạt đánh giá lại và xác định lại cấp độ.
+    confidence: medium
+  - source: "8.27"
+    target: D29.K2.a
+    relationship: intersects
+    rationale: Nguyên tắc kiến trúc và thiết kế an toàn tương ứng nội dung bảo đảm an ninh mạng trong thiết kế, xây dựng.
+    confidence: high
+  - source: "8.25"
+    target: D29.K2.a
+    relationship: intersects
+    rationale: Vòng đời phát triển an toàn là một phần của bảo đảm an ninh mạng khi xây dựng HTTT.
+    confidence: medium
+  - source: "8.29"
+    target: D30.K6
+    relationship: intersects
+    rationale: Kiểm thử bảo mật khi nghiệm thu là bằng chứng phương án đã triển khai trước khi đưa vào vận hành.
+    confidence: medium
+
+  # ---------------------------------------------------------------- Chính sách, quy chế
+  - source: "5.1"
+    target: D28.K1
+    relationship: intersects
+    rationale: Bộ chính sách ATTT là nền cho quy định bảo đảm an ninh mạng toàn vòng đời; NĐ yêu cầu bao quát vòng đời của từng HTTT.
+    confidence: medium
+  - source: "5.1"
+    target: D30.K7
+    relationship: intersects
+    rationale: Hệ thống chính sách ISMS có thể được ban hành lại dưới dạng Quy chế bảo đảm an ninh mạng; NĐ thêm yêu cầu về thời điểm ban hành.
+    confidence: medium
+  - source: "5.1"
+    target: D30.K3
+    relationship: intersects
+    rationale: Nhóm yêu cầu quản lý về chính sách trong bảy nhóm yêu cầu quản lý của NĐ.
+    confidence: medium
+  - source: "5.37"
+    target: D29.K2.b
+    relationship: intersects
+    rationale: Quy trình vận hành dạng văn bản là thành phần của nội dung bảo đảm an ninh mạng khi vận hành.
+    confidence: medium
+
+  # ---------------------------------------------------------------- Kỹ thuật theo bốn nhóm
+  - source: "8.20"
+    target: D30.K4.a
+    relationship: intersects
+    rationale: An ninh mạng của ISO tương ứng nhóm yêu cầu kỹ thuật an toàn mạng; mức yêu cầu cụ thể theo cấp độ do tiêu chuẩn quốc gia quy định.
+    confidence: high
+  - source: "8.21"
+    target: D30.K4.a
+    relationship: intersects
+    rationale: An ninh dịch vụ mạng thuộc nhóm yêu cầu kỹ thuật an toàn mạng.
+    confidence: medium
+  - source: "8.22"
+    target: D30.K4.a
+    relationship: intersects
+    rationale: Phân tách mạng thuộc nhóm yêu cầu kỹ thuật an toàn mạng.
+    confidence: high
+  - source: "8.22"
+    target: D30.K8
+    relationship: intersects
+    rationale: Phân tách mạng hỗ trợ yêu cầu phân vùng mạng tách biệt logic khi thuê đám mây.
+    confidence: medium
+  - source: "8.23"
+    target: D30.K4.a
+    relationship: intersects
+    rationale: Lọc web là một biện pháp kỹ thuật thuộc nhóm an toàn mạng.
+    confidence: low
+  - source: "8.7"
+    target: D30.K4.b
+    relationship: intersects
+    rationale: Phòng chống mã độc là biện pháp kỹ thuật thuộc nhóm an toàn máy chủ.
+    confidence: medium
+  - source: "8.9"
+    target: D30.K4.b
+    relationship: intersects
+    rationale: Quản lý cấu hình an toàn thuộc nhóm yêu cầu an toàn máy chủ.
+    confidence: medium
+  - source: "8.18"
+    target: D30.K4.b
+    relationship: intersects
+    rationale: Kiểm soát tiện ích đặc quyền thuộc nhóm yêu cầu an toàn máy chủ.
+    confidence: low
+  - source: "8.19"
+    target: D30.K4.b
+    relationship: intersects
+    rationale: Kiểm soát cài đặt phần mềm trên hệ thống vận hành thuộc nhóm yêu cầu an toàn máy chủ.
+    confidence: medium
+  - source: "8.5"
+    target: D30.K4.c
+    relationship: intersects
+    rationale: Xác thực an toàn là yêu cầu cốt lõi của nhóm an toàn ứng dụng.
+    confidence: medium
+  - source: "8.26"
+    target: D30.K4.c
+    relationship: intersects
+    rationale: Yêu cầu bảo mật ứng dụng tương ứng nhóm yêu cầu kỹ thuật an toàn ứng dụng.
+    confidence: high
+  - source: "8.28"
+    target: D30.K4.c
+    relationship: intersects
+    rationale: Lập trình an toàn thuộc nhóm yêu cầu an toàn ứng dụng.
+    confidence: medium
+  - source: "8.24"
+    target: D30.K4.d
+    relationship: intersects
+    rationale: Sử dụng mật mã là biện pháp chính của nhóm an toàn dữ liệu.
+    confidence: high
+  - source: "8.11"
+    target: D30.K4.d
+    relationship: intersects
+    rationale: Che giấu dữ liệu thuộc nhóm yêu cầu an toàn dữ liệu.
+    confidence: medium
+  - source: "8.12"
+    target: D30.K4.d
+    relationship: intersects
+    rationale: Ngăn ngừa rò rỉ dữ liệu thuộc nhóm yêu cầu an toàn dữ liệu.
+    confidence: medium
+  - source: "8.13"
+    target: D28.K1
+    relationship: intersects
+    rationale: Sao lưu thông tin đáp ứng một phần yêu cầu lưu trữ, sao lưu theo tiêu chuẩn quốc gia.
+    confidence: medium
+  - source: "8.13"
+    target: D30.K4.d
+    relationship: intersects
+    rationale: Sao lưu là biện pháp của nhóm an toàn dữ liệu.
+    confidence: medium
+
+  # ---------------------------------------------------------------- Giám sát, sự cố, liên tục
+  - source: "8.15"
+    target: D29.K2.đ
+    relationship: intersects
+    rationale: Ghi nhật ký là điều kiện để giám sát an ninh mạng.
+    confidence: medium
+  - source: "8.16"
+    target: D29.K2.đ
+    relationship: intersects
+    rationale: Hoạt động giám sát của ISO tương ứng nội dung giám sát trong phương án bảo đảm an ninh mạng.
+    confidence: high
+  - source: "8.16"
+    target: D28.K5
+    relationship: intersects
+    rationale: Giám sát thường xuyên là một hình thức kiểm tra, giám sát hiệu quả biện pháp.
+    confidence: medium
+  - source: "5.24"
+    target: D29.K2.e
+    relationship: intersects
+    rationale: Lập kế hoạch quản lý sự cố là thành phần của nội dung dự phòng, ứng phó sự cố trong phương án.
+    confidence: high
+  - source: "5.26"
+    target: D31.K2.d
+    relationship: intersects
+    rationale: Quy trình ứng phó sự cố của ISO cần bổ sung mốc báo cáo 24 giờ, 72 giờ và đầu mối Bộ Công an theo NĐ.
+    confidence: medium
+  - source: "5.5"
+    target: D31.K2.d
+    relationship: intersects
+    rationale: Kênh liên hệ với cơ quan chức năng được dùng để báo cáo sự cố trong thời hạn quy định.
+    confidence: medium
+  - source: "6.8"
+    target: D31.K2.d
+    relationship: intersects
+    rationale: Báo cáo sự kiện ATTT nội bộ là đầu vào để kịp thời hạn báo cáo ra bên ngoài.
+    confidence: low
+  - source: "5.29"
+    target: D29.K2.e
+    relationship: intersects
+    rationale: Duy trì ATTT khi gián đoạn thuộc nội dung dự phòng và khôi phục.
+    confidence: medium
+  - source: "5.30"
+    target: D29.K2.e
+    relationship: intersects
+    rationale: Sẵn sàng CNTT-TT cho kinh doanh liên tục tương ứng khôi phục sau thảm họa.
+    confidence: high
+  - source: "8.14"
+    target: D30.K5.b
+    relationship: intersects
+    rationale: Dự phòng phương tiện xử lý thông tin hỗ trợ yêu cầu bảo đảm tính sẵn sàng cho HTTT cấp độ 4–5.
+    confidence: low
+
+  # ---------------------------------------------------------------- Kết thúc vận hành
+  - source: "7.14"
+    target: D29.K2.g
+    relationship: intersects
+    rationale: Hủy bỏ, tái sử dụng thiết bị an toàn là một phần nội dung kết thúc vận hành, thanh lý.
+    confidence: high
+  - source: "8.10"
+    target: D29.K2.g
+    relationship: intersects
+    rationale: Xóa thông tin khi không còn cần thiết thuộc nội dung kết thúc vận hành, hủy bỏ.
+    confidence: medium
+  - source: "7.10"
+    target: D29.K2.g
+    relationship: intersects
+    rationale: Quản lý và hủy phương tiện lưu trữ thuộc nội dung thanh lý, hủy bỏ.
+    confidence: medium
+
+  # ---------------------------------------------------------------- Kiểm tra, đánh giá
+  - source: "5.35"
+    target: D31.K2.c
+    relationship: intersects
+    rationale: Rà soát độc lập của ISO tương ứng yêu cầu tự đánh giá phải do bộ phận độc lập với đơn vị vận hành.
+    confidence: high
+  - source: "5.36"
+    target: D27.K2
+    relationship: intersects
+    rationale: Kiểm tra tuân thủ chính sách, quy tắc là một phần đánh giá hiệu quả biện pháp theo NĐ.
+    confidence: medium
+  - source: "8.8"
+    target: D27.K3
+    relationship: intersects
+    rationale: Quản lý lỗ hổng kỹ thuật tương ứng dò quét lỗ hổng, điểm yếu và khắc phục tồn tại.
+    confidence: high
+  - source: "8.29"
+    target: D27.K3
+    relationship: intersects
+    rationale: Kiểm thử bảo mật bao gồm kiểm thử xâm nhập và đánh giá an toàn mã nguồn khi phát triển, nghiệm thu.
+    confidence: medium
+  - source: "5.35"
+    target: D29.K2.c
+    relationship: intersects
+    rationale: Chương trình rà soát độc lập là thành phần của nội dung kiểm tra, đánh giá trong phương án bảo đảm an ninh mạng.
+    confidence: medium
+  - source: "8.8"
+    target: D32.K5
+    relationship: intersects
+    rationale: Quy trình quản lý lỗ hổng là khung để đơn vị chuyên trách phối hợp đơn vị vận hành dò quét và kiểm thử xâm nhập.
+    confidence: medium
+  - source: "8.34"
+    target: D26.K2
+    relationship: intersects
+    rationale: Bảo vệ HTTT khi kiểm tra đánh giá gắn với yêu cầu có phương án dự phòng trước khi cách ly hệ thống.
+    confidence: low
+
+  # ---------------------------------------------------------------- Con người
+  - source: "6.3"
+    target: D31.K3
+    relationship: intersects
+    rationale: Chương trình nhận thức, đào tạo ATTT đáp ứng phần đào tạo; NĐ yêu cầu thêm diễn tập và tham gia diễn tập quốc gia.
+    confidence: high
+  - source: "5.31"
+    target: D39.K1
+    relationship: intersects
+    rationale: Xác định yêu cầu pháp lý theo 5.31 bao gồm theo dõi các mốc chuyển tiếp của văn bản mới.
+    confidence: low

@@ -9,7 +9,7 @@ import typer
 
 from . import __version__
 from .models import MODELS, Assessment
-from .reports import assessment_template, gap_markdown, write_soa
+from .reports import assessment_template, coverage_markdown, gap_markdown, write_soa
 from .repository import DataError, Repository, load_file
 
 app = typer.Typer(
@@ -22,6 +22,9 @@ DataDirs = typer.Option(
     None, "--data-dir", "-d", help="Thư mục dữ liệu bổ sung (có catalogs/, mappings/). Lặp được."
 )
 Related = typer.Option(None, "--related", "-r", help="Chỉ hiển thị đối chiếu tới danh mục này. Lặp được.")
+Level = typer.Option(
+    None, "--level", "-l", min=1, max=5, help="Cấp độ HTTT (1–5): chỉ lấy yêu cầu áp dụng cho cấp độ này."
+)
 
 
 def _repo(dirs: list[Path] | None) -> Repository:
@@ -106,11 +109,12 @@ def init(
     out: Path = typer.Option(..., "--out", "-o"),
     organization: str = typer.Option("Công ty CP ABC", help="Tên tổ chức"),
     scope: str = typer.Option("Toàn bộ hệ thống thông tin dùng chung", help="Phạm vi"),
+    level: int | None = Level,
     data_dir: list[Path] | None = DataDirs,
 ) -> None:
-    """Tạo hồ sơ đánh giá trống đủ mọi control của một danh mục."""
+    """Tạo hồ sơ đánh giá trống đủ mọi control của một danh mục (lọc theo cấp độ nếu có)."""
     repo = _repo(data_dir)
-    out.write_text(assessment_template(repo.catalog(catalog), organization, scope), "utf-8")
+    out.write_text(assessment_template(repo.catalog(catalog), organization, scope, level), "utf-8")
     typer.echo(f"Đã tạo: {out}")
 
 
@@ -120,6 +124,7 @@ def soa(
     out: Path = typer.Option(Path("soa.xlsx"), "--out", "-o"),
     data_dir: list[Path] | None = DataDirs,
     related: list[str] | None = Related,
+    level: int | None = Level,
 ) -> None:
     """Sinh Tuyên bố áp dụng (SoA) dạng Excel, có trang tổng hợp dùng công thức."""
     repo = _repo(data_dir)
@@ -131,7 +136,7 @@ def soa(
         for e in errors:
             typer.secho(e, fg="red", err=True)
         raise typer.Exit(1)
-    write_soa(repo, a, out, set(related) if related else None)
+    write_soa(repo, a, out, set(related) if related else None, level)
     typer.echo(f"Đã ghi: {out}")
 
 
@@ -141,10 +146,31 @@ def gap(
     out: Path | None = typer.Option(None, "--out", "-o", help="Bỏ trống để in ra màn hình."),
     data_dir: list[Path] | None = DataDirs,
     related: list[str] | None = Related,
+    level: int | None = Level,
 ) -> None:
     """Sinh báo cáo khoảng cách dạng Markdown."""
     repo = _repo(data_dir)
-    text = gap_markdown(repo, _assessment(assessment), set(related) if related else None)
+    text = gap_markdown(repo, _assessment(assessment), set(related) if related else None, level)
+    if out:
+        out.write_text(text, encoding="utf-8")
+        typer.echo(f"Đã ghi: {out}")
+    else:
+        typer.echo(text)
+
+
+@app.command()
+def coverage(
+    mapping: str = typer.Argument(..., help="Mã bảng đối chiếu, ví dụ iso27001-2022__nd331-2026"),
+    out: Path | None = typer.Option(None, "--out", "-o", help="Bỏ trống để in ra màn hình."),
+    data_dir: list[Path] | None = DataDirs,
+) -> None:
+    """Độ phủ của bảng đối chiếu: yêu cầu chưa có biện pháp tương ứng ở mỗi phía."""
+    repo = _repo(data_dir)
+    try:
+        text = coverage_markdown(repo.coverage(mapping))
+    except DataError as exc:
+        typer.secho(str(exc), fg="red", err=True)
+        raise typer.Exit(1) from exc
     if out:
         out.write_text(text, encoding="utf-8")
         typer.echo(f"Đã ghi: {out}")

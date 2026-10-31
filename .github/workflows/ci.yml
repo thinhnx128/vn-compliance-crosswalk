@@ -37,6 +37,6 @@ jobs:
       - run: ruff check .
       - run: pytest -q
       - name: Kiểm tra tham chiếu chéo dữ liệu
-        run: vncc validate && vncc validate examples/abc-corp/assessment.yaml -d examples/abc-corp
+        run: vncc validate && vncc validate examples/abc-corp/*.yaml -d examples/abc-corp && vncc coverage iso27001-2022__nd331-2026 >/dev/null
       - name: JSON Schema khớp với mô hình
         run: vncc schema -o schemas && git diff --exit-code schemas/

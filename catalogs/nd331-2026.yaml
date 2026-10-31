@@ -1,22 +1,271 @@
-# Khung danh mục yêu cầu Nghị định 331/2026/NĐ-CP (bảo vệ an ninh mạng đối với hệ thống thông tin,
-# xác định cấp độ).
+# Danh mục yêu cầu Nghị định 331/2026/NĐ-CP về bảo vệ an ninh mạng đối với hệ thống thông tin.
 #
-# TRẠNG THÁI: skeleton - CHƯA trích xuất nội dung. Không dùng để đánh giá tuân thủ.
+# Chỉ gồm các điều khoản đặt ra NGHĨA VỤ cho chủ quản, đơn vị chuyên trách và đơn vị vận hành HTTT.
+# Định nghĩa và tiêu chí xác định cấp độ (Điều 11–15) được tóm tắt riêng trong docs/nd331-cap-do.md.
 #
-# Cách hoàn thiện (xem docs/them-van-ban.md):
-#   1. Đối chiếu bản gốc trên Công báo / Cơ sở dữ liệu quốc gia về VBQPPL.
-#   2. Ghi số hiệu, ngày ban hành, ngày hiệu lực, đường dẫn nguồn vào phần đầu tệp.
-#   3. Mỗi yêu cầu là một control: id theo điều/khoản/điểm (ví dụ "D12.K2.a"), title tự tóm tắt.
-#   4. Nếu yêu cầu phân theo cấp độ, gắn tags: [cap-do-1] ... [cap-do-5].
-#   5. Đổi status sang draft, mở pull request để rà soát chéo.
+# Quy ước:
+#   id    : D<điều>.K<khoản>.<điểm>
+#   tags  : cap-do-N  -> chỉ áp dụng cho cấp độ N (không có thẻ cap-do nghĩa là áp dụng mọi cấp độ)
+#           chu-quan | don-vi-chuyen-trach | don-vi-van-hanh -> chủ thể thực hiện chính
+#           can-doi-chieu -> nội dung tóm tắt chưa đối chiếu được toàn văn, phải kiểm tra văn bản gốc
+#   title / summary: tác giả tự tóm tắt, không thay thế văn bản gốc.
 kind: catalog
 id: nd331-2026
 title: Nghị định 331/2026/NĐ-CP - bảo vệ an ninh mạng đối với hệ thống thông tin
-version: "2026"
+version: "2026-08-19"
 publisher: Chính phủ nước CHXHCN Việt Nam
 document_number: 331/2026/NĐ-CP
-status: skeleton
+issued_on: 2026-08-19
+effective_date: 2026-08-19
+source_url: https://congluatviet.vn/van-ban/nghi-dinh-ve-bao-ve-an-ninh-mang-doi-voi-he-thong-thong-tin-331-2026-nd-cp
+status: draft
 notice: >-
-  Khung chưa có nội dung. Ngày ban hành, ngày hiệu lực và cấu trúc điều khoản cần được xác nhận
-  từ văn bản gốc trước khi điền.
-groups: []
+  Tóm tắt nghĩa vụ do tác giả tự diễn đạt từ văn bản đăng tải công khai, đối chiếu ngày 31/10/2026.
+  Căn cứ: Luật An ninh mạng 116/2025/QH15. Các mục gắn thẻ can-doi-chieu (Điều 33–37) chưa đối chiếu
+  được toàn văn. Người dùng phải kiểm tra văn bản gốc trước khi sử dụng cho hồ sơ pháp lý.
+groups:
+  - id: TC
+    title: Tổ chức, vai trò và trách nhiệm
+    controls:
+      - id: D4.K3
+        title: Ủy quyền chủ quản bằng văn bản cho tổ chức trực thuộc đủ năng lực (nếu có)
+        summary: Văn bản ủy quyền nêu rõ phạm vi, trách nhiệm và thời hạn.
+        tags: [chu-quan]
+      - id: D5.K2
+        title: Chỉ định đơn vị vận hành chủ trì khi HTTT có nhiều đơn vị vận hành
+        tags: [chu-quan]
+      - id: D5.K3.a
+        title: Hợp đồng thuê dịch vụ CNTT quy định trách nhiệm quản trị dữ liệu, kiểm soát truy cập và bảo đảm an ninh mạng
+        tags: [chu-quan, don-vi-van-hanh]
+      - id: D5.K3.b
+        title: Có điều khoản duy trì, chuyển giao hoặc thỏa thuận mới khi hết hạn dịch vụ thuê mà HTTT vẫn vận hành
+        tags: [chu-quan]
+      - id: D31.K1
+        title: Người đứng đầu chịu trách nhiệm trực tiếp; bố trí nhân sự chuyên trách; chỉ định đơn vị chuyên trách về an ninh mạng
+        summary: >-
+          Nếu chưa có đơn vị độc lập, chỉ định đơn vị CNTT hoặc chuyển đổi số làm đơn vị chuyên trách
+          về an ninh mạng.
+        tags: [chu-quan]
+      - id: D32.K1
+        title: Đơn vị chuyên trách tham mưu, tổ chức thực thi, đôn đốc, kiểm tra, giám sát công tác bảo vệ an ninh mạng
+        tags: [don-vi-chuyen-trach]
+      - id: D32.K2
+        title: Đơn vị chuyên trách phối hợp lực lượng chuyên trách bảo vệ an ninh mạng trong kiểm tra, giám sát, ứng cứu sự cố
+        tags: [don-vi-chuyen-trach]
+      - id: D32.K3
+        title: Nhân sự thực hiện nhiệm vụ an ninh mạng đáp ứng tiêu chuẩn theo Luật An ninh mạng
+        tags: [don-vi-chuyen-trach]
+      - id: D32.K5
+        title: Đơn vị chuyên trách phối hợp đơn vị vận hành đánh giá rủi ro, dò quét lỗ hổng, kiểm thử xâm nhập
+        tags: [don-vi-chuyen-trach, don-vi-van-hanh]
+      - id: D33
+        title: Đơn vị vận hành thực hiện các biện pháp bảo vệ an ninh mạng theo phân công của chủ quản
+        summary: Chi tiết các khoản của Điều 33 chưa đối chiếu được toàn văn.
+        tags: [don-vi-van-hanh, can-doi-chieu]
+
+  - id: XD
+    title: Xác định hệ thống thông tin và cấp độ
+    controls:
+      - id: D7.K1
+        title: Xác định HTTT có chức năng nghiệp vụ, xử lý dữ liệu, đối tượng phục vụ và đầu ra rõ ràng
+        tags: [chu-quan]
+      - id: D7.K2
+        title: Xác định phạm vi HTTT theo chức năng, luồng dữ liệu, mức phụ thuộc vận hành và phạm vi ảnh hưởng khi sự cố
+        summary: Phạm vi phản ánh thực tế vận hành; với hệ thống liên thông phải xem xét khả năng lan truyền rủi ro.
+        tags: [chu-quan]
+      - id: D8.K1
+        title: Mỗi HTTT chỉ có một chủ quản
+        tags: [chu-quan]
+      - id: D8.K2
+        title: HTTT đáp ứng tiêu chí của nhiều cấp độ thì áp dụng cấp độ cao nhất
+        tags: [chu-quan]
+      - id: D8.K3
+        title: Không chia tách hoặc hợp nhất HTTT một cách hình thức để hạ cấp độ hoặc giảm yêu cầu bảo đảm
+        tags: [chu-quan]
+      - id: D9.K1
+        title: Phân loại thông tin được xử lý - công cộng, riêng, cá nhân, bí mật nhà nước
+        tags: [chu-quan]
+      - id: D9.K2
+        title: Phân loại HTTT theo chức năng - nội bộ, phục vụ người dân và doanh nghiệp, hạ tầng thông tin, điều khiển công nghiệp, khác
+        tags: [chu-quan]
+
+  - id: RR
+    title: Quản lý rủi ro an ninh mạng
+    controls:
+      - id: D10.K2
+        title: Đánh giá rủi ro an ninh mạng khi xác định cấp độ lần đầu, khi thay đổi, mở rộng, tích hợp, sau sự cố nghiêm trọng hoặc theo yêu cầu
+        tags: [chu-quan]
+      - id: D10.K3
+        title: Đánh giá rủi ro có đủ nội dung tối thiểu
+        summary: >-
+          Tài sản; loại thông tin; nhận diện rủi ro; khả năng và mức tác động; năng lực ứng phó;
+          kế hoạch giảm thiểu; truyền thông và báo cáo rủi ro.
+        tags: [chu-quan]
+      - id: D10.K4
+        title: Dùng kết quả đánh giá rủi ro làm căn cứ xác định cấp độ, lựa chọn biện pháp và điều chỉnh phương án
+        tags: [chu-quan]
+      - id: D10.K5
+        title: Đề xuất cấp độ cao hơn khi rủi ro đánh giá được cao hơn cấp độ hiện tại
+        tags: [chu-quan]
+      - id: D10.K6
+        title: Lưu giữ hồ sơ đánh giá rủi ro và cung cấp khi thanh tra, kiểm tra
+        tags: [chu-quan]
+
+  - id: HS
+    title: Hồ sơ đề xuất, thẩm định và phê duyệt cấp độ
+    controls:
+      - id: D18.K4
+        title: Tách khâu thẩm định khi đơn vị chuyên trách đồng thời là đơn vị vận hành HTTT
+        summary: Giao đơn vị trực thuộc đủ năng lực chủ trì thẩm định hoặc thành lập Hội đồng thẩm định độc lập.
+        tags: [chu-quan]
+      - id: D19.K1
+        title: Lồng ghép thuyết minh đề xuất cấp độ vào báo cáo nghiên cứu khả thi hoặc báo cáo đầu tư của dự án CNTT
+        tags: [chu-quan]
+      - id: D19.K2
+        title: Lồng ghép thuyết minh đề xuất cấp độ vào kế hoạch thuê dịch vụ CNTT
+        tags: [chu-quan]
+      - id: D20
+        title: Lập, thẩm định và phê duyệt hồ sơ đề xuất cấp độ cho HTTT đang vận hành theo đúng thẩm quyền
+        summary: >-
+          Cấp độ 1–2 do đơn vị chuyên trách thẩm định, phê duyệt; cấp độ 3 do chủ quản phê duyệt;
+          cấp độ 4–5 do Bộ Công an chủ trì thẩm định (Điều 18, 20).
+        tags: [chu-quan, don-vi-chuyen-trach]
+      - id: D21
+        title: Hồ sơ đề xuất cấp độ có đủ thành phần
+        summary: >-
+          Thuyết minh tổng quan; thiết kế hoặc tài liệu tương đương; thuyết minh đề xuất cấp độ;
+          thuyết minh phương án bảo đảm an ninh mạng; ý kiến chuyên môn của đơn vị chuyên trách
+          (cấp độ 4–5).
+        tags: [chu-quan]
+      - id: D22.K3
+        title: Thuyết minh tổng quan nêu chủ quản, đơn vị vận hành, phạm vi, kiến trúc, thiết bị, dịch vụ và vùng địa chỉ IP
+        tags: [chu-quan]
+      - id: D22.K4
+        title: Thuyết minh đề xuất cấp độ cho từng hệ thống kèm nhận diện rủi ro sơ bộ
+        tags: [chu-quan]
+      - id: D22.K5
+        title: Bổ sung phân tích hệ thống liên quan, nguy cơ tấn công, tác động công cộng và yêu cầu vận hành 24/7
+        tags: [chu-quan, cap-do-4, cap-do-5]
+      - id: D22.K6
+        title: Thuyết minh phương án mô tả cách đáp ứng từng yêu cầu bảo đảm an ninh mạng theo cấp độ
+        tags: [chu-quan]
+      - id: D25
+        title: Xác định lại cấp độ theo trình tự như lần đầu khi HTTT đã phê duyệt có thay đổi
+        tags: [chu-quan]
+
+  - id: PA
+    title: Biện pháp và phương án bảo đảm an ninh mạng
+    controls:
+      - id: D28.K1
+        title: Ban hành quy định bảo đảm an ninh mạng cho toàn bộ vòng đời HTTT; lưu trữ, sao lưu theo tiêu chuẩn quốc gia
+        tags: [chu-quan]
+      - id: D28.K3
+        title: Đánh giá điều kiện an ninh mạng trước khi đưa vào vận hành, khi thay đổi lớn hoặc theo yêu cầu
+        tags: [chu-quan, don-vi-van-hanh]
+      - id: D28.K4
+        title: Áp dụng biện pháp quản lý và kỹ thuật theo phương án và tiêu chuẩn liên quan
+        tags: [don-vi-van-hanh]
+      - id: D28.K5
+        title: Kiểm tra, giám sát, đánh giá hiệu quả biện pháp định kỳ, thường xuyên, đột xuất; khắc phục và điều chỉnh
+        tags: [chu-quan, don-vi-chuyen-trach]
+      - id: D29.K2.a
+        title: Phương án - bảo đảm an ninh mạng trong thiết kế, xây dựng
+      - id: D29.K2.b
+        title: Phương án - bảo đảm an ninh mạng trong vận hành
+      - id: D29.K2.c
+        title: Phương án - kiểm tra, đánh giá an ninh mạng
+      - id: D29.K2.d
+        title: Phương án - quản lý rủi ro an ninh mạng
+      - id: D29.K2.đ
+        title: Phương án - giám sát an ninh mạng
+      - id: D29.K2.e
+        title: Phương án - dự phòng, ứng phó sự cố, khôi phục sau thảm họa
+      - id: D29.K2.g
+        title: Phương án - kết thúc vận hành, thanh lý, hủy bỏ
+      - id: D30.K3
+        title: Đáp ứng yêu cầu quản lý theo cấp độ
+        summary: >-
+          Bảy nhóm: chính sách; tổ chức; nhân lực; thiết kế và xây dựng; vận hành; quản lý rủi ro;
+          kết thúc vận hành.
+      - id: D30.K4.a
+        title: Yêu cầu kỹ thuật - bảo đảm an toàn mạng
+      - id: D30.K4.b
+        title: Yêu cầu kỹ thuật - bảo đảm an toàn máy chủ
+      - id: D30.K4.c
+        title: Yêu cầu kỹ thuật - bảo đảm an toàn ứng dụng
+      - id: D30.K4.d
+        title: Yêu cầu kỹ thuật - bảo đảm an toàn dữ liệu
+      - id: D30.K5.a
+        title: Xem xét dùng chung giải pháp, nguồn lực bảo vệ để tránh đầu tư trùng lặp
+        tags: [cap-do-1, cap-do-2, cap-do-3]
+      - id: D30.K5.b
+        title: Bảo đảm tính sẵn sàng, phân tách và hạn chế lan truyền sự cố
+        tags: [cap-do-4, cap-do-5, can-doi-chieu]
+      - id: D30.K6
+        title: Triển khai đầy đủ phương án đã phê duyệt trước khi đưa HTTT vào vận hành
+        tags: [chu-quan, don-vi-van-hanh]
+      - id: D30.K7
+        title: Ban hành Quy chế bảo đảm an ninh mạng trước khi phê duyệt hồ sơ đề xuất cấp độ
+        tags: [chu-quan]
+      - id: D30.K8
+        title: HTTT thuê trung tâm dữ liệu hoặc điện toán đám mây được tách biệt logic về hệ thống, vùng mạng và lưu trữ
+        tags: [cap-do-3, cap-do-4]
+      - id: D30.K9
+        title: HTTT thuê ngoài tách biệt vật lý; giải pháp dùng chung chỉ ở lớp biên, không can thiệp dữ liệu nghiệp vụ
+        tags: [cap-do-5]
+
+  - id: KT
+    title: Kiểm tra, đánh giá an ninh mạng
+    controls:
+      - id: D26.K2
+        title: Có phương án dự phòng trước khi cách ly HTTT phục vụ kiểm tra, trừ trường hợp khẩn cấp
+        tags: [chu-quan]
+      - id: D27.K2
+        title: Đánh giá hiệu quả biện pháp - quy chế, tuân thủ quy trình, thiết kế, cấu hình, tăng cường bảo mật
+        tags: [chu-quan, don-vi-chuyen-trach]
+      - id: D27.K3
+        title: Dò quét mã độc, lỗ hổng, điểm yếu; kiểm thử xâm nhập; đánh giá an toàn mã nguồn; khắc phục tồn tại
+        tags: [don-vi-chuyen-trach, don-vi-van-hanh]
+      - id: D31.K2.c
+        title: Tổ chức kiểm tra, đánh giá và quản lý rủi ro; tự đánh giá do bộ phận độc lập với vận hành
+        summary: Một số trường hợp bắt buộc đánh giá bởi bên thứ ba, như cấp độ 5, sau sự cố nghiêm trọng hoặc thay đổi lớn.
+        tags: [chu-quan]
+
+  - id: SC
+    title: Sự cố, đào tạo và diễn tập
+    controls:
+      - id: D31.K2.d
+        title: Báo cáo sự cố an ninh mạng - thông báo ban đầu 24 giờ với sự cố nghiêm trọng, báo cáo đầy đủ trong 72 giờ
+        summary: >-
+          Báo cáo nguyên nhân, phạm vi, biện pháp khắc phục trong 72 giờ kể từ khi phát hiện; báo ngay
+          khi có dấu hiệu xâm phạm an ninh quốc gia.
+        tags: [chu-quan]
+      - id: D31.K3
+        title: Tuyên truyền, đào tạo ngắn hạn, diễn tập an ninh mạng; tham gia diễn tập quốc gia
+        tags: [chu-quan]
+
+  - id: BC
+    title: Chế độ báo cáo
+    controls:
+      - id: D35
+        title: Báo cáo định kỳ hằng năm về bảo vệ an ninh mạng HTTT gửi chủ quản và Bộ Công an
+        summary: >-
+          Thời hạn báo cáo trong tháng 12 và kỳ chốt số liệu theo Điều 35; cần đối chiếu văn bản gốc
+          để lấy ngày chính xác.
+        tags: [chu-quan, don-vi-chuyen-trach, can-doi-chieu]
+      - id: D36
+        title: Báo cáo có đủ nội dung theo Điều 36 và mẫu báo cáo kèm theo Nghị định
+        tags: [chu-quan, can-doi-chieu]
+      - id: D37
+        title: Phê duyệt hồ sơ đề xuất cấp độ đúng thời điểm khi xây dựng mới hoặc mở rộng, nâng cấp HTTT
+        tags: [chu-quan, can-doi-chieu]
+
+  - id: CT
+    title: Điều khoản chuyển tiếp
+    controls:
+      - id: D39.K1
+        title: HTTT đầu tư trước ngày Luật An ninh mạng 2025 có hiệu lực - phê duyệt cấp độ trong 6 tháng, đáp ứng điều kiện trong 12 tháng
+        summary: >-
+          Hoàn thành thẩm định, phê duyệt cấp độ trong 6 tháng và đáp ứng đầy đủ điều kiện theo cấp độ
+          trong 12 tháng kể từ ngày Luật An ninh mạng 116/2025/QH15 có hiệu lực.
+        tags: [chu-quan]

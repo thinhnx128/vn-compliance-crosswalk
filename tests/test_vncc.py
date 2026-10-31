@@ -38,9 +38,46 @@ def test_all_bundled_and_example_data_valid(repo):
     assert repo.validate() == []
 
 
-def test_skeleton_catalogs_are_marked(repo):
-    for cid in ("nd331-2026", "luat91-2025"):
-        assert repo.catalog(cid).status == "skeleton"
+def test_catalog_status(repo):
+    assert repo.catalog("luat91-2025").status == "skeleton"
+    nd = repo.catalog("nd331-2026")
+    assert nd.status == "draft" and nd.document_number == "331/2026/NĐ-CP"
+    assert str(nd.effective_date) == "2026-08-19"
+
+
+def test_nd331_unverified_items_are_tagged(repo):
+    nd = repo.catalog("nd331-2026").index()
+    for cid in ("D33", "D35", "D36", "D37"):
+        assert "can-doi-chieu" in nd[cid].tags
+
+
+def test_level_filter(repo):
+    nd = repo.catalog("nd331-2026")
+    lv2, lv4, lv5 = (nd.for_level(n).index() for n in (2, 4, 5))
+    assert "D30.K5.a" in lv2 and "D30.K5.a" not in lv4
+    assert "D30.K8" not in lv2 and "D30.K8" in lv4 and "D30.K8" not in lv5
+    assert "D22.K5" in lv5 and "D22.K5" not in lv2
+    assert "D31.K2.d" in lv2 and "D31.K2.d" in lv5  # không gắn thẻ cấp độ thì áp dụng mọi cấp độ
+    assert nd.for_level(None) is nd
+
+
+def test_coverage(repo):
+    cov = repo.coverage("iso27001-2022__nd331-2026")
+    uncovered = {c.id for _, c in cov.target_uncovered}
+    assert "D21" in uncovered  # hồ sơ cấp độ: nghĩa vụ hành chính, không có biện pháp ISO tương ứng
+    assert "D31.K2.d" not in uncovered
+    assert cov.target_covered + len(cov.target_uncovered) == cov.target_total
+
+
+def test_nd331_level2_assessment(repo):
+    a = load_file(EXAMPLE / "assessment-nd331-cap-do-2.yaml")
+    assert a.level == 2
+    errors, warnings = repo.validate_assessment(a)
+    assert errors == []
+    assert "D30.K8" not in warnings[0]  # yêu cầu cấp độ 3–4 không bị đòi trong hồ sơ cấp độ 2
+    md = gap_markdown(repo, a)
+    assert "cấp độ 2" in md
+    assert "| D31.K2.d |" in md and "D30.K9" not in md
 
 
 def test_duplicate_control_rejected():

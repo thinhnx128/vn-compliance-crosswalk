@@ -1,0 +1,63 @@
+# VÍ DỤ HƯ CẤU - tự đánh giá tuân thủ NĐ 331/2026 cho cụm hạ tầng CNTT dùng chung của Công ty CP ABC,
+# đề xuất cấp độ 2. Trường level: 2 khiến công cụ chỉ đòi các yêu cầu áp dụng cho cấp độ 2.
+# Các yêu cầu không liệt kê được coi là chưa đánh giá.
+kind: assessment
+organization: Công ty CP ABC (hư cấu)
+scope: Cụm hạ tầng CNTT dùng chung tại trụ sở chính (máy chủ, mạng, sao lưu)
+catalog: nd331-2026
+as_of: 2026-10-31
+level: 2
+controls:
+  D31.K1:
+    status: partial
+    evidence: [Phân công nhân sự ATTT trong Bộ phận CNTT]
+    notes: Chưa có quyết định chỉ định đơn vị chuyên trách về an ninh mạng
+    owner: Ban Giám đốc
+    due: 2026-11-30
+  D18.K4:
+    status: planned
+    notes: Dự kiến lập Hội đồng thẩm định độc lập do Ban Kiểm soát nội bộ chủ trì
+    owner: Ban Giám đốc
+    due: 2026-11-30
+  D7.K2:
+    status: partial
+    evidence: [Sổ tài sản CNTT]
+    owner: Bộ phận CNTT
+  D9.K1:
+    status: implemented
+    evidence: [Quy định phân loại thông tin nội bộ v1.0]
+    owner: Bộ phận CNTT
+  D10.K3:
+    status: partial
+    evidence: [Sổ đăng ký rủi ro ATTT 2026]
+    notes: Thiếu đánh giá năng lực ứng phó và tác động công cộng
+    owner: Bộ phận CNTT
+  D21:
+    status: planned
+    owner: Bộ phận CNTT
+    due: 2026-12-15
+  D30.K7:
+    status: planned
+    notes: Ban hành lại bộ chính sách ATTT dưới tên Quy chế bảo đảm an ninh mạng
+    owner: Bộ phận CNTT
+    due: 2026-12-10
+  D30.K8:
+    applicable: false
+    justification: Không áp dụng cho cấp độ 2 (chỉ áp dụng cấp độ 3–4)
+  D29.K2.e:
+    status: partial
+    evidence: [Kế hoạch ứng phó sự cố, biên bản kiểm thử phục hồi quý III/2026]
+    owner: Bộ phận CNTT
+  D31.K2.d:
+    status: not_implemented
+    notes: Quy trình sự cố chưa có mốc 24 giờ, 72 giờ và đầu mối báo cáo Bộ Công an
+    owner: Bộ phận CNTT
+    due: 2026-11-15
+  D31.K3:
+    status: partial
+    evidence: [Kế hoạch đào tạo nhận thức ATTT 2026]
+    notes: Chưa tổ chức diễn tập
+  D35:
+    status: planned
+    owner: Bộ phận CNTT
+    due: 2026-12-20

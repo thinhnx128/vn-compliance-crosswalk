@@ -25,6 +25,15 @@ class Control(_Base):
     tags: list[str] = Field(default_factory=list, description="Ví dụ: cap-do-3, dlcn-nhay-cam")
 
 
+LEVEL_TAG = "cap-do-"
+
+
+def applies_to_level(control: Control, level: int) -> bool:
+    """Control không gắn thẻ cap-do-N áp dụng cho mọi cấp độ; có thẻ thì chỉ áp dụng cấp độ đã gắn."""
+    levels = [t for t in control.tags if t.startswith(LEVEL_TAG)]
+    return not levels or f"{LEVEL_TAG}{level}" in levels
+
+
 class Group(_Base):
     id: str
     title: str
@@ -52,6 +61,16 @@ class Catalog(_Base):
 
     def index(self) -> dict[str, Control]:
         return {c.id: c for _, c in self.controls()}
+
+    def for_level(self, level: int | None) -> Catalog:
+        """Bản sao chỉ gồm control áp dụng cho một cấp độ HTTT (xem applies_to_level)."""
+        if level is None:
+            return self
+        groups = [
+            g.model_copy(update={"controls": [c for c in g.controls if applies_to_level(c, level)]})
+            for g in self.groups
+        ]
+        return self.model_copy(update={"groups": [g for g in groups if g.controls]})
 
     @model_validator(mode="after")
     def _unique_ids(self) -> Catalog:
@@ -149,6 +168,9 @@ class Assessment(_Base):
     scope: str
     catalog: str
     as_of: date
+    level: int | None = Field(
+        None, ge=1, le=5, description="Cấp độ HTTT được đánh giá; lọc control theo thẻ cap-do-N"
+    )
     controls: dict[str, ControlState] = Field(default_factory=dict)
 
 

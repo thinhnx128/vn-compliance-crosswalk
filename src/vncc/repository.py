@@ -13,7 +13,7 @@ from pathlib import Path
 import yaml
 from pydantic import ValidationError
 
-from .models import MODELS, Assessment, Catalog, Mapping, Relationship
+from .models import MODELS, Assessment, Catalog, Control, Mapping, Relationship
 
 
 class DataError(Exception):
@@ -49,6 +49,23 @@ class Related:
     relationship: str
     confidence: str
     rationale: str
+
+
+@dataclass
+class Coverage:
+    mapping: Mapping
+    source_total: int
+    target_total: int
+    source_uncovered: list[tuple[str, Control]]
+    target_uncovered: list[tuple[str, Control]]
+
+    @property
+    def target_covered(self) -> int:
+        return self.target_total - len(self.target_uncovered)
+
+    @property
+    def source_covered(self) -> int:
+        return self.source_total - len(self.source_uncovered)
 
 
 @dataclass
@@ -102,11 +119,31 @@ class Repository:
                     errors.append(f"{m.id} dòng {i}: target '{e.target}' không có trong danh mục")
         return errors
 
+    def coverage(self, mapping_id: str) -> Coverage:
+        """Control ở mỗi phía của bảng đối chiếu chưa có dòng đối chiếu nào (kể cả no_relationship)."""
+        try:
+            m = self.mappings[mapping_id]
+        except KeyError:
+            known = ", ".join(sorted(self.mappings)) or "(trống)"
+            raise DataError(f"Không có bảng đối chiếu '{mapping_id}'. Hiện có: {known}") from None
+        src, dst = self.catalog(m.source_catalog), self.catalog(m.target_catalog)
+        used_src = {e.source for e in m.entries}
+        used_dst = {e.target for e in m.entries if e.target}
+        return Coverage(
+            mapping=m,
+            source_total=sum(1 for _ in src.controls()),
+            target_total=sum(1 for _ in dst.controls()),
+            source_uncovered=[(g.id, c) for g, c in src.controls() if c.id not in used_src],
+            target_uncovered=[(g.id, c) for g, c in dst.controls() if c.id not in used_dst],
+        )
+
     def validate_assessment(self, a: Assessment) -> tuple[list[str], list[str]]:
-        """Trả về (lỗi, cảnh báo) của hồ sơ đánh giá."""
-        index = self.catalog(a.catalog).index()
+        """Trả về (lỗi, cảnh báo) của hồ sơ đánh giá. Control ngoài cấp độ của hồ sơ không bị đòi."""
+        catalog = self.catalog(a.catalog)
+        index = catalog.index()
+        expected = catalog.for_level(a.level).index()
         errors = [f"Control '{cid}' không có trong {a.catalog}" for cid in a.controls if cid not in index]
-        missing = [cid for cid in index if cid not in a.controls]
+        missing = [cid for cid in expected if cid not in a.controls]
         warnings = [f"{len(missing)} control chưa có trong hồ sơ: {', '.join(missing)}"] if missing else []
         return errors, warnings
 

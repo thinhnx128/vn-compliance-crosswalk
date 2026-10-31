@@ -41,8 +41,10 @@ def write_soa(
     assessment: Assessment,
     out: str | Path,
     related_catalogs: set[str] | None = None,
+    level: int | None = None,
 ) -> Path:
-    catalog = repo.catalog(assessment.catalog)
+    level = level or assessment.level
+    catalog = repo.catalog(assessment.catalog).for_level(level)
     wb = Workbook()
 
     # ---------------------------------------------------------------- Thông tin
@@ -52,6 +54,7 @@ def write_soa(
         ("Tổ chức", assessment.organization),
         ("Phạm vi", assessment.scope),
         ("Danh mục", f"{catalog.title} ({catalog.id}, phiên bản {catalog.version})"),
+        ("Cấp độ HTTT", f"Cấp độ {level}" if level else "Không lọc theo cấp độ"),
         ("Ngày chốt số liệu", assessment.as_of.isoformat()),
         ("Ngày tạo tệp", date.today().isoformat()),
         ("Công cụ", f"vn-compliance-crosswalk {__version__}"),
@@ -177,8 +180,14 @@ def write_soa(
     return out
 
 
-def gap_markdown(repo: Repository, assessment: Assessment, related_catalogs: set[str] | None = None) -> str:
-    catalog = repo.catalog(assessment.catalog)
+def gap_markdown(
+    repo: Repository,
+    assessment: Assessment,
+    related_catalogs: set[str] | None = None,
+    level: int | None = None,
+) -> str:
+    level = level or assessment.level
+    catalog = repo.catalog(assessment.catalog).for_level(level)
     stats = tally(catalog, assessment)
     titles = {g.id: g.title for g in catalog.groups}
     lines = [
@@ -186,6 +195,7 @@ def gap_markdown(repo: Repository, assessment: Assessment, related_catalogs: set
         "",
         f"- **Tổ chức:** {assessment.organization}",
         f"- **Phạm vi:** {assessment.scope}",
+        f"- **Cấp độ HTTT:** {f'cấp độ {level}' if level else 'không lọc theo cấp độ'}",
         f"- **Ngày chốt số liệu:** {assessment.as_of.isoformat()}",
         f"- **Danh mục:** {catalog.id} (phiên bản {catalog.version}, trạng thái {catalog.status})",
         f"- **Quy tắc tính:** {RULE}",
@@ -242,8 +252,9 @@ def _tally_row(label: str, t) -> str:
     )
 
 
-def assessment_template(catalog: Catalog, organization: str, scope: str) -> str:
-    """Sinh tệp YAML hồ sơ đánh giá trống, đủ mọi control của danh mục."""
+def assessment_template(catalog: Catalog, organization: str, scope: str, level: int | None = None) -> str:
+    """Sinh tệp YAML hồ sơ đánh giá trống, đủ mọi control của danh mục (lọc theo cấp độ nếu có)."""
+    catalog = catalog.for_level(level)
     lines = [
         "# Hồ sơ đánh giá - điền status: implemented | partial | planned | not_implemented",
         "# Control không áp dụng: applicable: false và bắt buộc ghi justification.",
@@ -253,6 +264,7 @@ def assessment_template(catalog: Catalog, organization: str, scope: str) -> str:
         f"scope: {scope}",
         f"catalog: {catalog.id}",
         f"as_of: {date.today().isoformat()}",
+        f"level: {level if level else 'null'}",
         "controls:",
     ]
     for _, c in catalog.controls():
@@ -263,4 +275,30 @@ def assessment_template(catalog: Catalog, organization: str, scope: str) -> str:
             "    owner: null",
             "    evidence: []",
         ]
+    return "\n".join(lines) + "\n"
+
+
+def coverage_markdown(cov) -> str:
+    """Báo cáo độ phủ của một bảng đối chiếu."""
+    m = cov.mapping
+    pct = lambda a, b: f"{a / b:.0%}" if b else "-"  # noqa: E731
+    lines = [
+        f"# Độ phủ bảng đối chiếu {m.id}",
+        "",
+        f"- Phiên bản {m.version}, trạng thái {m.status}, {len(m.entries)} dòng đối chiếu.",
+        f"- **{m.target_catalog}:** {cov.target_covered}/{cov.target_total} yêu cầu có ít nhất một "
+        f"biện pháp đối chiếu ({pct(cov.target_covered, cov.target_total)}).",
+        f"- **{m.source_catalog}:** {cov.source_covered}/{cov.source_total} biện pháp đã được xem xét "
+        f"({pct(cov.source_covered, cov.source_total)}).",
+        "- Quy tắc đếm: một mục được tính là đã phủ khi có ít nhất một dòng đối chiếu bất kỳ "
+        "(kể cả no_relationship ở phía nguồn).",
+        "",
+        f"## I. Yêu cầu của {m.target_catalog} chưa có biện pháp đối chiếu",
+        "",
+        "Đây thường là nghĩa vụ hành chính, pháp lý đặc thù, cần biện pháp riêng ngoài bộ biện pháp nguồn.",
+        "",
+    ]
+    lines += [f"- **{c.id}** ({g}) {c.title}" for g, c in cov.target_uncovered] or ["Không có."]
+    lines += ["", f"## II. Biện pháp của {m.source_catalog} chưa được xem xét", ""]
+    lines += [f"- **{c.id}** ({g}) {c.title}" for g, c in cov.source_uncovered] or ["Không có."]
     return "\n".join(lines) + "\n"
