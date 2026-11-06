@@ -1,15 +1,35 @@
-# Khung danh mục yêu cầu Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15.
+# Danh mục yêu cầu Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 - BẢN MỘT PHẦN.
 #
-# TRẠNG THÁI: skeleton - CHƯA trích xuất nội dung. Không dùng để đánh giá tuân thủ.
-# Dự kiến bổ sung ở v0.2 cùng Nghị định 356/2025/NĐ-CP hướng dẫn thi hành.
-# Cách hoàn thiện: xem docs/them-van-ban.md.
+# Hiện chỉ gồm các nghĩa vụ có tham số định lượng đã đối chiếu, phục vụ `vncc conflicts`.
+# Danh mục đầy đủ dự kiến ở phiên bản sau. Cách hoàn thiện: xem docs/them-van-ban.md.
 kind: catalog
 id: luat91-2025
-title: Luật Bảo vệ dữ liệu cá nhân
+title: Luật Bảo vệ dữ liệu cá nhân (bản một phần)
 version: "2025"
 publisher: Quốc hội nước CHXHCN Việt Nam
 document_number: 91/2025/QH15
-status: skeleton
+source_url: https://hethongphapluat.com/luat-bao-ve-du-lieu-ca-nhan-2025/dieu-23
+status: draft
 notice: >-
-  Khung chưa có nội dung. Cần xác nhận ngày hiệu lực và cấu trúc điều khoản từ văn bản gốc.
-groups: []
+  Bản một phần, chỉ gồm nghĩa vụ có tham số định lượng; chưa dùng được để đánh giá tuân thủ toàn
+  diện. Tóm tắt do tác giả tự diễn đạt, đối chiếu ngày 06/11/2026. Ngày hiệu lực cần xác nhận từ văn
+  bản gốc.
+groups:
+  - id: VP
+    title: Thông báo vi phạm
+    controls:
+      - id: D23.K1
+        title: Thông báo vi phạm quy định bảo vệ dữ liệu cá nhân cho cơ quan chuyên trách chậm nhất 72 giờ
+        summary: >-
+          Áp dụng khi vi phạm có thể gây tổn hại quốc phòng, an ninh, trật tự, an toàn xã hội, hoặc xâm
+          phạm tính mạng, sức khỏe, danh dự, nhân phẩm, tài sản của chủ thể dữ liệu. Bên xử lý phát hiện
+          vi phạm phải báo kịp thời cho bên kiểm soát.
+        params:
+          - topic: "su-co-thong-bao-co-quan"
+            value: 72
+            unit: "hour"
+            trigger: "kể từ khi phát hiện hành vi vi phạm"
+            recipient: "Cơ quan chuyên trách bảo vệ dữ liệu cá nhân"
+            scope: "vi phạm có thể gây tổn hại theo khoản 1"
+      - id: D23.K2
+        title: Lập biên bản xác nhận vi phạm và phối hợp cơ quan chuyên trách xử lý

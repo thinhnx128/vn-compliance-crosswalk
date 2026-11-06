@@ -39,7 +39,7 @@ def test_all_bundled_and_example_data_valid(repo):
 
 
 def test_catalog_status(repo):
-    assert repo.catalog("luat91-2025").status == "skeleton"
+    assert repo.catalog("luat91-2025").status == "draft"  # bản một phần, chỉ nghĩa vụ có tham số
     nd = repo.catalog("nd331-2026")
     assert nd.status == "draft" and nd.document_number == "331/2026/NĐ-CP"
     assert str(nd.effective_date) == "2026-08-19"

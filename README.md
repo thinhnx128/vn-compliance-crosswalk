@@ -32,7 +32,8 @@ mức tin cậy**, nên ai cũng có thể phản biện qua pull request.
 |---|---|---|
 | ISO/IEC 27001:2022 Phụ lục A (93 biện pháp) | `iso27001-2022` | Đầy đủ mã và nhãn |
 | Nghị định 331/2026/NĐ-CP ngày 19/8/2026 (64 yêu cầu, 9 nhóm, gắn thẻ cấp độ) | `nd331-2026` | Bản nháp, cần rà soát chéo |
-| Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 | `luat91-2025` | Khung, dự kiến v0.3 |
+| Luật Bảo vệ dữ liệu cá nhân 91/2025/QH15 | `luat91-2025` | Bản một phần: nghĩa vụ có thời hạn định lượng |
+| Nghị định 356/2025/NĐ-CP hướng dẫn Luật Bảo vệ dữ liệu cá nhân | `nd356-2025` | Bản một phần: nghĩa vụ có thời hạn định lượng |
 
 | Bảng đối chiếu | Dòng | Trạng thái |
 |---|---:|---|
@@ -40,6 +41,26 @@ mức tin cậy**, nên ai cũng có thể phản biện qua pull request.
 
 Danh mục `skeleton` **không được dùng để đánh giá tuân thủ**. Trong danh mục NĐ 331, các mục gắn
 thẻ `can-doi-chieu` (Điều 33–37) chưa đối chiếu được toàn văn, phải kiểm tra văn bản gốc.
+
+### Chồng chéo thời hạn giữa các văn bản
+
+`vncc conflicts` so sánh các thời hạn định lượng cùng chủ đề giữa các văn bản. Ví dụ nổi bật: một sự
+cố lộ dữ liệu cá nhân trên hệ thống thông tin có thể đồng thời phát sinh hai nghĩa vụ thông báo:
+
+| Văn bản | Thời hạn | Nơi nhận |
+|---|---|---|
+| NĐ 331/2026, Điều 31 khoản 2 điểm d | 24 giờ (thông báo ban đầu, sự cố nghiêm trọng); 72 giờ (báo cáo đầy đủ) | Lực lượng chuyên trách bảo vệ an ninh mạng |
+| Luật 91/2025, Điều 23 khoản 1 | 72 giờ | Cơ quan chuyên trách bảo vệ dữ liệu cá nhân |
+
+Công cụ gợi ý lấy mức chặt nhất (24 giờ) làm SLA nội bộ và gửi đủ các nơi nhận. Báo cáo cũng nằm ở
+trang "Thời hạn & chồng chéo" trong gói Excel.
+
+### Bằng chứng gợi ý cho từng yêu cầu
+
+Thư mục `evidence/` chứa gợi ý bằng chứng cho đủ 93 biện pháp ISO/IEC 27001 và 64 yêu cầu NĐ 331
+(hồ sơ, bản ghi, tần suất, biểu mẫu nếu có). Bằng chứng hiện trong SoA, báo cáo khoảng cách, gói Excel,
+lệnh `vncc show`, và xuất thành danh mục kiểm tra bằng `vncc evidence nd331-2026 --level 2`.
+Đây là gợi ý thực hành của tác giả, không phải danh mục hồ sơ do văn bản quy định.
 
 ### Phát hiện chính từ bảng đối chiếu NĐ 331
 
@@ -87,6 +108,10 @@ vncc gap hoso-nd331.yaml -o gap-nd331.md
 
 # Độ phủ bảng đối chiếu: yêu cầu NĐ chưa có biện pháp ISO tương ứng
 vncc coverage iso27001-2022__nd331-2026
+
+# Chồng chéo thời hạn giữa các văn bản; danh mục kiểm tra bằng chứng theo cấp độ
+vncc conflicts -o chong-cheo.md
+vncc evidence nd331-2026 --level 2 -o bang-chung-cap-do-2.md
 
 # Xác định cấp độ HTTT: hỏi–đáp, hoặc đọc tệp câu trả lời xuất từ công cụ web
 vncc level
@@ -137,6 +162,8 @@ Ba loại tệp YAML, phân biệt bằng trường `kind`. JSON Schema nằm tr
 |---|---|
 | `catalog` | Danh mục yêu cầu: nhóm, mã, nhãn ngắn tự diễn đạt, thẻ (`cap-do-N`, chủ thể thực hiện, `can-doi-chieu`) |
 | `mapping` | Đối chiếu giữa hai danh mục: quan hệ, lý do, mức tin cậy, người rà soát |
+| `evidence` | Gợi ý bằng chứng cho từng yêu cầu của một danh mục (lớp riêng, không sửa danh mục) |
+| `topics` | Từ điển chủ đề tham số định lượng, dùng để so sánh thời hạn giữa văn bản |
 | `assessment` | Hồ sơ đánh giá của một tổ chức: cấp độ HTTT (tùy chọn), áp dụng, trạng thái, bằng chứng, người phụ trách |
 
 **Lọc theo cấp độ:** yêu cầu không gắn thẻ `cap-do-N` áp dụng cho mọi cấp độ; yêu cầu có thẻ chỉ áp
@@ -149,7 +176,8 @@ Loại quan hệ theo cách tiếp cận tập hợp của NIST OLIR: `equivalen
 
 - **v0.1:** danh mục ISO 27001:2022, mô hình dữ liệu, SoA, báo cáo khoảng cách, ví dụ hư cấu.
 - **v0.2:** danh mục và đối chiếu NĐ 331/2026, lọc theo cấp độ, báo cáo độ phủ.
-- **v0.3 (hiện tại):** công cụ xác định cấp độ (web và dòng lệnh, dùng chung một bộ tiêu chí), gói Excel tự đánh giá, phát hành tự động.
+- **v0.4 (hiện tại):** tham số định lượng, phát hiện chồng chéo thời hạn, gợi ý bằng chứng cho từng yêu cầu.
+- **v0.3:** công cụ xác định cấp độ (web và dòng lệnh, dùng chung một bộ tiêu chí), gói Excel tự đánh giá, phát hành tự động.
 - **v0.3:** đối chiếu toàn văn Điều 33–37 NĐ 331; điều khoản chính ISO/IEC 27001 (4–10); Luật 91/2025 và NĐ 356/2025.
 - **v0.4:** xuất định dạng NIST OSCAL; trang tra cứu tĩnh trên GitHub Pages.
 
@@ -182,7 +210,9 @@ style), a rationale and a confidence level, so mappings can be reviewed like cod
 No-install tools: a [security-level wizard](https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/)
 for Decree 331/2026 (runs fully in the browser) and an
 [Excel self-assessment pack](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest)
-attached to every release.
+attached to every release. `vncc conflicts` surfaces overlapping deadlines across laws (e.g. a
+24-hour cybersecurity incident notice under Decree 331/2026 vs a 72-hour personal-data breach notice
+under Law 91/2025), and every requirement carries suggested audit evidence.
 
 ```bash
 pip install "git+https://github.com/thinhnx128/vn-compliance-crosswalk"

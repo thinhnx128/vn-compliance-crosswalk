@@ -1,0 +1,25 @@
+# Từ điển chủ đề tham số định lượng.
+# Tham số cùng chủ đề ở các văn bản khác nhau được so sánh với nhau trong `vncc conflicts`.
+kind: topics
+topics:
+  - id: su-co-thong-bao-co-quan
+    title: Thông báo sự cố, vi phạm cho cơ quan quản lý
+    description: Thời hạn kể từ khi phát hiện sự cố an ninh mạng hoặc vi phạm bảo vệ dữ liệu cá nhân.
+  - id: su-co-thong-bao-chu-the
+    title: Thông báo sự cố, vi phạm cho chủ thể dữ liệu
+  - id: su-co-luu-ho-so
+    title: Thời hạn lưu hồ sơ sự cố, vi phạm
+  - id: danh-gia-tac-dong-nop-ho-so
+    title: Nộp hồ sơ đánh giá tác động (xử lý dữ liệu cá nhân, chuyển dữ liệu ra nước ngoài)
+  - id: yeu-cau-chu-the-phan-hoi
+    title: Phản hồi yêu cầu của chủ thể dữ liệu
+  - id: yeu-cau-chu-the-thuc-hien
+    title: Thực hiện yêu cầu của chủ thể dữ liệu
+  - id: bao-cao-dinh-ky-noi-bo
+    title: Báo cáo định kỳ nội bộ gửi chủ quản
+  - id: bao-cao-dinh-ky-co-quan
+    title: Báo cáo định kỳ gửi cơ quan quản lý
+  - id: chuyen-tiep-phe-duyet
+    title: Thời hạn chuyển tiếp - phê duyệt cấp độ, hồ sơ
+  - id: chuyen-tiep-dap-ung
+    title: Thời hạn chuyển tiếp - đáp ứng đầy đủ yêu cầu

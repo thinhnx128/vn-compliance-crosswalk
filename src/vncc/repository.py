@@ -13,7 +13,19 @@ from pathlib import Path
 import yaml
 from pydantic import ValidationError
 
-from .models import MODELS, Assessment, Catalog, Control, Mapping, Relationship
+from .models import (
+    MODELS,
+    Assessment,
+    Catalog,
+    Control,
+    Evidence,
+    EvidenceItem,
+    Mapping,
+    Param,
+    Relationship,
+    Topic,
+    Topics,
+)
 
 
 class DataError(Exception):
@@ -27,7 +39,7 @@ def load_file(path: str | Path):
     except yaml.YAMLError as exc:
         raise DataError(f"{path}: YAML không hợp lệ: {exc}") from exc
     if not isinstance(raw, dict) or raw.get("kind") not in MODELS:
-        raise DataError(f"{path}: thiếu trường kind (catalog | mapping | assessment)")
+        raise DataError(f"{path}: thiếu trường kind ({' | '.join(MODELS)})")
     try:
         return MODELS[raw["kind"]].model_validate(raw)
     except ValidationError as exc:
@@ -69,9 +81,18 @@ class Coverage:
 
 
 @dataclass
+class ParamRef:
+    catalog: Catalog
+    control: Control
+    param: Param
+
+
+@dataclass
 class Repository:
     catalogs: dict[str, Catalog] = field(default_factory=dict)
     mappings: dict[str, Mapping] = field(default_factory=dict)
+    evidence: dict[str, Evidence] = field(default_factory=dict)
+    topics: dict[str, Topic] = field(default_factory=dict)
     sources: dict[str, Path] = field(default_factory=dict)
 
     @classmethod
@@ -79,7 +100,7 @@ class Repository:
         repo = cls()
         roots = ([bundled_data_dir()] if include_bundled else []) + [Path(d) for d in dirs]
         for root in roots:
-            for sub in ("catalogs", "mappings"):
+            for sub in ("catalogs", "mappings", "evidence", "parameters"):
                 for path in sorted((root / sub).glob("*.y*ml")):
                     repo.add(load_file(path), path)
         return repo
@@ -89,8 +110,14 @@ class Repository:
             self.catalogs[obj.id] = obj
         elif isinstance(obj, Mapping):
             self.mappings[obj.id] = obj
+        elif isinstance(obj, Evidence):
+            self.evidence[obj.id] = obj
+        elif isinstance(obj, Topics):
+            for t in obj.topics:
+                self.topics[t.id] = t
+            return
         else:
-            raise DataError(f"{path}: chỉ nạp catalog/mapping vào kho dữ liệu")
+            raise DataError(f"{path}: chỉ nạp catalog/mapping/evidence/topics vào kho dữ liệu")
         if path:
             self.sources[obj.id] = path
 
@@ -117,7 +144,37 @@ class Repository:
                     errors.append(f"{m.id} dòng {i}: source '{e.source}' không có trong danh mục")
                 if e.target and e.target not in dst:
                     errors.append(f"{m.id} dòng {i}: target '{e.target}' không có trong danh mục")
+        for ev in self.evidence.values():
+            if ev.catalog not in self.catalogs:
+                errors.append(f"{ev.id}: tham chiếu danh mục không tồn tại: {ev.catalog}")
+                continue
+            idx = self.catalogs[ev.catalog].index()
+            errors += [
+                f"{ev.id}: control '{cid}' không có trong {ev.catalog}" for cid in ev.items if cid not in idx
+            ]
+        for ref in self.params():
+            if ref.param.topic not in self.topics:
+                errors.append(
+                    f"{ref.catalog.id}:{ref.control.id}: chủ đề tham số '{ref.param.topic}' chưa khai báo"
+                )
         return errors
+
+    # ------------------------------------------------------------------ tham số, bằng chứng
+    def params(self, topic: str | None = None) -> list[ParamRef]:
+        return [
+            ParamRef(cat, c, p)
+            for cat in self.catalogs.values()
+            for _, c in cat.controls()
+            for p in c.params
+            if topic is None or p.topic == topic
+        ]
+
+    def evidence_for(self, catalog_id: str, control_id: str) -> list[EvidenceItem]:
+        out: list[EvidenceItem] = []
+        for ev in self.evidence.values():
+            if ev.catalog == catalog_id:
+                out += ev.items.get(control_id, [])
+        return out
 
     def coverage(self, mapping_id: str) -> Coverage:
         """Control ở mỗi phía của bảng đối chiếu chưa có dòng đối chiếu nào (kể cả no_relationship)."""

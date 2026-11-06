@@ -3,6 +3,19 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), phiên bản theo [SemVer](https://semver.org/).
 Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từng tệp YAML.
 
+## [0.4.0] - 2026-11
+
+### Thêm mới
+- Tham số định lượng trên yêu cầu (`params`: thời hạn, mốc ngày, chu kỳ, nơi nhận, phạm vi, trạng thái
+  đối chiếu) và từ điển chủ đề `parameters/topics.yaml`.
+- Lệnh `vncc conflicts` và trang Excel "Thời hạn & chồng chéo": phát hiện thời hạn khác nhau, nơi nhận
+  khác nhau giữa các văn bản, gợi ý SLA nội bộ theo mức chặt nhất.
+- Danh mục một phần `luat91-2025` (Điều 23) và `nd356-2025` (Điều 5, 8, 18, 19, 28, 29): chỉ các nghĩa
+  vụ có tham số định lượng đã đối chiếu.
+- Lớp bằng chứng `evidence/` cho đủ 93 biện pháp ISO/IEC 27001 và 64 yêu cầu NĐ 331; hiện trong SoA,
+  báo cáo khoảng cách, gói Excel, `vncc show`; lệnh `vncc evidence` xuất danh mục kiểm tra theo cấp độ.
+- JSON Schema cho `evidence` và `topics`.
+
 ## [0.3.1] - 2026-11
 
 ### Thêm mới

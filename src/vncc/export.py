@@ -17,10 +17,11 @@ from openpyxl.worksheet.datavalidation import DataValidation
 
 from . import __version__
 from .branding import AUTHOR, CREDIT, GITHUB_URL
+from .conflicts import FLAG_LABELS, analyze
 from .levels import criteria_data
 from .metrics import RULE
 from .models import LEVEL_TAG, STATUS_LABELS, applies_to_level
-from .reports import DISCLAIMER
+from .reports import DISCLAIMER, evidence_text, params_text
 from .repository import Repository
 
 HEADER_FILL = PatternFill("solid", fgColor="1F4E78")
@@ -140,13 +141,15 @@ def export_xlsx(repo: Repository, mapping_id: str, out: str | Path) -> Path:
         "Hạn",
         "Ghi chú",
         f"Biện pháp {src.id} liên quan",
+        "Bằng chứng gợi ý",
+        "Thời hạn, tham số",
         "CĐ1",
         "CĐ2",
         "CĐ3",
         "CĐ4",
         "CĐ5",
     ]
-    widths = [11, 26, 56, 20, 9, 9, 20, 34, 18, 12, 26, 30, 5, 5, 5, 5, 5]
+    widths = [11, 26, 56, 20, 9, 9, 20, 34, 18, 12, 26, 30, 48, 30, 5, 5, 5, 5, 5]
     head_row = 16
     _header(sa, head_row, headers, widths)
     first = head_row + 1
@@ -170,6 +173,8 @@ def export_xlsx(repo: Repository, mapping_id: str, out: str | Path) -> Path:
                 "",
                 "",
                 _related(repo, dst.id, c.id, src.id),
+                evidence_text(repo, dst.id, c.id),
+                params_text(c),
                 *flags,
             ]
         )
@@ -182,11 +187,11 @@ def export_xlsx(repo: Repository, mapping_id: str, out: str | Path) -> Path:
     sa.add_data_validation(dv_status)
     dv_status.add(f"{col['Trạng thái']}{first}:{col['Trạng thái']}{last}")
     sa.conditional_formatting.add(
-        f"A{first}:{col['Biện pháp ' + src.id + ' liên quan']}{last}",
+        f"A{first}:{col['Thời hạn, tham số']}{last}",
         FormulaRule(formula=[f'${col["Áp dụng"]}{first}="Không"'], font=Font(color="A6A6A6")),
     )
     sa.freeze_panes = f"D{first}"
-    sa.auto_filter.ref = f"A{head_row}:{col['Biện pháp ' + src.id + ' liên quan']}{last}"
+    sa.auto_filter.ref = f"A{head_row}:{col['Thời hạn, tham số']}{last}"
 
     ap = f"${col['Áp dụng']}${first}:${col['Áp dụng']}${last}"
     st = f"${col['Trạng thái']}${first}:${col['Trạng thái']}${last}"
@@ -317,6 +322,65 @@ def export_xlsx(repo: Repository, mapping_id: str, out: str | Path) -> Path:
         cv.append([c.id, g, c.title])
     for k in ("A3", "A4", "A5"):
         cv[k].alignment = WRAP_TOP
+
+    # ------------------------------------------------------------------ Thời hạn & chồng chéo
+    findings = analyze(repo)
+    if findings:
+        tx = wb.create_sheet("Thời hạn & chồng chéo")
+        tx["A1"] = "Thời hạn định lượng và chồng chéo giữa các văn bản"
+        tx["A1"].font = TITLE_FONT
+        tx["A2"] = (
+            "Mức chặt nhất = thời hạn ngắn nhất sau quy đổi ra giờ; dùng làm SLA nội bộ khi một sự kiện "
+            "thuộc phạm vi nhiều văn bản. Ngày làm việc tính như ngày lịch (gần đúng)."
+        )
+        tx["A2"].alignment = WRAP_TOP
+        tx.merge_cells("A2:I2")
+        tx.row_dimensions[2].height = 32
+        _header(
+            tx,
+            4,
+            [
+                "Chủ đề",
+                "Văn bản",
+                "Điều khoản",
+                "Thời hạn",
+                "Mốc tính",
+                "Nơi nhận",
+                "Phạm vi",
+                "Đã đối chiếu",
+                "Ghi chú",
+            ],
+            [30, 18, 11, 16, 30, 34, 34, 11, 46],
+        )
+        hit = PatternFill("solid", fgColor="FCE4D6")
+        for f in findings:
+            note = "; ".join(FLAG_LABELS[x] for x in f.flags)
+            for ref in sorted(
+                f.refs, key=lambda x: (x.param.hours if x.param.hours is not None else 10**9, x.catalog.id)
+            ):
+                p = ref.param
+                is_min = f.strictest is ref and len(f.catalogs) > 1
+                tx.append(
+                    [
+                        f.title,
+                        ref.catalog.document_number or ref.catalog.id,
+                        p.source or ref.control.id,
+                        p.label(),
+                        p.trigger or "",
+                        p.recipient or "",
+                        p.scope or "",
+                        "Có" if p.verified else "Chưa",
+                        ("Mức chặt nhất. " if is_min else "") + note,
+                    ]
+                )
+                if f.is_conflict:
+                    for cell in tx[tx.max_row]:
+                        cell.fill = hit
+        for row in tx.iter_rows(min_row=5):
+            for cell in row:
+                cell.alignment = WRAP_TOP
+        tx.freeze_panes = "B5"
+        tx.auto_filter.ref = f"A4:I{tx.max_row}"
 
     # ------------------------------------------------------------------ Tiêu chí cấp độ
     if dst.id.startswith("nd331"):

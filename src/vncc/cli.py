@@ -8,9 +8,10 @@ from pathlib import Path
 import typer
 
 from . import __version__, levels
+from .conflicts import conflicts_markdown
 from .export import export_xlsx
 from .models import MODELS, Assessment
-from .reports import assessment_template, coverage_markdown, gap_markdown, write_soa
+from .reports import assessment_template, coverage_markdown, evidence_markdown, gap_markdown, write_soa
 from .repository import DataError, Repository, load_file
 
 app = typer.Typer(
@@ -76,6 +77,14 @@ def show(
         typer.secho(f"Không tìm thấy {catalog}:{control}", fg="red", err=True)
         raise typer.Exit(1) from exc
     typer.echo(f"{catalog}:{ctl.id}  {ctl.title}" + (f"  ({ctl.title_en})" if ctl.title_en else ""))
+    for p in ctl.params:
+        flag = "" if p.verified else "  [cần đối chiếu]"
+        typer.echo(
+            f"  Thời hạn: {p.label()} {p.trigger or ''} - {p.scope or ''} -> {p.recipient or '-'}{flag}"
+        )
+    for e in repo.evidence_for(catalog, control):
+        extra = "; ".join(x for x in (e.cadence, e.form) if x)
+        typer.echo(f"  Bằng chứng: {e.name}" + (f" ({extra})" if extra else ""))
     items = repo.related(catalog, control, set(related) if related else None)
     if not items:
         typer.echo("  (chưa có đối chiếu)")
@@ -169,6 +178,41 @@ def coverage(
     repo = _repo(data_dir)
     try:
         text = coverage_markdown(repo.coverage(mapping))
+    except DataError as exc:
+        typer.secho(str(exc), fg="red", err=True)
+        raise typer.Exit(1) from exc
+    if out:
+        out.write_text(text, encoding="utf-8")
+        typer.echo(f"Đã ghi: {out}")
+    else:
+        typer.echo(text)
+
+
+@app.command()
+def conflicts(
+    out: Path | None = typer.Option(None, "--out", "-o", help="Bỏ trống để in ra màn hình."),
+    data_dir: list[Path] | None = DataDirs,
+) -> None:
+    """Chồng chéo thời hạn, nơi nhận giữa các văn bản (ví dụ thông báo sự cố 24 giờ và 72 giờ)."""
+    text = conflicts_markdown(_repo(data_dir))
+    if out:
+        out.write_text(text, encoding="utf-8")
+        typer.echo(f"Đã ghi: {out}")
+    else:
+        typer.echo(text)
+
+
+@app.command()
+def evidence(
+    catalog: str,
+    out: Path | None = typer.Option(None, "--out", "-o", help="Bỏ trống để in ra màn hình."),
+    level: int | None = Level,
+    data_dir: list[Path] | None = DataDirs,
+) -> None:
+    """Danh mục kiểm tra bằng chứng cho từng yêu cầu (lọc theo cấp độ nếu có)."""
+    repo = _repo(data_dir)
+    try:
+        text = evidence_markdown(repo, catalog, level)
     except DataError as exc:
         typer.secho(str(exc), fg="red", err=True)
         raise typer.Exit(1) from exc

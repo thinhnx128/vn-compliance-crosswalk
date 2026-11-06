@@ -47,6 +47,14 @@
           },
           "title": "Tags",
           "type": "array"
+        },
+        "params": {
+          "description": "Tham số định lượng của nghĩa vụ",
+          "items": {
+            "$ref": "#/$defs/Param"
+          },
+          "title": "Params",
+          "type": "array"
         }
       },
       "required": [
@@ -80,6 +88,107 @@
         "title"
       ],
       "title": "Group",
+      "type": "object"
+    },
+    "Param": {
+      "additionalProperties": false,
+      "description": "Một tham số định lượng của nghĩa vụ: thời hạn, chu kỳ, ngưỡng, mốc ngày trong năm.",
+      "properties": {
+        "topic": {
+          "description": "Mã chủ đề trong parameters/topics.yaml, dùng để so sánh giữa văn bản",
+          "title": "Topic",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "type": "integer"
+            },
+            {
+              "type": "string"
+            }
+          ],
+          "description": "Số lượng; với unit=date là MM-DD",
+          "title": "Value"
+        },
+        "unit": {
+          "enum": [
+            "hour",
+            "working_day",
+            "day",
+            "month",
+            "year",
+            "date",
+            "count"
+          ],
+          "title": "Unit",
+          "type": "string"
+        },
+        "trigger": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Mốc bắt đầu tính, ví dụ 'kể từ khi phát hiện'",
+          "title": "Trigger"
+        },
+        "recipient": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Nơi nhận, nếu là nghĩa vụ báo cáo, thông báo",
+          "title": "Recipient"
+        },
+        "scope": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Phạm vi áp dụng, ví dụ 'sự cố nghiêm trọng'",
+          "title": "Scope"
+        },
+        "verified": {
+          "default": true,
+          "description": "false nếu chưa đối chiếu được toàn văn",
+          "title": "Verified",
+          "type": "boolean"
+        },
+        "source": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Điều, khoản cụ thể nếu khác mã control",
+          "title": "Source"
+        }
+      },
+      "required": [
+        "topic",
+        "value",
+        "unit"
+      ],
+      "title": "Param",
       "type": "object"
     }
   },

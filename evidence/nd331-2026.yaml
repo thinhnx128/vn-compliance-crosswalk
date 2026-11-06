@@ -1,0 +1,160 @@
+# Gợi ý bằng chứng cho từng yêu cầu của NĐ 331/2026/NĐ-CP.
+# Đây là hướng dẫn thực hành do tác giả đề xuất, không phải danh mục hồ sơ do văn bản quy định
+# (trừ khi ghi rõ biểu mẫu). Tổ chức điều chỉnh theo quy mô và hệ thống tài liệu nội bộ.
+kind: evidence
+id: nd331-2026-evidence
+catalog: nd331-2026
+version: 0.1.0
+status: draft
+author: thinhnx128
+notice: >-
+  Gợi ý bằng chứng do tác giả đề xuất, chưa rà soát chéo. Một bằng chứng có thể dùng cho nhiều yêu cầu.
+items:
+  D4.K3:
+    - {name: "Văn bản ủy quyền chủ quản nêu phạm vi, trách nhiệm, thời hạn"}
+  D5.K2:
+    - {name: "Quyết định hoặc văn bản chỉ định đơn vị vận hành chủ trì"}
+    - {name: "Ma trận phân công giữa các đơn vị vận hành"}
+  D5.K3.a:
+    - {name: "Hợp đồng thuê dịch vụ CNTT có điều khoản quản trị dữ liệu, kiểm soát truy cập, bảo đảm an ninh mạng"}
+    - {name: "Bảng rà soát điều khoản an ninh mạng của các hợp đồng thuê dịch vụ hiện hữu", cadence: "hằng năm"}
+  D5.K3.b:
+    - {name: "Điều khoản chuyển giao, duy trì khi hết hạn trong hợp đồng thuê dịch vụ"}
+    - {name: "Danh sách hợp đồng thuê dịch vụ kèm ngày hết hạn", cadence: "hằng quý"}
+  D31.K1:
+    - {name: "Quyết định chỉ định đơn vị chuyên trách về an ninh mạng, kèm chức năng, nhiệm vụ, đầu mối"}
+    - {name: "Danh sách nhân sự chuyên trách an ninh mạng"}
+  D32.K1:
+    - {name: "Kế hoạch công tác bảo vệ an ninh mạng hằng năm", cadence: "hằng năm"}
+    - {name: "Báo cáo kết quả kiểm tra, đôn đốc của đơn vị chuyên trách"}
+  D32.K2:
+    - {name: "Đầu mối liên hệ với lực lượng chuyên trách bảo vệ an ninh mạng"}
+    - {name: "Biên bản, văn bản phối hợp kiểm tra, giám sát, ứng cứu sự cố"}
+  D32.K3:
+    - {name: "Hồ sơ năng lực nhân sự: bằng cấp, chứng chỉ, kế hoạch đào tạo"}
+  D32.K5:
+    - {name: "Báo cáo dò quét lỗ hổng và kiểm thử xâm nhập", cadence: "theo chu kỳ của chương trình kiểm tra"}
+    - {name: "Kế hoạch khắc phục lỗ hổng và trạng thái xử lý"}
+  D33:
+    - {name: "Văn bản phân công nhiệm vụ của chủ quản cho đơn vị vận hành"}
+    - {name: "Nhật ký vận hành và báo cáo thực hiện biện pháp bảo vệ"}
+  D7.K1:
+    - {name: "Danh mục HTTT: tên, chức năng, dữ liệu xử lý, đối tượng phục vụ, chủ quản, đơn vị vận hành"}
+  D7.K2:
+    - {name: "Sơ đồ phạm vi, luồng dữ liệu và phụ thuộc của từng HTTT"}
+    - {name: "Phân tích tác động khi sự cố, khả năng lan truyền rủi ro giữa hệ thống liên thông"}
+  D8.K1:
+    - {name: "Danh mục HTTT có cột chủ quản, mỗi hệ thống một chủ quản"}
+  D8.K2:
+    - {name: "Thuyết minh đề xuất cấp độ thể hiện mọi tiêu chí thỏa mãn và cấp độ cao nhất được chọn"}
+  D8.K3:
+    - {name: "Giải trình cách gộp, tách HTTT dựa trên chức năng, luồng dữ liệu, phụ thuộc vận hành"}
+  D9.K1:
+    - {name: "Quy định phân loại thông tin ánh xạ sang bốn loại thông tin của Nghị định"}
+    - {name: "Kết quả phân loại thông tin cho từng HTTT"}
+  D9.K2:
+    - {name: "Kết quả phân loại HTTT theo chức năng trong danh mục HTTT"}
+  D10.K2:
+    - {name: "Quy trình đánh giá rủi ro an ninh mạng có điều kiện kích hoạt đánh giá lại"}
+    - {name: "Báo cáo đánh giá rủi ro lần đầu và các lần đánh giá lại"}
+  D10.K3:
+    - {name: "Báo cáo đánh giá rủi ro có đủ bảy nội dung tối thiểu"}
+    - {name: "Sổ đăng ký rủi ro gắn với từng HTTT"}
+  D10.K4:
+    - {name: "Truy vết từ kết quả đánh giá rủi ro sang cấp độ đề xuất và biện pháp lựa chọn"}
+  D10.K5:
+    - {name: "Biên bản xem xét so sánh mức rủi ro với cấp độ hiện tại"}
+  D10.K6:
+    - {name: "Kho lưu hồ sơ đánh giá rủi ro có phân quyền và thời hạn lưu"}
+  D18.K4:
+    - {name: "Quyết định thành lập Hội đồng thẩm định độc lập hoặc giao đơn vị khác chủ trì thẩm định"}
+  D19.K1:
+    - {name: "Báo cáo nghiên cứu khả thi hoặc báo cáo đầu tư có phần thuyết minh đề xuất cấp độ"}
+  D19.K2:
+    - {name: "Kế hoạch thuê dịch vụ CNTT có phần thuyết minh đề xuất cấp độ"}
+  D20:
+    - {name: "Hồ sơ đề xuất cấp độ, ý kiến thẩm định và quyết định phê duyệt cấp độ", form: "Mẫu kèm Nghị định"}
+  D21:
+    - {name: "Bộ hồ sơ đề xuất cấp độ đủ thành phần theo Điều 21"}
+  D22.K3:
+    - {name: "Thuyết minh tổng quan: mô hình logic, vật lý, danh mục thiết bị, dịch vụ, vùng mạng, địa chỉ IP"}
+  D22.K4:
+    - {name: "Thuyết minh đề xuất cấp độ và nhận diện rủi ro sơ bộ cho từng hệ thống"}
+  D22.K5:
+    - {name: "Phân tích hệ thống liên quan, nguy cơ tấn công, tác động công cộng, yêu cầu vận hành 24/7"}
+  D22.K6:
+    - {name: "Thuyết minh phương án: bảng đối chiếu từng yêu cầu theo cấp độ với biện pháp đáp ứng"}
+  D25:
+    - {name: "Hồ sơ xác định lại cấp độ khi có thay đổi"}
+    - {name: "Tiêu chí thay đổi kích hoạt xác định lại cấp độ trong quy trình quản lý thay đổi"}
+  D28.K1:
+    - {name: "Quy định bảo đảm an ninh mạng cho toàn bộ vòng đời HTTT"}
+    - {name: "Quy trình sao lưu, lưu trữ và biên bản kiểm thử phục hồi", cadence: "định kỳ"}
+  D28.K3:
+    - {name: "Biên bản đánh giá điều kiện an ninh mạng trước khi đưa vào vận hành"}
+  D28.K4:
+    - {name: "Bằng chứng triển khai biện pháp theo phương án: cấu hình, chính sách, nhật ký"}
+  D28.K5:
+    - {name: "Kế hoạch và báo cáo kiểm tra, giám sát, đánh giá hiệu quả biện pháp"}
+    - {name: "Kế hoạch khắc phục tồn tại sau kiểm tra"}
+  D29.K2.a:
+    - {name: "Tài liệu thiết kế an toàn, yêu cầu bảo mật trong hồ sơ thiết kế"}
+  D29.K2.b:
+    - {name: "Quy trình vận hành an toàn, nhật ký vận hành"}
+  D29.K2.c:
+    - {name: "Chương trình kiểm tra, đánh giá an ninh mạng", cadence: "hằng năm"}
+  D29.K2.d:
+    - {name: "Quy trình và kế hoạch xử lý rủi ro an ninh mạng"}
+  D29.K2.đ:
+    - {name: "Phương án giám sát: nguồn nhật ký, quy tắc cảnh báo, người trực"}
+  D29.K2.e:
+    - {name: "Kế hoạch ứng phó sự cố, kế hoạch khôi phục sau thảm họa"}
+    - {name: "Biên bản diễn tập, kiểm thử phục hồi", cadence: "hằng năm"}
+  D29.K2.g:
+    - {name: "Quy trình kết thúc vận hành, biên bản hủy dữ liệu, thanh lý thiết bị"}
+  D30.K3:
+    - {name: "Bảng đối chiếu bảy nhóm yêu cầu quản lý với văn bản nội bộ tương ứng"}
+  D30.K4.a:
+    - {name: "Sơ đồ phân vùng mạng, cấu hình tường lửa, danh sách quy tắc truy cập"}
+  D30.K4.b:
+    - {name: "Tiêu chuẩn cấu hình an toàn máy chủ, báo cáo vá lỗi, phòng chống mã độc"}
+  D30.K4.c:
+    - {name: "Yêu cầu bảo mật ứng dụng, kết quả kiểm thử bảo mật ứng dụng"}
+  D30.K4.d:
+    - {name: "Chính sách mã hóa, sao lưu, che giấu dữ liệu và bằng chứng triển khai"}
+  D30.K5.a:
+    - {name: "Phân tích phương án dùng chung giải pháp bảo vệ trong hồ sơ đầu tư"}
+  D30.K5.b:
+    - {name: "Thiết kế dự phòng, phân tách và cơ chế hạn chế lan truyền sự cố"}
+  D30.K6:
+    - {name: "Biên bản nghiệm thu xác nhận đã triển khai đầy đủ phương án trước vận hành"}
+  D30.K7:
+    - {name: "Quyết định ban hành Quy chế bảo đảm an ninh mạng, ngày ban hành trước ngày phê duyệt cấp độ"}
+  D30.K8:
+    - {name: "Hợp đồng và tài liệu kỹ thuật của nhà cung cấp chứng minh tách biệt logic hệ thống, vùng mạng, lưu trữ"}
+  D30.K9:
+    - {name: "Tài liệu chứng minh tách biệt vật lý; phạm vi giải pháp dùng chung chỉ ở lớp biên"}
+  D26.K2:
+    - {name: "Phương án dự phòng khi cách ly HTTT phục vụ kiểm tra"}
+  D27.K2:
+    - {name: "Báo cáo đánh giá hiệu quả biện pháp: quy chế, tuân thủ quy trình, cấu hình"}
+  D27.K3:
+    - {name: "Báo cáo dò quét mã độc, lỗ hổng, kiểm thử xâm nhập, đánh giá mã nguồn"}
+    - {name: "Theo dõi khắc phục tồn tại đến khi đóng"}
+  D31.K2.c:
+    - {name: "Chương trình tự đánh giá do bộ phận độc lập với vận hành thực hiện"}
+    - {name: "Báo cáo đánh giá của bên thứ ba trong trường hợp bắt buộc"}
+  D31.K2.d:
+    - {name: "Quy trình quản lý sự cố có mốc thông báo 24 giờ, 72 giờ và đầu mối nhận báo cáo"}
+    - {name: "Sổ theo dõi sự cố có thời điểm phát hiện, thời điểm thông báo"}
+  D31.K3:
+    - {name: "Kế hoạch và danh sách tham dự đào tạo, tuyên truyền", cadence: "hằng năm"}
+    - {name: "Kịch bản và báo cáo diễn tập an ninh mạng", cadence: "hằng năm"}
+  D35:
+    - {name: "Báo cáo nội bộ gửi chủ quản và báo cáo tổng hợp gửi Bộ Công an", cadence: "hằng năm, tháng 12"}
+  D36:
+    - {name: "Báo cáo có đủ nội dung theo Điều 36 và mẫu kèm Nghị định", form: "Mẫu kèm Nghị định"}
+  D37:
+    - {name: "Lịch trình dự án thể hiện thời điểm phê duyệt hồ sơ đề xuất cấp độ"}
+  D39.K1:
+    - {name: "Kế hoạch chuyển tiếp với mốc 6 tháng và 12 tháng, trạng thái từng HTTT"}

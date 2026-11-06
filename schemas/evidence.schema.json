@@ -1,0 +1,120 @@
+{
+  "$defs": {
+    "EvidenceItem": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "description": "Hồ sơ, bản ghi, cấu hình hoặc báo cáo cần có",
+          "minLength": 3,
+          "title": "Name",
+          "type": "string"
+        },
+        "cadence": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Tần suất lập hoặc cập nhật, nếu có",
+          "title": "Cadence"
+        },
+        "form": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "description": "Biểu mẫu theo văn bản, nếu có",
+          "title": "Form"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "title": "EvidenceItem",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Lớp gợi ý bằng chứng cho một danh mục; tách khỏi danh mục vì là hướng dẫn, không phải văn bản.",
+  "properties": {
+    "kind": {
+      "const": "evidence",
+      "default": "evidence",
+      "title": "Kind",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[a-z0-9][a-z0-9_.-]*$",
+      "title": "Id",
+      "type": "string"
+    },
+    "catalog": {
+      "title": "Catalog",
+      "type": "string"
+    },
+    "version": {
+      "title": "Version",
+      "type": "string"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "reviewed"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "author": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Author"
+    },
+    "notice": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Notice"
+    },
+    "items": {
+      "additionalProperties": {
+        "items": {
+          "$ref": "#/$defs/EvidenceItem"
+        },
+        "type": "array"
+      },
+      "title": "Items",
+      "type": "object"
+    }
+  },
+  "required": [
+    "id",
+    "catalog",
+    "version",
+    "status"
+  ],
+  "title": "Evidence",
+  "type": "object",
+  "$id": "https://github.com/thinhnx128/vn-compliance-crosswalk/schemas/evidence.schema.json"
+}

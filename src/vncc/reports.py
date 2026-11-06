@@ -29,6 +29,25 @@ def _related_text(repo: Repository, catalog: Catalog, control_id: str, targets: 
     return "; ".join(f"{r.catalog}:{r.control or '-'} ({r.relationship}, {r.confidence})" for r in items)
 
 
+def evidence_text(repo: Repository, catalog_id: str, control_id: str) -> str:
+    """Gợi ý bằng chứng của một control, mỗi mục một dòng, kèm tần suất và biểu mẫu nếu có."""
+    out = []
+    for e in repo.evidence_for(catalog_id, control_id):
+        extra = "; ".join(x for x in (e.cadence, e.form) if x)
+        out.append(f"- {e.name}" + (f" ({extra})" if extra else ""))
+    return "\n".join(out)
+
+
+def params_text(control) -> str:
+    return "\n".join(
+        f"- {p.label()}"
+        + (f" {p.trigger}" if p.trigger else "")
+        + (f" - {p.scope}" if p.scope else "")
+        + ("" if p.verified else " [cần đối chiếu]")
+        for p in control.params
+    )
+
+
 def _style_header(ws, row: int, ncols: int) -> None:
     for col in range(1, ncols + 1):
         cell = ws.cell(row=row, column=col)
@@ -83,8 +102,10 @@ def write_soa(
         "Hạn hoàn thành",
         "Yêu cầu liên quan",
         "Ghi chú",
+        "Bằng chứng gợi ý",
+        "Thời hạn, tham số",
     ]
-    widths = [8, 24, 44, 10, 44, 22, 40, 18, 14, 40, 30]
+    widths = [8, 24, 44, 10, 44, 22, 40, 18, 14, 40, 30, 50, 34]
     ws.append(headers)
     _style_header(ws, 1, len(headers))
     for i, w in enumerate(widths, 1):
@@ -105,6 +126,8 @@ def write_soa(
                 s.due.isoformat() if s.due else "",
                 _related_text(repo, catalog, control.id, related_catalogs),
                 s.notes or "",
+                evidence_text(repo, catalog.id, control.id),
+                params_text(control),
             ]
         )
     last = ws.max_row
@@ -220,14 +243,15 @@ def gap_markdown(
             gaps.append((control, s))
     if gaps:
         lines += [
-            "| Mã | Biện pháp | Trạng thái | Người phụ trách | Hạn | Yêu cầu liên quan |",
-            "|---|---|---|---|---|---|",
+            "| Mã | Biện pháp | Trạng thái | Người phụ trách | Hạn | Bằng chứng cần có | Yêu cầu liên quan |",
+            "|---|---|---|---|---|---|---|",
         ]
         for control, s in gaps:
             rel = _related_text(repo, catalog, control.id, related_catalogs) or "-"
+            ev = evidence_text(repo, catalog.id, control.id).replace("\n", "<br>") or "-"
             lines.append(
                 f"| {control.id} | {control.title} | {STATUS_LABELS[s.status]} "
-                f"| {s.owner or '-'} | {s.due.isoformat() if s.due else '-'} | {rel} |"
+                f"| {s.owner or '-'} | {s.due.isoformat() if s.due else '-'} | {ev} | {rel} |"
             )
     else:
         lines.append("Không có khoảng cách: mọi control áp dụng đều đã triển khai.")
@@ -302,3 +326,35 @@ def coverage_markdown(cov) -> str:
     lines += ["", f"## II. Biện pháp của {m.source_catalog} chưa được xem xét", ""]
     lines += [f"- **{c.id}** ({g}) {c.title}" for g, c in cov.source_uncovered] or ["Không có."]
     return "\n".join(lines) + "\n"
+
+
+def evidence_markdown(repo: Repository, catalog_id: str, level: int | None = None) -> str:
+    """Danh mục kiểm tra bằng chứng cho một danh mục (lọc theo cấp độ nếu có)."""
+    catalog = repo.catalog(catalog_id).for_level(level)
+    lines = [
+        f"# Danh mục bằng chứng - {catalog.title}",
+        "",
+        f"- Cấp độ: {f'cấp độ {level}' if level else 'không lọc theo cấp độ'}",
+        "- Đánh dấu [x] khi bằng chứng đã sẵn sàng. Bằng chứng là gợi ý thực hành, không phải danh mục "
+        "hồ sơ do văn bản quy định, trừ khi ghi rõ biểu mẫu.",
+        "",
+    ]
+    for group in catalog.groups:
+        lines += [f"## {group.id} - {group.title}", ""]
+        for c in group.controls:
+            lines.append(f"**{c.id}** {c.title}")
+            pt = params_text(c)
+            if pt:
+                lines.append("")
+                lines.append("Thời hạn: " + pt.replace("\n- ", "; ").lstrip("- "))
+            ev = repo.evidence_for(catalog.id, c.id)
+            lines.append("")
+            if ev:
+                for e in ev:
+                    extra = "; ".join(x for x in (e.cadence, e.form) if x)
+                    lines.append(f"- [ ] {e.name}" + (f" ({extra})" if extra else ""))
+            else:
+                lines.append("- (chưa có gợi ý)")
+            lines.append("")
+    lines += ["---", f"*{DISCLAIMER}*", ""]
+    return "\n".join(lines)

@@ -240,6 +240,19 @@ groups:
           Báo cáo nguyên nhân, phạm vi, biện pháp khắc phục trong 72 giờ kể từ khi phát hiện; báo ngay
           khi có dấu hiệu xâm phạm an ninh quốc gia.
         tags: [chu-quan]
+        params:
+          - topic: "su-co-thong-bao-co-quan"
+            value: 24
+            unit: "hour"
+            scope: "sự cố nghiêm trọng - thông báo ban đầu"
+            trigger: "kể từ khi phát hiện"
+            recipient: "Lực lượng chuyên trách bảo vệ an ninh mạng (Bộ Công an)"
+          - topic: "su-co-thong-bao-co-quan"
+            value: 72
+            unit: "hour"
+            scope: "báo cáo nguyên nhân, phạm vi, biện pháp khắc phục"
+            trigger: "kể từ khi phát hiện"
+            recipient: "Lực lượng chuyên trách bảo vệ an ninh mạng (Bộ Công an)"
       - id: D31.K3
         title: Tuyên truyền, đào tạo ngắn hạn, diễn tập an ninh mạng; tham gia diễn tập quốc gia
         tags: [chu-quan]
@@ -253,6 +266,19 @@ groups:
           Thời hạn báo cáo trong tháng 12 và kỳ chốt số liệu theo Điều 35; cần đối chiếu văn bản gốc
           để lấy ngày chính xác.
         tags: [chu-quan, don-vi-chuyen-trach, can-doi-chieu]
+        params:
+          - topic: "bao-cao-dinh-ky-noi-bo"
+            value: "12-20"
+            unit: "date"
+            scope: "số liệu từ 15/12 năm trước đến 14/12 năm báo cáo"
+            recipient: "Chủ quản hệ thống thông tin"
+            verified: false
+          - topic: "bao-cao-dinh-ky-co-quan"
+            value: "12-25"
+            unit: "date"
+            scope: "báo cáo tổng hợp của chủ quản"
+            recipient: "Bộ Công an"
+            verified: false
       - id: D36
         title: Báo cáo có đủ nội dung theo Điều 36 và mẫu báo cáo kèm theo Nghị định
         tags: [chu-quan, can-doi-chieu]
@@ -269,3 +295,14 @@ groups:
           Hoàn thành thẩm định, phê duyệt cấp độ trong 6 tháng và đáp ứng đầy đủ điều kiện theo cấp độ
           trong 12 tháng kể từ ngày Luật An ninh mạng 116/2025/QH15 có hiệu lực.
         tags: [chu-quan]
+        params:
+          - topic: "chuyen-tiep-phe-duyet"
+            value: 6
+            unit: "month"
+            scope: "HTTT đầu tư trước khi Luật An ninh mạng 2025 có hiệu lực"
+            trigger: "kể từ ngày Luật An ninh mạng 116/2025/QH15 có hiệu lực"
+          - topic: "chuyen-tiep-dap-ung"
+            value: 12
+            unit: "month"
+            scope: "HTTT đầu tư trước khi Luật An ninh mạng 2025 có hiệu lực"
+            trigger: "kể từ ngày Luật An ninh mạng 116/2025/QH15 có hiệu lực"

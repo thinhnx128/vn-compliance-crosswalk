@@ -1,0 +1,127 @@
+# Danh mục yêu cầu Nghị định 356/2025/NĐ-CP quy định chi tiết Luật Bảo vệ dữ liệu cá nhân - BẢN MỘT PHẦN.
+#
+# Hiện chỉ gồm các nghĩa vụ có tham số định lượng đã đối chiếu, phục vụ `vncc conflicts`.
+kind: catalog
+id: nd356-2025
+title: Nghị định 356/2025/NĐ-CP hướng dẫn Luật Bảo vệ dữ liệu cá nhân (bản một phần)
+version: "2025-12-31"
+publisher: Chính phủ nước CHXHCN Việt Nam
+document_number: 356/2025/NĐ-CP
+issued_on: 2025-12-31
+effective_date: 2026-01-01
+source_url: https://english.luatvietnam.vn/decree-no-356-2025-nd-cp-dated-december-31-2025-of-the-government-detailing-a-number-of-articles-and-measures-for-the-implementation-of-the-law-on-p-422896-doc1.html
+status: draft
+notice: >-
+  Bản một phần, chỉ gồm nghĩa vụ có tham số định lượng; chưa dùng được để đánh giá tuân thủ toàn
+  diện. Tóm tắt do tác giả tự diễn đạt, đối chiếu ngày 06/11/2026. Thay thế Nghị định 13/2023/NĐ-CP.
+groups:
+  - id: CT
+    title: Quyền của chủ thể dữ liệu
+    controls:
+      - id: D5.K2
+        title: Đáp ứng yêu cầu rút lại đồng ý, hạn chế hoặc phản đối xử lý
+        summary: Gia hạn một lần, không quá 15 ngày. Bên xử lý, bên thứ ba ngừng xử lý trong 20 ngày.
+        params:
+          - topic: "yeu-cau-chu-the-phan-hoi"
+            value: 2
+            unit: "working_day"
+            scope: "rút lại đồng ý, hạn chế, phản đối"
+          - topic: "yeu-cau-chu-the-thuc-hien"
+            value: 15
+            unit: "day"
+            scope: "rút lại đồng ý, hạn chế, phản đối"
+      - id: D5.K3
+        title: Đáp ứng yêu cầu xem, chỉnh sửa, cung cấp dữ liệu
+        summary: Gia hạn một lần, không quá 10 ngày. Bên thứ ba chỉnh sửa trong 15 ngày.
+        params:
+          - topic: "yeu-cau-chu-the-phan-hoi"
+            value: 2
+            unit: "working_day"
+            scope: "xem, chỉnh sửa, cung cấp dữ liệu"
+          - topic: "yeu-cau-chu-the-thuc-hien"
+            value: 10
+            unit: "day"
+            scope: "xem, chỉnh sửa, cung cấp dữ liệu"
+      - id: D5.K4
+        title: Đáp ứng yêu cầu xóa dữ liệu
+        summary: Gia hạn một lần, không quá 20 ngày. Bên xử lý, bên thứ ba thực hiện trong 30 ngày.
+        params:
+          - topic: "yeu-cau-chu-the-phan-hoi"
+            value: 2
+            unit: "working_day"
+            scope: "xóa dữ liệu"
+          - topic: "yeu-cau-chu-the-thuc-hien"
+            value: 20
+            unit: "day"
+            scope: "xóa dữ liệu"
+      - id: D5.K5
+        title: Đáp ứng yêu cầu thực hiện biện pháp bảo vệ dữ liệu
+        summary: Gia hạn một lần, không quá 15 ngày.
+        params:
+          - topic: "yeu-cau-chu-the-phan-hoi"
+            value: 2
+            unit: "working_day"
+            scope: "biện pháp bảo vệ dữ liệu"
+          - topic: "yeu-cau-chu-the-thuc-hien"
+            value: 15
+            unit: "day"
+            scope: "biện pháp bảo vệ dữ liệu"
+  - id: DG
+    title: Đánh giá tác động
+    controls:
+      - id: D18.K4
+        title: Nộp hồ sơ đánh giá tác động chuyển dữ liệu cá nhân ra nước ngoài
+        params:
+          - topic: "danh-gia-tac-dong-nop-ho-so"
+            value: 60
+            unit: "day"
+            trigger: "kể từ ngày tiến hành chuyển dữ liệu"
+            recipient: "Cơ quan chuyên trách bảo vệ dữ liệu cá nhân"
+            scope: "chuyển dữ liệu ra nước ngoài"
+      - id: D19.K4
+        title: Nộp hồ sơ đánh giá tác động xử lý dữ liệu cá nhân
+        params:
+          - topic: "danh-gia-tac-dong-nop-ho-so"
+            value: 60
+            unit: "day"
+            trigger: "kể từ ngày bắt đầu xử lý"
+            recipient: "Cơ quan chuyên trách bảo vệ dữ liệu cá nhân"
+            scope: "xử lý dữ liệu cá nhân"
+  - id: VP
+    title: Thông báo vi phạm
+    controls:
+      - id: D8.K3
+        title: Ngành tài chính, ngân hàng, thông tin tín dụng - thông báo lộ, mất dữ liệu nhạy cảm trong 72 giờ
+        tags: [nganh-tai-chinh]
+        params:
+          - topic: "su-co-thong-bao-co-quan"
+            value: 72
+            unit: "hour"
+            trigger: "kể từ khi phát hiện lộ, mất dữ liệu nhạy cảm"
+            recipient: "Cơ quan chuyên trách và chủ thể dữ liệu"
+            scope: "tài chính, ngân hàng, thông tin tín dụng"
+          - topic: "su-co-thong-bao-chu-the"
+            value: 72
+            unit: "hour"
+            trigger: "kể từ khi phát hiện lộ, mất dữ liệu nhạy cảm"
+            recipient: "Chủ thể dữ liệu"
+            scope: "tài chính, ngân hàng, thông tin tín dụng"
+      - id: D28.K2
+        title: Gửi thông báo vi phạm cho cơ quan chuyên trách hoặc qua Cổng thông tin quốc gia về bảo vệ dữ liệu cá nhân theo Mẫu số 08
+      - id: D29.K1.a
+        title: Dữ liệu vị trí, sinh trắc học - thông báo chủ thể bị ảnh hưởng trong 72 giờ
+        params:
+          - topic: "su-co-thong-bao-chu-the"
+            value: 72
+            unit: "hour"
+            trigger: "kể từ khi phát hiện vi phạm"
+            recipient: "Chủ thể dữ liệu bị ảnh hưởng"
+            scope: "dữ liệu vị trí, sinh trắc học"
+      - id: D29.K1.c
+        title: Dữ liệu vị trí, sinh trắc học - lưu hồ sơ vi phạm tối thiểu 5 năm
+        params:
+          - topic: "su-co-luu-ho-so"
+            value: 5
+            unit: "year"
+            trigger: "kể từ khi khắc phục xong sự cố"
+            scope: "dữ liệu vị trí, sinh trắc học"
