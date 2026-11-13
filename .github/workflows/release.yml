@@ -1,6 +1,7 @@
 name: Release
 
-# Gắn thẻ vX.Y.Z và đẩy lên là tự động: kiểm thử, xuất gói Excel, tạo Release kèm tệp Excel.
+# Gắn thẻ vX.Y.Z và đẩy lên là tự động: kiểm thử, xuất gói Excel, tạo Release kèm tệp Excel và gói bộ công cụ.
+# Bản phát hành của kho là bất biến: tệp phải được đính ngay lúc tạo, không thêm sau được.
 on:
   push:
     tags: ["v*"]
@@ -26,16 +27,22 @@ jobs:
         run: |
           ver="${GITHUB_REF_NAME#v}"
           awk -v v="$ver" '/^## \[/{p = index($0, "[" v "]") > 0; next} p' CHANGELOG.md > dist/notes.md
+          test -n "$(tr -d '[:space:]' < dist/notes.md)" || { echo "CHANGELOG không có mục cho $ver"; exit 1; }
           cat >> dist/notes.md <<'EOF'
 
           ---
           **Tải về:** tệp Excel đính kèm bên dưới (tự đánh giá NĐ 331 theo cấp độ, danh mục, đối chiếu, độ phủ).
+          **Bộ công cụ bảo vệ dữ liệu cá nhân:** gói zip đính kèm bên dưới (2 sổ Excel, 10 tài liệu Word); hướng dẫn ở `toolkits/dlcn/`.
           **Công cụ xác định cấp độ:** https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/
           Đối chiếu là diễn giải chuyên môn, không phải ý kiến pháp lý.
           EOF
+      - name: Gói bộ công cụ phải có mặt và đúng mã băm
+        working-directory: toolkits/dlcn/phat-hanh
+        run: sha256sum -c SHA256SUMS
       - name: Tạo Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release create "${GITHUB_REF_NAME}" dist/*.xlsx \
+          gh release create "${GITHUB_REF_NAME}" "dist/vn-compliance-crosswalk-nd331-${GITHUB_REF_NAME}.xlsx" \
+            toolkits/dlcn/phat-hanh/bo-cong-cu-bao-ve-du-lieu-ca-nhan.zip \
             --title "${GITHUB_REF_NAME}" --notes-file dist/notes.md --verify-tag
