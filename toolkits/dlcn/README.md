@@ -13,9 +13,14 @@ Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 (Điều 38: hiệu l�
 | Công cụ | Dùng để | Truy cập |
 |---|---|---|
 | **Kiểm tra nhanh 10 câu** | 10 câu tự trả lời để có hình dung ban đầu. Kết quả tính ngay trên trình duyệt; trang không gửi câu trả lời về máy chủ nào | [Mở trang](https://thinhnx128.github.io/vn-compliance-crosswalk/kiem-tra-nhanh/) |
-| **Bộ công cụ đầy đủ (Word, Excel)** | 2 sổ Excel và 10 tài liệu Word | [Bản phát hành mới nhất](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest) |
+| **Bộ công cụ đầy đủ (Word, Excel)** | 2 sổ Excel và 10 tài liệu Word | [Tải gói zip](https://github.com/thinhnx128/vn-compliance-crosswalk/raw/main/toolkits/dlcn/phat-hanh/bo-cong-cu-bao-ve-du-lieu-ca-nhan.zip) |
 
 ## Bộ đầy đủ gồm gì
+
+Gói zip nằm ngay trong kho tại [`phat-hanh/`](phat-hanh/) và được đính kèm vào các
+[bản phát hành](https://github.com/thinhnx128/vn-compliance-crosswalk/releases) từ v0.5.1.
+Bản phát hành v0.5.0 không có gói này. Mã băm SHA-256 của gói (cũng ghi ở `phat-hanh/SHA256SUMS`):
+`770bc24a0de64ce86d8e4ee80c0b151a6d008b8586b686e4bf4b6a283d8a1fba`
 
 | File | Nội dung |
 |---|---|
@@ -60,7 +65,7 @@ Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 (Điều 38: hiệu l�
   người dùng tự điền.
 - `cau-hoi.json`: 22 câu kiểm tra kèm căn cứ, dùng chung cho bộ tự kiểm tra và mẫu báo cáo.
 
-Các file Word, Excel trong bản phát hành được sinh từ những nguồn này. Trình sinh tài liệu sẽ được công bố ở
+Các file Word, Excel trong gói zip được sinh từ những nguồn này. Trình sinh tài liệu sẽ được công bố ở
 một đợt sau.
 
 ## Góp ý, báo lỗi

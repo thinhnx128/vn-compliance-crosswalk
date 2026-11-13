@@ -3,6 +3,16 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), phiên bản theo [SemVer](https://semver.org/).
 Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từng tệp YAML.
 
+## [0.5.1] - 2026-11
+
+### Sửa
+- Gói Word, Excel của bộ công cụ bảo vệ dữ liệu cá nhân (2 sổ Excel, 10 tài liệu Word) chưa có trong bản
+  phát hành 0.5.0 dù hướng dẫn nói là có. Gói nay nằm trong kho tại `toolkits/dlcn/phat-hanh/` và được quy
+  trình phát hành đính kèm khi tạo bản phát hành. Gói không đổi: cùng mã băm SHA-256 với gói đã chuẩn bị cho
+  0.5.0.
+- `toolkits/dlcn/README.md` trỏ thẳng tới gói zip và ghi mã băm SHA-256; quy trình phát hành kiểm tra mã băm
+  (`SHA256SUMS`) và dừng nếu CHANGELOG thiếu mục của phiên bản.
+
 ## [0.5.0] - 2026-11
 
 ### Thêm mới
