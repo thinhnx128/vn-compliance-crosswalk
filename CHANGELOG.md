@@ -3,6 +3,18 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), phiên bản theo [SemVer](https://semver.org/).
 Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từng tệp YAML.
 
+## [Unreleased]
+
+### Thay đổi
+- `toolkits/dlcn/README.md`: biên tập lại phần tiếng Việt và thêm bản tiếng Anh ở cuối trang. Nội dung pháp lý
+  không đổi.
+- `CONTRIBUTING.md`: thêm quy ước viết commit, pull request và ghi chú phát hành (song ngữ).
+
+### English
+- `toolkits/dlcn/README.md`: Vietnamese text edited and an English version added below it. No change to the
+  legal content.
+- `CONTRIBUTING.md`: writing conventions for commits, pull requests and release notes (bilingual).
+
 ## [0.5.1] - 2026-11
 
 ### Sửa
