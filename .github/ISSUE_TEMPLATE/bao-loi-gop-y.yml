@@ -1,0 +1,45 @@
+name: Báo lỗi, góp ý / Error report, feedback
+description: Chỗ sai, chỗ đã lỗi thời, hoặc góp ý sau khi dùng thử / Something wrong or outdated, or feedback after trying the tools
+labels: [feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn anh/chị. **Issue là công khai:** vui lòng không đưa dữ liệu cá nhân hay thông tin nội bộ của tổ chức,
+        và không dán nguyên văn tiêu chuẩn có bản quyền.
+
+        Thank you. **Issues are public:** do not post personal data or internal information, and do not paste
+        copyrighted standard text.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Loại / Type
+      options:
+        - Dẫn điều, khoản sai hoặc đã lỗi thời / Wrong or outdated legal reference
+        - Lỗi trong file Word, Excel hoặc trang web / Defect in a Word or Excel file or a web page
+        - Lỗi trong mã hoặc lệnh `vncc` / Defect in the code or the `vncc` command
+        - Góp ý sau khi dùng thử / Feedback after trying the tools
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Ở đâu / Where
+      description: Tên file, sheet, mục, câu hỏi hoặc đường dẫn. / File, sheet, section, question or URL.
+      placeholder: DP-04 mục 2; CHK-DP câu 13; docs/kiem-tra-nhanh
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: Hiện đang thế nào và nên thế nào / What it says now and what it should say
+      description: >-
+        Với căn cứ pháp lý: ghi văn bản, điều, khoản và nguồn. / For legal references: cite the instrument,
+        article, clause and source.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Phiên bản / Version
+      placeholder: v0.5.1

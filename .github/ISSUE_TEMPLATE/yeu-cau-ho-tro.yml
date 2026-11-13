@@ -1,0 +1,85 @@
+name: Yêu cầu hỗ trợ / Support request
+description: Tổ chức cần hỗ trợ dùng bộ công cụ hoặc cần một mẫu chưa có / Help using the toolkits, or a template you need
+labels: [support]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cảm ơn anh/chị đã liên hệ. Hỗ trợ là miễn phí, trong khả năng thời gian của tác giả; phản hồi đầu tiên
+        thường trong khoảng 03 ngày làm việc (không phải cam kết).
+
+        **Issue là công khai.** Vui lòng **không** đưa dữ liệu cá nhân, tên hệ thống, tài liệu nội bộ hay thông tin
+        mật của tổ chức. Nội dung không phù hợp để đăng công khai: gửi email tới me@nguyenxuanthinh.com. Email không
+        phải kênh bảo mật: chỉ gửi thông tin tối thiểu, chưa gửi dữ liệu thật hay tài liệu mật khi hai bên chưa
+        thống nhất cách xử lý. Nếu lỡ đăng thông tin không nên công khai: sửa hoặc xóa ngay và báo tác giả để xóa
+        cả lịch sử chỉnh sửa. Yêu cầu ngoài phạm vi của kho có thể được đóng, kèm lý do.
+
+        Thank you for getting in touch. Support is free and best-effort; a first reply usually comes within
+        about 3 working days (not a guarantee). **Issues are public:** do not post personal data, system names, internal documents or
+        confidential information. For matters unsuitable for public posting, email me@nguyenxuanthinh.com. Email is
+        not a secure channel: send only the minimum, and do not send real data or confidential documents before
+        we have agreed how to handle them. If you post something that should not be public, edit or delete it at
+        once and tell the author so the edit history can be removed. Requests outside the scope of this
+        repository may be closed, with a reason.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Phần liên quan / Area
+      options:
+        - Bộ công cụ bảo vệ dữ liệu cá nhân (toolkits/dlcn) / Personal data protection toolkit
+        - Kiểm tra nhanh 10 câu / 10-question quick check
+        - Đối chiếu ISO/IEC 27001 – NĐ 331/2026, gói Excel / ISO/IEC 27001 – Decree 331/2026 crosswalk, Excel pack
+        - Công cụ xác định cấp độ / Security level determination tool
+        - Khác / Other
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Loại yêu cầu / Type of request
+      options:
+        - Hướng dẫn cách dùng / How to use
+        - Chỉnh mẫu cho phù hợp với tổ chức / Adapting a template
+        - Cần một mẫu hoặc công cụ chưa có / A template or tool that is missing
+        - Câu hỏi về cách hiểu quy định / Question on interpreting a provision
+        - Khác / Other
+    validations:
+      required: true
+  - type: textarea
+    id: need
+    attributes:
+      label: Anh/chị cần gì / What do you need
+      description: >-
+        Mô tả việc đang làm và chỗ đang vướng, không kèm dữ liệu thật. / Describe what you are trying to do and
+        where you are stuck, without real data.
+    validations:
+      required: true
+  - type: dropdown
+    id: size
+    attributes:
+      label: Quy mô tổ chức (không bắt buộc) / Organisation size (optional)
+      description: Giúp xem các quy định về miễn trừ theo quy mô có thể liên quan không. / Helps tell whether size-based exemption provisions may be relevant.
+      options:
+        - Hộ kinh doanh, doanh nghiệp siêu nhỏ / Household business, micro-enterprise
+        - Doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp / Small enterprise, startup
+        - Doanh nghiệp vừa trở lên / Medium-sized or larger
+        - Tổ chức khác / Other organisation
+  - type: input
+    id: version
+    attributes:
+      label: Phiên bản đang dùng (không bắt buộc) / Version in use (optional)
+      placeholder: v0.5.1
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Xác nhận / Confirmation
+      options:
+        - label: >-
+            Nội dung trên không chứa dữ liệu thật, dữ liệu cá nhân, tên hệ thống, thông tin nội bộ hay thông tin mật
+            của tổ chức. / This issue contains no real data, personal data, system names, internal or confidential
+            information.
+          required: true
+        - label: >-
+            Tôi hiểu phản hồi là thông tin chuyên môn để tham khảo, không phải tư vấn pháp lý. / I understand
+            replies are general professional information for reference, not legal advice.
+          required: true
