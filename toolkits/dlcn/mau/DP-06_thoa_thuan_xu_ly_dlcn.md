@@ -31,7 +31,7 @@ Bên B xử lý DLCN thay mặt Bên A chỉ để thực hiện dịch vụ [�
 3. Bảo đảm nhân sự tiếp cận DLCN đã cam kết bảo mật và được đào tạo.
 4. Không thuê bên xử lý khác (bên xử lý phụ) khi chưa có chấp thuận bằng văn bản của Bên A; ràng buộc bên xử lý phụ nghĩa vụ tương đương.
 5. Không chuyển dữ liệu cá nhân xuyên biên giới khi chưa có chấp thuận của Bên A; phối hợp để Bên A lập hồ sơ theo quy định.
-6. Thông báo kịp thời cho Bên A, chậm nhất trong vòng [● 24] giờ kể từ khi phát hiện vi phạm DLCN (Luật Điều 23 khoản 1), cung cấp đủ thông tin để Bên A thực hiện nghĩa vụ thông báo.
+6. Thông báo kịp thời cho Bên A khi phát hiện vi phạm DLCN (Luật Điều 23 khoản 1). Hai bên thống nhất thời hạn tối đa là [● 24] giờ kể từ khi phát hiện (thời hạn này do hai bên thỏa thuận, không phải số của luật), cung cấp đủ thông tin để Bên A thực hiện nghĩa vụ thông báo.
 7. Hỗ trợ Bên A giải quyết yêu cầu của chủ thể dữ liệu trong [● 3] ngày làm việc kể từ khi nhận đề nghị.
 8. Hỗ trợ Bên A lập hồ sơ đánh giá tác động khi được yêu cầu.
 9. Cho phép Bên A hoặc đơn vị được Bên A chỉ định đánh giá việc tuân thủ, với thông báo trước [● 10] ngày làm việc.

@@ -3,6 +3,7 @@ ma: SP-02
 ten: Giấy phép và lưu ý sử dụng bộ công cụ
 dieu_khoan: "Áp dụng cho mọi người dùng bộ công cụ"
 phan_loai: CÔNG KHAI
+kieu: huong-dan
 ---
 
 # 1. Giấy phép
