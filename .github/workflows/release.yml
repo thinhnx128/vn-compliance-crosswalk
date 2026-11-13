@@ -35,6 +35,11 @@ jobs:
           **Bộ công cụ bảo vệ dữ liệu cá nhân:** gói zip đính kèm bên dưới (2 sổ Excel, 10 tài liệu Word); hướng dẫn ở `toolkits/dlcn/`.
           **Công cụ xác định cấp độ:** https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/
           Đối chiếu là diễn giải chuyên môn, không phải ý kiến pháp lý.
+
+          **Download:** the Excel file attached below (Decree 331/2026 self-assessment by security level, with a requirements catalogue, crosswalk and coverage).
+          **Personal data protection toolkit:** the zip attached below (2 Excel workbooks, 10 Word documents, in Vietnamese); guide in `toolkits/dlcn/`.
+          **Security level determination tool:** https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/
+          The crosswalk is a professional interpretation, not a legal opinion.
           EOF
       - name: Gói bộ công cụ phải có mặt và đúng mã băm
         working-directory: toolkits/dlcn/phat-hanh

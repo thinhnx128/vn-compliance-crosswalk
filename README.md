@@ -192,10 +192,24 @@ Loại quan hệ theo cách tiếp cận tập hợp của NIST OLIR: `equivalen
 - Đối chiếu là **diễn giải chuyên môn của tác giả**, không phải ý kiến pháp lý và không thay thế
   hướng dẫn của cơ quan có thẩm quyền.
 
+## Cần hỗ trợ? / Need help?
+
+Tổ chức cần hỗ trợ khi dùng các công cụ trong kho: mở issue theo mẫu
+[**Yêu cầu hỗ trợ**](https://github.com/thinhnx128/vn-compliance-crosswalk/issues/new/choose) hoặc hỏi ở
+[Discussions](https://github.com/thinhnx128/vn-compliance-crosswalk/discussions). Hỗ trợ miễn phí, trong khả năng
+thời gian của tác giả. Issue và Discussions là công khai: đừng đưa dữ liệu thật hay thông tin nội bộ lên đó.
+Nội dung không phù hợp để đăng công khai: me@nguyenxuanthinh.com (email không phải kênh bảo mật; chỉ gửi thông tin tối
+thiểu, chưa gửi dữ liệu thật khi hai bên chưa thống nhất cách xử lý).
+
+*Need help using these tools? Open a* [**Support request**](https://github.com/thinhnx128/vn-compliance-crosswalk/issues/new/choose)
+*or ask in* [Discussions](https://github.com/thinhnx128/vn-compliance-crosswalk/discussions). *Support is free and
+best-effort. Both are public: do not post real data or internal information. For matters unsuitable for public
+posting:* me@nguyenxuanthinh.com *(email is not a secure channel; send only the minimum).*
+
 ## Đóng góp
 
 Xem [CONTRIBUTING.md](CONTRIBUTING.md) và [docs/them-van-ban.md](docs/them-van-ban.md). Đề xuất
-sửa một dòng đối chiếu: dùng mẫu issue **"Đề xuất sửa đối chiếu"**.
+sửa một dòng đối chiếu: dùng mẫu issue **"Đề xuất sửa đối chiếu"**. Báo chỗ sai, chỗ lỗi thời: mẫu **"Báo lỗi, góp ý"**.
 
 ---
 

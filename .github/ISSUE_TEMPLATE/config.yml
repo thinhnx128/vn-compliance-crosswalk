@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Trao đổi riêng qua email / Private contact by email
+    url: https://github.com/thinhnx128/vn-compliance-crosswalk#cần-hỗ-trợ--need-help
+    about: me@nguyenxuanthinh.com, khi nội dung không nên công khai. / For matters that should not be public.
+  - name: Hỏi đáp, thảo luận / Questions and discussion
+    url: https://github.com/thinhnx128/vn-compliance-crosswalk/discussions
+    about: Câu hỏi chung không gắn với một lỗi cụ thể. / General questions not tied to a specific defect.
+  - name: Báo lỗ hổng bảo mật / Report a security vulnerability
+    url: https://github.com/thinhnx128/vn-compliance-crosswalk/security/advisories/new
+    about: Không mở issue công khai cho lỗ hổng. / Do not open public issues for vulnerabilities.

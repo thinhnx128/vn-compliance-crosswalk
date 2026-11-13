@@ -70,10 +70,19 @@ gói này). Mã băm SHA-256 của gói, cũng ghi ở `phat-hanh/SHA256SUMS`:
 
 Các file Word, Excel trong gói zip được sinh từ những nguồn này. Trình sinh tài liệu sẽ được công bố ở một đợt sau.
 
+## Cần hỗ trợ?
+
+Tổ chức đang áp dụng và cần hỗ trợ (cách dùng, chỉnh mẫu, mẫu còn thiếu): mở issue theo mẫu
+[**Yêu cầu hỗ trợ**](https://github.com/thinhnx128/vn-compliance-crosswalk/issues/new/choose) hoặc hỏi ở
+[Discussions](https://github.com/thinhnx128/vn-compliance-crosswalk/discussions). Hỗ trợ miễn phí, trong khả năng
+thời gian của tác giả. Issue và Discussions là công khai: đừng đưa dữ liệu thật hay thông tin nội bộ lên đó.
+Nội dung không phù hợp để đăng công khai: me@nguyenxuanthinh.com (email không phải kênh bảo mật; chỉ gửi thông tin tối
+thiểu, chưa gửi dữ liệu thật khi hai bên chưa thống nhất cách xử lý).
+
 ## Góp ý, báo lỗi
 
-Nếu thấy chỗ sai, chỗ đã lỗi thời, hoặc cần một mẫu chưa có, xin mở
-[issue](https://github.com/thinhnx128/vn-compliance-crosswalk/issues). Phản hồi từ doanh nghiệp đã dùng thử
+Nếu thấy chỗ sai hoặc chỗ đã lỗi thời, xin mở
+[issue](https://github.com/thinhnx128/vn-compliance-crosswalk/issues/new/choose) theo mẫu **Báo lỗi, góp ý**. Phản hồi từ doanh nghiệp đã dùng thử
 (dùng được không, vướng ở đâu) đặc biệt có giá trị với dự án.
 
 ## Giấy phép
@@ -159,10 +168,20 @@ include it). Its SHA-256 checksum is given above and in `phat-hanh/SHA256SUMS`.
 The Word and Excel files in the zip are generated from these sources. The document generator will be published
 in a later release.
 
+### Need help?
+
+If your organisation is applying the toolkit and needs help (usage, adapting a template, a missing template),
+open a
+[**Support request**](https://github.com/thinhnx128/vn-compliance-crosswalk/issues/new/choose) or ask in
+[Discussions](https://github.com/thinhnx128/vn-compliance-crosswalk/discussions). Support is free and best-effort.
+Issues and Discussions are public: do not post real data or internal information. For matters unsuitable for
+public posting: me@nguyenxuanthinh.com (email is not a secure channel; send only the minimum, and no real data before
+we have agreed how to handle it).
+
 ### Feedback
 
-If you find an error, an outdated reference, or need a template that is missing, please open an
-[issue](https://github.com/thinhnx128/vn-compliance-crosswalk/issues). Feedback from organisations that have
+If you find an error or an outdated reference, please open an
+[issue](https://github.com/thinhnx128/vn-compliance-crosswalk/issues/new/choose) using the **Error report, feedback** form. Feedback from organisations that have
 tried the toolkit is especially valuable.
 
 ### Licence

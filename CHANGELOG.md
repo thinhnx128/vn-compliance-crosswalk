@@ -9,11 +9,21 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
 - `toolkits/dlcn/README.md`: biên tập lại phần tiếng Việt và thêm bản tiếng Anh ở cuối trang. Nội dung pháp lý
   không đổi.
 - `CONTRIBUTING.md`: thêm quy ước viết commit, pull request và ghi chú phát hành (song ngữ).
+- Ghi chú phát hành có sẵn phần tiếng Anh ở chân (quy trình phát hành); mục 0.5.1 của tệp này được bổ sung
+  bản tiếng Anh, khớp với ghi chú trên trang phát hành.
+
+### Thêm mới
+- Mẫu issue "Yêu cầu hỗ trợ" và "Báo lỗi, góp ý" (song ngữ); liên kết liên hệ khi mở issue.
+- Email liên hệ me@nguyenxuanthinh.com trong README, cho nội dung không nên công khai.
 
 ### English
 - `toolkits/dlcn/README.md`: Vietnamese text edited and an English version added below it. No change to the
   legal content.
 - `CONTRIBUTING.md`: writing conventions for commits, pull requests and release notes (bilingual).
+- Release notes now end with an English footer (release workflow); the 0.5.1 entry in this file gains an
+  English version matching the notes on the release page.
+- New bilingual issue forms, "Support request" and "Error report, feedback", with contact links.
+- Contact email me@nguyenxuanthinh.com in the README, for matters that should not be public.
 
 ## [0.5.1] - 2026-11
 
@@ -24,6 +34,14 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
   0.5.0.
 - `toolkits/dlcn/README.md` trỏ thẳng tới gói zip và ghi mã băm SHA-256; quy trình phát hành kiểm tra mã băm
   (`SHA256SUMS`) và dừng nếu CHANGELOG thiếu mục của phiên bản.
+
+### English
+- The Word and Excel package of the personal data protection toolkit (2 Excel workbooks, 10 Word documents)
+  was missing from release 0.5.0, although the guide said it was included. The package is now stored in the
+  repository under `toolkits/dlcn/phat-hanh/` and is attached by the release workflow when a release is
+  created. The package itself is unchanged: it has the same SHA-256 checksum as the package prepared for 0.5.0.
+- `toolkits/dlcn/README.md` now links directly to the zip and states its SHA-256 checksum; the release
+  workflow verifies the checksum (`SHA256SUMS`) and stops if the CHANGELOG has no entry for the version.
 
 ## [0.5.0] - 2026-11
 
