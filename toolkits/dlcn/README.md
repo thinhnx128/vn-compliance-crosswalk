@@ -1,7 +1,8 @@
 # Bộ công cụ bảo vệ dữ liệu cá nhân cho doanh nghiệp vừa và nhỏ
 
-Bộ mẫu biểu và công cụ tiếng Việt, miễn phí, giúp doanh nghiệp **tự** rà soát và triển khai tuân thủ
-Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định 356/2025/NĐ-CP (cùng có hiệu lực từ 01/01/2026).
+Bộ mẫu biểu và công cụ tiếng Việt, miễn phí, hỗ trợ doanh nghiệp **tự** rà soát và chuẩn bị hồ sơ theo
+Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 (Điều 38: hiệu lực từ 01/01/2026) và Nghị định 356/2025/NĐ-CP
+(Điều 42: hiệu lực từ 01/01/2026). Dùng bộ công cụ không bảo đảm doanh nghiệp đã tuân thủ.
 
 > Mẫu tham khảo, là diễn giải chuyên môn của tác giả, **không phải tư vấn pháp lý**. Căn cứ theo bản đăng
 > Công báo, đối chiếu ngày **13/11/2026**. Văn bản có thể được sửa đổi hoặc có hướng dẫn mới sau ngày này;
@@ -11,8 +12,8 @@ Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định 356
 
 | Công cụ | Dùng để | Truy cập |
 |---|---|---|
-| **Kiểm tra nhanh 10 câu** | Biết sơ bộ doanh nghiệp đang ở đâu trong 3 phút. Chạy trên trình duyệt, không gửi dữ liệu đi đâu | [Mở trang](https://thinhnx128.github.io/vn-compliance-crosswalk/kiem-tra-nhanh/) |
-| **Bộ công cụ đầy đủ (Word, Excel)** | 2 sổ Excel và 10 tài liệu Word, tải về dùng ngay | [Bản phát hành mới nhất](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest) |
+| **Kiểm tra nhanh 10 câu** | 10 câu tự trả lời để có hình dung ban đầu. Kết quả tính ngay trên trình duyệt; trang không gửi câu trả lời về máy chủ nào | [Mở trang](https://thinhnx128.github.io/vn-compliance-crosswalk/kiem-tra-nhanh/) |
+| **Bộ công cụ đầy đủ (Word, Excel)** | 2 sổ Excel và 10 tài liệu Word | [Bản phát hành mới nhất](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest) |
 
 ## Bộ đầy đủ gồm gì
 
@@ -32,19 +33,26 @@ Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định 356
 
 ## Những điểm doanh nghiệp nhỏ hay bỏ sót
 
-- **Miễn trừ theo quy mô** (Luật Điều 38; NĐ 356 Điều 41): doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được chọn
-  không lập hồ sơ đánh giá tác động và không chỉ định nhân sự bảo vệ dữ liệu trong 05 năm kể từ 01/01/2026; hộ
-  kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện. **Không được miễn** nếu kinh doanh dịch vụ xử lý dữ
-  liệu cá nhân, trực tiếp xử lý dữ liệu nhạy cảm, hoặc đã xử lý tích lũy từ 100 nghìn chủ thể trở lên. Các nghĩa
-  vụ khác vẫn áp dụng.
+- **Miễn trừ theo quy mô** (Luật Điều 38 khoản 2, 3; NĐ 356 Điều 41): doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp
+  được quyền chọn thực hiện hoặc không thực hiện Điều 21, 22 (hồ sơ đánh giá tác động và việc cập nhật) và
+  khoản 2 Điều 33 (chỉ định bộ phận, nhân sự bảo vệ dữ liệu cá nhân) trong 05 năm kể từ 01/01/2026; hộ kinh
+  doanh, doanh nghiệp siêu nhỏ không phải thực hiện các quy định đó. **Không áp dụng miễn trừ** với đơn vị kinh
+  doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm, hoặc kể từ khi đạt quy mô từ
+  100 nghìn chủ thể dữ liệu trở lên (tính trên tổng lượng dữ liệu cá nhân đã xử lý). Các nghĩa vụ khác của Luật
+  vẫn áp dụng.
 - **Thời hạn trả lời chủ thể dữ liệu không phải một con số** (NĐ 356 Điều 5): phản hồi trong 02 ngày làm việc;
   thực hiện trong 10 ngày (xem, chỉnh sửa, cung cấp), 15 ngày (rút lại đồng ý, hạn chế, phản đối) hoặc 20 ngày
-  (xóa); dài hơn khi cần bên xử lý, bên thứ ba.
-- **Thông báo vi phạm** (Luật Điều 23): chậm nhất 72 giờ kể từ khi phát hiện, với vi phạm có thể gây tổn hại
-  theo khoản 1; phải lập biên bản xác nhận.
-- **Hồ sơ đánh giá tác động** (Luật Điều 21): gửi trong 60 ngày kể từ ngày đầu tiên xử lý.
-- **Dùng dịch vụ đám mây của nhà cung cấp nước ngoài là chuyển dữ liệu xuyên biên giới** (NĐ 356 Điều 17), trừ
-  các trường hợp được miễn, ví dụ lưu dữ liệu người lao động của chính tổ chức (Luật Điều 20 khoản 6).
+  (xóa). Khi cần bên xử lý, bên thứ ba thực hiện thì có thời hạn riêng (15, 20 hoặc 30 ngày tùy trường hợp);
+  yêu cầu phức tạp được gia hạn một lần và phải thông báo lý do. Bảng đầy đủ ở mẫu `DP-04`.
+- **Thông báo vi phạm** (Luật Điều 23): không phải mọi sự cố đều phải thông báo trong 72 giờ. Thời hạn chậm nhất
+  72 giờ kể từ khi phát hiện áp dụng với vi phạm có thể gây tổn hại nêu tại khoản 1. Bên kiểm soát phải lập biên
+  bản xác nhận việc xảy ra vi phạm (khoản 2). Bên xử lý phát hiện vi phạm thì thông báo kịp thời cho bên kiểm soát.
+- **Hồ sơ đánh giá tác động** (Luật Điều 21): bên kiểm soát, bên kiểm soát và xử lý dữ liệu lập, lưu hồ sơ và
+  gửi 01 bản chính cho cơ quan chuyên trách trong 60 ngày kể từ ngày đầu tiên xử lý, trừ trường hợp được miễn.
+- **Lưu dữ liệu trên dịch vụ điện toán đám mây của nhà cung cấp nước ngoài là một trường hợp chuyển dữ liệu
+  xuyên biên giới** (NĐ 356 Điều 17 khoản 1). Một số trường hợp không phải lập hồ sơ đánh giá tác động chuyển
+  dữ liệu xuyên biên giới, ví dụ lưu dữ liệu người lao động của chính tổ chức trên dịch vụ đám mây (Luật Điều 20
+  khoản 6); hoạt động đó vẫn là chuyển dữ liệu xuyên biên giới.
 
 ## Mã nguồn của mẫu
 
