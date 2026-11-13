@@ -15,6 +15,8 @@ và tự sinh Tuyên bố áp dụng (SoA), báo cáo khoảng cách.**
 |---|---|---|
 | **Xác định cấp độ HTTT** | Trả lời vài câu hỏi theo Điều 9, 11–15 NĐ 331/2026, nhận cấp độ sơ bộ kèm căn cứ và thẩm quyền phê duyệt. Chạy trên trình duyệt, không gửi dữ liệu đi đâu | [Mở công cụ](https://thinhnx128.github.io/vn-compliance-crosswalk/cap-do/) |
 | **Gói Excel tự đánh giá NĐ 331** | Chọn cấp độ, bảng yêu cầu áp dụng tự lọc; điền trạng thái, bằng chứng, người phụ trách; số liệu tổng hợp tự tính. Kèm danh mục, bảng đối chiếu, độ phủ, tiêu chí cấp độ | [Tải bản mới nhất](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest) |
+| **Kiểm tra nhanh bảo vệ dữ liệu cá nhân** | 10 câu, 3 phút, theo Luật 91/2025/QH15 và NĐ 356/2025/NĐ-CP. Chạy trên trình duyệt, không gửi dữ liệu đi đâu. | [Mở trang](https://thinhnx128.github.io/vn-compliance-crosswalk/kiem-tra-nhanh/) |
+| **Bộ công cụ bảo vệ dữ liệu cá nhân** | Bộ tự kiểm tra 22 câu có căn cứ điều khoản, sổ theo dõi tự tính hạn, 8 mẫu chính sách và quy trình cho doanh nghiệp vừa và nhỏ. | [Xem `toolkits/dlcn`](toolkits/dlcn/README.md) |
 
 ## Vì sao có dự án này
 

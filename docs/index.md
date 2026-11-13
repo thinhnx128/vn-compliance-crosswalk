@@ -13,6 +13,11 @@ title: vn-compliance-crosswalk
 - **[Gói Excel tự đánh giá NĐ 331](https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest)**:
   chọn cấp độ, bảng yêu cầu áp dụng tự lọc, điền trạng thái, số liệu tổng hợp tự tính.
 
+- **[Kiểm tra nhanh bảo vệ dữ liệu cá nhân](kiem-tra-nhanh/)**: 10 câu, 3 phút, theo Luật 91/2025/QH15 và
+  NĐ 356/2025/NĐ-CP. Chạy trên trình duyệt, không gửi dữ liệu đi đâu.
+- **[Bộ công cụ bảo vệ dữ liệu cá nhân](https://github.com/thinhnx128/vn-compliance-crosswalk/tree/main/toolkits/dlcn)**:
+  bộ tự kiểm tra 22 câu có căn cứ, sổ theo dõi tự tính hạn, 8 mẫu chính sách và quy trình. Miễn phí.
+
 ## Tài liệu
 
 - [Tóm tắt tiêu chí xác định cấp độ](nd331-cap-do.md)
