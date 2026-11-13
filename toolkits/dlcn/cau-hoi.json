@@ -1,0 +1,137 @@
+{
+  "_note": "22 câu tự kiểm tra mức sẵn sàng tuân thủ bảo vệ dữ liệu cá nhân. Mỗi câu: [nhóm, câu hỏi, căn cứ, tính chất]. Tính chất: LD = luật định; LD+TT = có phần luật định và phần thực tiễn tốt; TT = thực tiễn tốt. Căn cứ theo bản Công báo của Luật 91/2025/QH15 và Nghị định 356/2025/NĐ-CP, đối chiếu ngày 13/11/2026. Diễn giải của tác giả, không phải ý kiến pháp lý.",
+  "cau_hoi": [
+    [
+      "Tổ chức",
+      "Đã chỉ định bằng văn bản bộ phận hoặc nhân sự bảo vệ dữ liệu cá nhân (hoặc thuê dịch vụ), và có chính sách được lãnh đạo phê duyệt?",
+      "Luật Điều 33 khoản 2; NĐ 356 Điều 13 (khoản 2: trình độ cao đẳng trở lên, ít nhất 02 năm kinh nghiệm lĩnh vực liên quan, đã được đào tạo), Điều 14. Miễn trừ theo quy mô: Luật Điều 38, NĐ 356 Điều 41",
+      "LD"
+    ],
+    [
+      "Tổ chức",
+      "Có sổ ghi nhận các hoạt động xử lý dữ liệu cá nhân và được cập nhật?",
+      "Thực tiễn tốt; là đầu vào lập hồ sơ theo Luật Điều 21. Riêng tài chính, ngân hàng, thông tin tín dụng: NĐ 356 Điều 8 khoản 1",
+      "TT"
+    ],
+    [
+      "Căn cứ & đồng ý",
+      "Mỗi hoạt động xử lý có căn cứ: sự đồng ý có trước khi thu thập, hoặc thuộc trường hợp không cần đồng ý và có cơ chế giám sát?",
+      "Luật Điều 9; Điều 11 khoản 1; Điều 19",
+      "LD"
+    ],
+    [
+      "Căn cứ & đồng ý",
+      "Sự đồng ý được lấy cho từng mục đích, không mặc định đồng ý, không coi im lặng là đồng ý, và lưu được bằng chứng?",
+      "Luật Điều 9 khoản 2–4; NĐ 356 Điều 6",
+      "LD"
+    ],
+    [
+      "Căn cứ & đồng ý",
+      "Có quy trình tiếp nhận yêu cầu rút lại sự đồng ý, phản hồi trong 02 ngày làm việc và thực hiện trong 15 ngày?",
+      "Luật Điều 10; NĐ 356 Điều 5 khoản 2",
+      "LD"
+    ],
+    [
+      "Minh bạch & quyền",
+      "Chủ thể được biết rõ loại dữ liệu, mục đích, bên kiểm soát và các quyền, nghĩa vụ của mình trước khi đồng ý; có thông báo hoặc chính sách công khai?",
+      "Luật Điều 4 khoản 1 điểm a; Điều 9 khoản 2",
+      "LD"
+    ],
+    [
+      "Minh bạch & quyền",
+      "Có quy trình, thủ tục, biểu mẫu để chủ thể thực hiện quyền, đúng thời hạn theo từng loại yêu cầu?",
+      "Luật Điều 4 khoản 5; NĐ 356 Điều 5",
+      "LD"
+    ],
+    [
+      "Dữ liệu đặc thù",
+      "Dữ liệu cá nhân nhạy cảm đã được nhận diện, có phân quyền giới hạn truy cập, quy trình xử lý và biện pháp bảo mật riêng; khi xin đồng ý có báo rõ là dữ liệu nhạy cảm?",
+      "NĐ 356 Điều 4; Điều 6 khoản 4",
+      "LD"
+    ],
+    [
+      "Dữ liệu đặc thù",
+      "Với dữ liệu trẻ em: người đại diện theo pháp luật thực hiện quyền; việc công bố đời sống riêng tư của trẻ từ đủ 07 tuổi có sự đồng ý của trẻ và người đại diện?",
+      "Luật Điều 24",
+      "LD"
+    ],
+    [
+      "Hồ sơ pháp lý",
+      "Nếu thuộc diện phải thực hiện: đã lập và gửi hồ sơ đánh giá tác động xử lý dữ liệu cá nhân trong 60 ngày kể từ ngày đầu tiên xử lý, và cập nhật khi có thay đổi?",
+      "Luật Điều 21, 22, 38; NĐ 356 Điều 19, 20, 41 (Mẫu số 10)",
+      "LD"
+    ],
+    [
+      "Hồ sơ pháp lý",
+      "Đã nhận diện mọi luồng chuyển dữ liệu xuyên biên giới (kể cả dịch vụ đám mây của nhà cung cấp nước ngoài) và lập hồ sơ trong 60 ngày, trừ trường hợp được miễn?",
+      "Luật Điều 20; NĐ 356 Điều 17, 18 (Mẫu số 09)",
+      "LD"
+    ],
+    [
+      "Bên thứ ba",
+      "Có thỏa thuận hoặc hợp đồng về xử lý dữ liệu cá nhân trước khi giao dữ liệu cho bên xử lý; có danh sách và đánh giá định kỳ?",
+      "Luật Điều 37 khoản 1 điểm a, đ; khoản 2 điểm a, b. Đánh giá định kỳ là thực tiễn tốt",
+      "LD+TT"
+    ],
+    [
+      "Bên thứ ba",
+      "Mỗi lần chuyển giao dữ liệu cho bên khác thuộc một trường hợp luật cho phép (có đồng ý, giao cho bên xử lý, theo yêu cầu cơ quan nhà nước...) và có thỏa thuận chuyển giao đủ nội dung bắt buộc?",
+      "Luật Điều 17 khoản 1; NĐ 356 Điều 7 khoản 1 (nội dung thỏa thuận), khoản 4 (chia sẻ nội bộ phải có quy trình kiểm soát)",
+      "LD"
+    ],
+    [
+      "Bên thứ ba",
+      "Hoạt động quảng cáo, tiếp thị chỉ dùng dữ liệu của người đã đồng ý và có cách từ chối?",
+      "Luật Điều 28",
+      "LD"
+    ],
+    [
+      "Vòng đời dữ liệu",
+      "Có thời hạn lưu cho từng loại dữ liệu; xóa, hủy bằng biện pháp an toàn khi hết mục đích, hết hạn hoặc theo yêu cầu hợp lệ của chủ thể (trừ các trường hợp luật không cho xóa)?",
+      "Luật Điều 14 (ngoại lệ: khoản 2)",
+      "LD"
+    ],
+    [
+      "An toàn",
+      "Có biện pháp quản lý, kỹ thuật phù hợp: phân quyền theo nhu cầu, xác thực đa yếu tố, ghi nhật ký truy cập dữ liệu cá nhân?",
+      "Luật Điều 37 khoản 1 điểm c. Biện pháp cụ thể là thực tiễn tốt",
+      "LD+TT"
+    ],
+    [
+      "An toàn",
+      "Có quyết định về việc mã hóa phù hợp với hoạt động xử lý; dữ liệu nhạy cảm được mã hóa khi chuyển giao và dữ liệu trên điện toán đám mây được mã hóa; sao lưu được kiểm tra khôi phục?",
+      "Luật Điều 12 khoản 3 (tổ chức tự quyết định việc mã hóa phù hợp); bắt buộc mã hóa khi chuyển giao dữ liệu nhạy cảm (NĐ 356 Điều 7 khoản 2) và với dữ liệu trên điện toán đám mây (NĐ 356 Điều 12 khoản 4). Sao lưu: thực tiễn tốt",
+      "LD+TT"
+    ],
+    [
+      "An toàn",
+      "Việc dùng dữ liệu cá nhân cho trí tuệ nhân tạo, dữ liệu lớn có kiểm soát; không dùng dữ liệu thật ở môi trường kiểm thử và công cụ AI công cộng?",
+      "AI, dữ liệu lớn: Luật Điều 30; NĐ 356 Điều 9, 10. Dữ liệu kiểm thử: thực tiễn tốt",
+      "LD+TT"
+    ],
+    [
+      "Sự cố & con người",
+      "Có quy trình xử lý vi phạm: lập biên bản xác nhận; với vi phạm có thể gây tổn hại (an ninh, trật tự, tính mạng, sức khỏe, danh dự, nhân phẩm, tài sản của chủ thể) thì thông báo cơ quan chuyên trách chậm nhất 72 giờ kể từ khi phát hiện, theo Mẫu số 08; đã diễn tập?",
+      "Luật Điều 23; NĐ 356 Điều 28, 29. Diễn tập là thực tiễn tốt",
+      "LD+TT"
+    ],
+    [
+      "Sự cố & con người",
+      "Dữ liệu ứng viên không được tuyển được xóa; dữ liệu người lao động được xóa khi chấm dứt hợp đồng (trừ thỏa thuận, luật khác); người lao động biết rõ các biện pháp giám sát bằng công nghệ?",
+      "Luật Điều 25",
+      "LD"
+    ],
+    [
+      "Sự cố & con người",
+      "Camera, ghi âm ghi hình, dữ liệu sinh trắc học, dữ liệu vị trí và cookie được xử lý đúng quy định, có thông báo và lựa chọn từ chối khi luật yêu cầu?",
+      "Luật Điều 29 khoản 3–4 (mạng xã hội, dịch vụ truyền thông trực tuyến); Điều 31; Điều 32",
+      "LD"
+    ],
+    [
+      "Trách nhiệm giải trình",
+      "Có hồ sơ chứng minh tuân thủ, rà soát định kỳ, báo cáo lãnh đạo, đào tạo nhận thức cho người lao động?",
+      "Luật Điều 37. Rà soát định kỳ, đào tạo toàn bộ người lao động là thực tiễn tốt",
+      "LD+TT"
+    ]
+  ]
+}

@@ -3,6 +3,16 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), phiên bản theo [SemVer](https://semver.org/).
 Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từng tệp YAML.
 
+## [Chưa phát hành]
+
+### Thêm mới
+- Bộ công cụ bảo vệ dữ liệu cá nhân cho doanh nghiệp vừa và nhỏ (`toolkits/dlcn/`): 22 câu tự kiểm tra có căn
+  cứ điều, khoản theo Luật 91/2025/QH15 và NĐ 356/2025/NĐ-CP; nguồn Markdown của mẫu báo cáo chẩn đoán, chính
+  sách, thông báo xử lý, đánh giá tác động, quy trình giải quyết yêu cầu của chủ thể, xử lý vi phạm, thỏa thuận
+  với bên xử lý, mẫu đồng ý; hướng dẫn sử dụng. Đối chiếu văn bản ngày 13/11/2026.
+- Trang "Kiểm tra nhanh" 10 câu (`docs/kiem-tra-nhanh/`), chạy trên trình duyệt.
+- `LICENSE-DATA` áp dụng thêm cho `toolkits/` và các tệp mẫu biểu phát hành kèm.
+
 ## [0.4.0] - 2026-11
 
 ### Thêm mới

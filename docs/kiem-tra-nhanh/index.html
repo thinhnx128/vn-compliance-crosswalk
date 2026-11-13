@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiểm tra nhanh DLCN</title>
+<style>
+  :root { --bg:#f7f8fa; --card:#fff; --ink:#1b2430; --muted:#5b6675; --line:#dfe3e8; --brand:#1f3864; --ok:#1e7e45; --warn:#b26a00; --bad:#b3261e; }
+  @media (prefers-color-scheme: dark) { :root { --bg:#12161c; --card:#1b212a; --ink:#e8ecf1; --muted:#a3adba; --line:#2f3743; --brand:#8fb0e8; --ok:#6fcf97; --warn:#f2c14e; --bad:#f28b82; } }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.55 system-ui, "Segoe UI", Roboto, Arial, sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:24px 16px 56px; }
+  h1 { font-size:1.5rem; margin:0 0 6px; color:var(--brand); }
+  p.lead { color:var(--muted); margin:0 0 20px; }
+  fieldset { border:1px solid var(--line); background:var(--card); border-radius:10px; padding:14px 16px; margin:0 0 12px; }
+  legend { font-weight:600; padding:0 6px; }
+  label { display:inline-flex; align-items:center; gap:6px; margin:6px 18px 0 0; cursor:pointer; }
+  #result { border:2px solid var(--line); background:var(--card); border-radius:10px; padding:18px; margin-top:20px; }
+  #score { font-size:2rem; font-weight:700; }
+  .ok { color:var(--ok); } .warn { color:var(--warn); } .bad { color:var(--bad); }
+  ul { padding-left:20px; margin:8px 0 0; }
+  small { color:var(--muted); display:block; margin-top:14px; }
+  button { margin-top:14px; font:inherit; padding:8px 14px; border-radius:8px; border:1px solid var(--line); background:var(--card); color:var(--ink); cursor:pointer; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Doanh nghiệp đã sẵn sàng với Luật Bảo vệ dữ liệu cá nhân chưa?</h1>
+  <p class="lead">10 câu, 3 phút. Kết quả hiện ngay trên trang này và không được gửi đi đâu.</p>
+  <form id="f"></form>
+  <div id="result" aria-live="polite">
+    <div id="score">–</div>
+    <div id="verdict">Trả lời đủ 10 câu để xem kết quả.</div>
+    <ul id="gaps"></ul>
+    <button type="button" id="copy" hidden>Sao chép kết quả</button>
+    <small>Căn cứ: Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định 356/2025/NĐ-CP, đối chiếu ngày 13/11/2026. Doanh nghiệp nhỏ, siêu nhỏ, hộ kinh doanh có thể được miễn một số nghĩa vụ (Luật Điều 38) nếu không xử lý dữ liệu nhạy cảm và chưa đạt 100 nghìn chủ thể dữ liệu. Đây là mẫu tham khảo và đánh giá sơ bộ về quản trị, không phải tư vấn pháp lý. Bộ kiểm tra đầy đủ gồm 22 câu, miễn phí.</small>
+  </div>
+  <p style="margin-top:28px;font-size:.85rem;color:var(--muted)">© Nguyễn Xuân Thịnh · <a href="https://github.com/thinhnx128/vn-compliance-crosswalk" style="color:var(--brand)">vn-compliance-crosswalk</a> · Nội dung CC BY 4.0 · <a href="https://github.com/thinhnx128/vn-compliance-crosswalk/releases/latest" style="color:var(--brand)">Tải bộ công cụ đầy đủ</a> · <a href="https://github.com/thinhnx128/vn-compliance-crosswalk/issues" style="color:var(--brand)">Góp ý, báo lỗi</a></p>
+</main>
+<script>
+const Q = [
+  ['Đã giao bằng văn bản một người hoặc bộ phận phụ trách bảo vệ dữ liệu cá nhân (doanh nghiệp siêu nhỏ, hộ kinh doanh được miễn nếu không xử lý dữ liệu nhạy cảm)?', 'Giao người phụ trách và ban hành chính sách bảo vệ dữ liệu cá nhân'],
+  ['Có danh sách các hoạt động đang xử lý dữ liệu cá nhân (dữ liệu gì, để làm gì, lưu ở đâu, gửi cho ai)?', 'Lập sổ hoạt động xử lý dữ liệu cá nhân'],
+  ['Sự đồng ý được lấy trước khi thu thập, tách từng mục đích, không dùng ô đánh dấu sẵn, và lưu được bằng chứng?', 'Sửa cách thu thập sự đồng ý, lưu bằng chứng đồng ý'],
+  ['Khách hàng, ứng viên, người lao động có được thông báo rõ dữ liệu của họ được dùng thế nào?', 'Soạn và công bố thông báo xử lý dữ liệu cá nhân'],
+  ['Khi khách yêu cầu xem, sửa, xóa dữ liệu hoặc rút lại đồng ý: có quy trình phản hồi trong 2 ngày làm việc và thực hiện trong 10 đến 20 ngày?', 'Ban hành quy trình giải quyết yêu cầu của chủ thể dữ liệu'],
+  ['Dữ liệu nhạy cảm (sức khỏe, sinh trắc học, tài chính, vị trí) được tách riêng và hạn chế người truy cập?', 'Nhận diện và bảo vệ tăng cường dữ liệu nhạy cảm'],
+  ['Đã lập và gửi hồ sơ đánh giá tác động xử lý dữ liệu cá nhân trong 60 ngày kể từ ngày đầu tiên xử lý (nếu không thuộc diện được miễn)?', 'Lập hồ sơ đánh giá tác động'],
+  ['Đã rà các dịch vụ đám mây, công cụ của nhà cung cấp nước ngoài và lập hồ sơ chuyển dữ liệu xuyên biên giới khi phải lập?', 'Rà luồng dữ liệu xuyên biên giới và lập hồ sơ'],
+  ['Hợp đồng với nhà cung cấp có xử lý dữ liệu (vận chuyển, email, CRM, đám mây) có điều khoản bảo vệ dữ liệu?', 'Ký phụ lục xử lý dữ liệu với nhà cung cấp'],
+  ['Nếu lộ dữ liệu hôm nay, nhân viên biết báo cho ai và doanh nghiệp biết phải thông báo cơ quan chuyên trách trong 72 giờ kể từ khi phát hiện?', 'Ban hành quy trình xử lý vi phạm và diễn tập'],
+];
+const OPT = [['Có, có văn bản', 2], ['Có một phần', 1], ['Chưa', 0]];
+const f = document.getElementById('f');
+Q.forEach(([q], i) => {
+  const fs = document.createElement('fieldset');
+  fs.innerHTML = `<legend>${i + 1}. ${q}</legend>` + OPT.map(([t, v]) => `<label><input type="radio" name="q${i}" value="${v}"> ${t}</label>`).join('');
+  f.appendChild(fs);
+});
+let summary = '';
+f.addEventListener('change', () => {
+  const vals = Q.map((_, i) => { const c = f.querySelector(`input[name=q${i}]:checked`); return c ? +c.value : null; });
+  if (vals.some(v => v === null)) return;
+  const total = vals.reduce((a, b) => a + b, 0), pct = Math.round(total / 20 * 100);
+  const [cls, text] = pct < 40 ? ['bad', 'Rủi ro cao: gần như chưa có quản trị dữ liệu cá nhân. Nên chẩn đoán đầy đủ trước khi làm bất cứ việc gì.']
+    : pct < 75 ? ['warn', 'Cần khắc phục: đã có nền tảng nhưng còn thiếu nghĩa vụ quan trọng.']
+    : ['ok', 'Đạt cơ bản: nên kiểm tra đầy đủ 22 câu có bằng chứng để chắc chắn.'];
+  const gaps = Q.filter((_, i) => vals[i] === 0).map(q => q[1]);
+  document.getElementById('score').className = cls;
+  document.getElementById('score').textContent = `${total}/20 điểm (${pct}%)`;
+  document.getElementById('verdict').textContent = text;
+  document.getElementById('gaps').innerHTML = gaps.map(g => `<li>${g}</li>`).join('');
+  summary = `Kiểm tra nhanh DLCN: ${total}/20 (${pct}%). ${text}` + (gaps.length ? '\nViệc cần làm trước:\n- ' + gaps.join('\n- ') : '');
+  document.getElementById('copy').hidden = false;
+});
+document.getElementById('copy').addEventListener('click', async e => {
+  try { await navigator.clipboard.writeText(summary); e.target.textContent = 'Đã sao chép'; } catch { e.target.textContent = 'Không sao chép được'; }
+});
+</script>
+</body>
+</html>
