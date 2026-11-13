@@ -3,7 +3,7 @@
 Định dạng theo [Keep a Changelog](https://keepachangelog.com/vi/1.1.0/), phiên bản theo [SemVer](https://semver.org/).
 Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từng tệp YAML.
 
-## [Chưa phát hành]
+## [0.5.0] - 2026-11
 
 ### Thêm mới
 - Bộ công cụ bảo vệ dữ liệu cá nhân cho doanh nghiệp vừa và nhỏ (`toolkits/dlcn/`): 22 câu tự kiểm tra có căn

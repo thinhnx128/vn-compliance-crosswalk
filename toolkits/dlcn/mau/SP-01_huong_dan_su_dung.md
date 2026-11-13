@@ -3,6 +3,7 @@ ma: SP-01
 ten: Hướng dẫn sử dụng bộ công cụ bảo vệ dữ liệu cá nhân
 dieu_khoan: "Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15; Nghị định 356/2025/NĐ-CP"
 phan_loai: CÔNG KHAI
+kieu: huong-dan
 ---
 
 # 1. Bộ công cụ gồm gì
