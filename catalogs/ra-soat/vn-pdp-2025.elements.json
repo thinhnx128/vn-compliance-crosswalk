@@ -1,0 +1,829 @@
+{
+  "_note": "Yếu tố kiểm được cho 22 yêu cầu VN-PDP (nội dung yêu cầu, căn cứ, loại lấy từ vn-pdp-2025.requirements.json cùng thư mục; căn cứ pháp lý đối chiếu bản Công báo ngày 13/11/2026). Mẫu (patterns) là bộ chấm theo luật: mỗi phương án là danh sách biểu thức phải cùng khớp trong MỘT đoạn; khớp một phương án là có bằng chứng. topic: dấu hiệu bộ văn bản có nói tới chủ đề (để phân biệt 'Chưa' với 'Không đủ thông tin'). Không phân biệt hoa thường.",
+  "catalog_version": "0.1.0",
+  "requirements": {
+    "VN-PDP-01": {
+      "topic": [
+        "bảo vệ (DLCN|dữ liệu cá nhân)",
+        "DPO"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Chỉ định bộ phận hoặc nhân sự bảo vệ dữ liệu cá nhân (hoặc thuê dịch vụ bảo vệ dữ liệu cá nhân)",
+          "patterns": [
+            [
+              "(bộ phận|nhân sự)[^.|]{0,20}bảo vệ (DLCN|dữ liệu cá nhân)",
+              "chỉ định|đảm nhiệm|phụ trách"
+            ],
+            [
+              "thuê (tổ chức|cá nhân)[^.|]{0,30}dịch vụ bảo vệ"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Chính sách bảo vệ dữ liệu cá nhân được lãnh đạo phê duyệt",
+          "patterns": [
+            [
+              "phê duyệt",
+              "chính sách"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-02": {
+      "topic": [
+        "hoạt động xử lý"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Có sổ ghi nhận các hoạt động xử lý dữ liệu cá nhân",
+          "patterns": [
+            [
+              "sổ",
+              "hoạt động xử lý"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Sổ được duy trì, cập nhật",
+          "patterns": [
+            [
+              "cập nhật|duy trì",
+              "sổ|REG-DP"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-03": {
+      "topic": [
+        "căn cứ",
+        "đồng ý"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Mỗi hoạt động xử lý có căn cứ (sự đồng ý hoặc trường hợp luật định)",
+          "patterns": [
+            [
+              "căn cứ",
+              "đồng ý|luật định|quy định pháp luật"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Xác định các trường hợp xử lý không cần sự đồng ý",
+          "patterns": [
+            [
+              "không cần (sự )?đồng ý"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-04": {
+      "topic": [
+        "đồng ý"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Sự đồng ý được lấy cho từng mục đích",
+          "patterns": [
+            [
+              "từng mục đích"
+            ],
+            [
+              "mục đích",
+              "☐ ?Đồng ý"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Không mặc định đồng ý, không coi im lặng là đồng ý",
+          "patterns": [
+            [
+              "im lặng"
+            ],
+            [
+              "mặc định",
+              "đồng ý"
+            ],
+            [
+              "tích sẵn"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Lưu bằng chứng về sự đồng ý",
+          "patterns": [
+            [
+              "bằng chứng",
+              "đồng ý"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-05": {
+      "topic": [
+        "rút lại (sự )?đồng ý"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Có cách tiếp nhận yêu cầu rút lại sự đồng ý",
+          "patterns": [
+            [
+              "rút lại (sự )?đồng ý",
+              "yêu cầu|tiếp nhận|email|biểu mẫu|văn bản|đề nghị"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Phản hồi yêu cầu trong 02 ngày làm việc",
+          "patterns": [
+            [
+              "phản hồi|trả lời",
+              "0?2 ngày làm việc"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Thực hiện yêu cầu rút lại sự đồng ý trong 15 ngày",
+          "patterns": [
+            [
+              "rút lại (sự )?đồng ý",
+              "15 ngày"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-06": {
+      "topic": [
+        "thông báo",
+        "chủ thể"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Thông báo cho chủ thể loại dữ liệu được xử lý",
+          "patterns": [
+            [
+              "dữ liệu chúng tôi xử lý"
+            ],
+            [
+              "(loại|nhóm) dữ liệu"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Thông báo mục đích xử lý",
+          "patterns": [
+            [
+              "mục đích",
+              "căn cứ|xử lý|sử dụng"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Nêu rõ bên kiểm soát dữ liệu",
+          "patterns": [
+            [
+              "bên kiểm soát"
+            ]
+          ]
+        },
+        {
+          "id": "e4",
+          "text": "Nêu quyền của chủ thể dữ liệu",
+          "patterns": [
+            [
+              "quyền",
+              "rút lại|truy cập|chỉnh sửa|xóa"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-07": {
+      "topic": [
+        "quyền",
+        "chủ thể"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Có kênh tiếp nhận yêu cầu thực hiện quyền",
+          "patterns": [
+            [
+              "kênh tiếp nhận"
+            ],
+            [
+              "gửi yêu cầu"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Phản hồi trong 02 ngày làm việc",
+          "patterns": [
+            [
+              "phản hồi|trả lời",
+              "0?2 ngày làm việc"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Thời hạn thực hiện theo từng loại yêu cầu (ví dụ xem, chỉnh sửa, cung cấp: 10 ngày)",
+          "patterns": [
+            [
+              "xem|chỉnh sửa|cung cấp",
+              "10 ngày"
+            ]
+          ]
+        },
+        {
+          "id": "e4",
+          "text": "Có thủ tục, các bước hoặc biểu mẫu thực hiện quyền",
+          "patterns": [
+            [
+              "các bước|thủ tục|biểu mẫu",
+              "yêu cầu|quyền"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-08": {
+      "topic": [
+        "nhạy cảm"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Nhận diện dữ liệu cá nhân nhạy cảm",
+          "patterns": [
+            [
+              "nhạy cảm",
+              "danh mục|xác định|ví dụ|liệt kê"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Giới hạn truy cập và biện pháp bảo mật riêng cho dữ liệu nhạy cảm",
+          "patterns": [
+            [
+              "nhạy cảm",
+              "phân quyền|giới hạn truy cập|biện pháp bảo mật riêng|mã hóa"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Báo rõ là dữ liệu nhạy cảm khi xin đồng ý",
+          "patterns": [
+            [
+              "nhạy cảm",
+              "báo rõ|nêu rõ"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-09": {
+      "topic": [
+        "trẻ em"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Người đại diện theo pháp luật thực hiện quyền đối với dữ liệu trẻ em",
+          "patterns": [
+            [
+              "trẻ em",
+              "đại diện"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Công bố đời sống riêng tư của trẻ từ đủ 07 tuổi cần sự đồng ý của trẻ và người đại diện",
+          "patterns": [
+            [
+              "(0?7) tuổi",
+              "đồng ý"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-10": {
+      "topic": [
+        "đánh giá tác động"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Lập hồ sơ đánh giá tác động xử lý dữ liệu cá nhân",
+          "patterns": [
+            [
+              "hồ sơ|lập",
+              "đánh giá tác động"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Gửi hồ sơ trong 60 ngày kể từ ngày đầu tiên xử lý",
+          "patterns": [
+            [
+              "60 ngày",
+              "hồ sơ|gửi|xử lý"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Cập nhật hồ sơ khi có thay đổi",
+          "patterns": [
+            [
+              "cập nhật",
+              "hồ sơ|đánh giá tác động"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-11": {
+      "topic": [
+        "xuyên biên giới",
+        "nước ngoài"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Nhận diện luồng chuyển dữ liệu xuyên biên giới, kể cả đám mây ở nước ngoài",
+          "patterns": [
+            [
+              "xuyên biên giới|ra nước ngoài",
+              "đám mây|nước ngoài|quốc gia"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Lập hồ sơ đánh giá tác động chuyển dữ liệu xuyên biên giới",
+          "patterns": [
+            [
+              "xuyên biên giới",
+              "hồ sơ"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Thời hạn 60 ngày cho hồ sơ chuyển dữ liệu xuyên biên giới",
+          "patterns": [
+            [
+              "60 ngày",
+              "xuyên biên giới|nước ngoài"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-12": {
+      "topic": [
+        "bên xử lý"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Có thỏa thuận hoặc hợp đồng xử lý dữ liệu với bên xử lý",
+          "patterns": [
+            [
+              "thỏa thuận|hợp đồng",
+              "bên xử lý"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Duy trì danh sách bên xử lý",
+          "patterns": [
+            [
+              "danh sách",
+              "bên xử lý"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Đánh giá bên xử lý định kỳ hoặc có quyền đánh giá việc tuân thủ",
+          "patterns": [
+            [
+              "đánh giá",
+              "tuân thủ|định kỳ",
+              "bên xử lý|Bên A|Bên B"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-13": {
+      "topic": [
+        "chuyển giao",
+        "chia sẻ"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Chỉ chuyển giao trong các trường hợp luật cho phép",
+          "patterns": [
+            [
+              "chuyển giao",
+              "luật cho phép|trường hợp luật|pháp luật yêu cầu"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Thỏa thuận chuyển giao có đủ nội dung bắt buộc",
+          "patterns": [
+            [
+              "thỏa thuận",
+              "mục đích",
+              "thời hạn",
+              "trách nhiệm"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Chia sẻ nội bộ có quy trình kiểm soát",
+          "patterns": [
+            [
+              "nội bộ",
+              "quy trình kiểm soát"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-14": {
+      "topic": [
+        "tiếp thị|quảng cáo|khuyến mãi"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Tiếp thị, quảng cáo chỉ dùng dữ liệu của người đã đồng ý",
+          "patterns": [
+            [
+              "tiếp thị|quảng cáo|khuyến mãi",
+              "đồng ý"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Có cách để người nhận từ chối",
+          "patterns": [
+            [
+              "tiếp thị|quảng cáo|khuyến mãi",
+              "từ chối|phản đối|rút lại|không bắt buộc"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-15": {
+      "topic": [
+        "lưu trữ|thời gian lưu|xóa|hủy"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Xác định thời hạn lưu cho từng loại dữ liệu",
+          "patterns": [
+            [
+              "thời (gian|hạn) lưu"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Xóa, hủy bằng biện pháp an toàn",
+          "patterns": [
+            [
+              "xóa|hủy",
+              "an toàn|không thể khôi phục|máy hủy"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Xóa theo yêu cầu hợp lệ của chủ thể, có ngoại lệ luật định",
+          "patterns": [
+            [
+              "xóa",
+              "yêu cầu|chủ thể",
+              "không xóa|trừ|ngoại lệ|Điều 19"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-16": {
+      "topic": [
+        "truy cập",
+        "bảo mật|an toàn"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Phân quyền truy cập theo nhu cầu",
+          "patterns": [
+            [
+              "phân quyền"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Xác thực đa yếu tố",
+          "patterns": [
+            [
+              "xác thực đa yếu tố|MFA"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Ghi nhật ký truy cập dữ liệu cá nhân",
+          "patterns": [
+            [
+              "nhật ký",
+              "truy cập"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-17": {
+      "topic": [
+        "mã hóa",
+        "sao lưu"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Mã hóa dữ liệu nhạy cảm khi chuyển giao, truyền",
+          "patterns": [
+            [
+              "mã hóa",
+              "nhạy cảm|khi truyền|chuyển giao"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Mã hóa dữ liệu trên điện toán đám mây",
+          "patterns": [
+            [
+              "mã hóa",
+              "đám mây"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Sao lưu và kiểm tra khôi phục",
+          "patterns": [
+            [
+              "sao lưu",
+              "khôi phục"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-18": {
+      "topic": [
+        "trí tuệ nhân tạo|dữ liệu lớn|kiểm thử|\\bAI\\b"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Kiểm soát việc dùng dữ liệu cá nhân cho trí tuệ nhân tạo, dữ liệu lớn",
+          "patterns": [
+            [
+              "trí tuệ nhân tạo|dữ liệu lớn|\\bAI\\b",
+              "dữ liệu cá nhân|DLCN"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Không dùng dữ liệu thật ở môi trường kiểm thử",
+          "patterns": [
+            [
+              "kiểm thử",
+              "che giấu|ẩn danh|không dùng dữ liệu thật|giả lập"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Không đưa dữ liệu cá nhân vào công cụ AI công cộng",
+          "patterns": [
+            [
+              "công cụ AI|AI công cộng|chatbot|AI tạo sinh"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-19": {
+      "topic": [
+        "vi phạm|sự cố"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Lập biên bản xác nhận vi phạm",
+          "patterns": [
+            [
+              "biên bản xác nhận"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Thông báo cơ quan chuyên trách trong 72 giờ",
+          "patterns": [
+            [
+              "72 giờ",
+              "cơ quan chuyên trách"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Dùng Mẫu số 08",
+          "patterns": [
+            [
+              "Mẫu số 08"
+            ]
+          ]
+        },
+        {
+          "id": "e4",
+          "text": "Diễn tập quy trình xử lý vi phạm",
+          "patterns": [
+            [
+              "diễn tập"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-20": {
+      "topic": [
+        "ứng viên|tuyển dụng|người lao động"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Xóa dữ liệu ứng viên không được tuyển",
+          "patterns": [
+            [
+              "ứng viên",
+              "xóa|hủy"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Xóa dữ liệu người lao động khi chấm dứt hợp đồng (trừ thỏa thuận, luật khác)",
+          "patterns": [
+            [
+              "người lao động|nhân viên",
+              "chấm dứt",
+              "xóa|hủy"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Thông báo cho người lao động về giám sát bằng công nghệ",
+          "patterns": [
+            [
+              "giám sát",
+              "người lao động|nhân viên"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-21": {
+      "topic": [
+        "camera|ghi hình|ghi âm|cookie|sinh trắc|vị trí"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Thông báo khi ghi âm, ghi hình, dùng camera",
+          "patterns": [
+            [
+              "camera|ghi hình|ghi âm",
+              "thông báo|biển báo"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Cookie có thông báo và lựa chọn từ chối khi luật yêu cầu",
+          "patterns": [
+            [
+              "cookie",
+              "đồng ý|từ chối|lựa chọn"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Xử lý dữ liệu sinh trắc học, dữ liệu vị trí theo quy định",
+          "patterns": [
+            [
+              "sinh trắc|vị trí",
+              "xử lý|thông báo|bảo vệ"
+            ]
+          ]
+        }
+      ]
+    },
+    "VN-PDP-22": {
+      "topic": [
+        "tuân thủ|trách nhiệm giải trình"
+      ],
+      "elements": [
+        {
+          "id": "e1",
+          "text": "Có hồ sơ chứng minh tuân thủ",
+          "patterns": [
+            [
+              "hồ sơ|bằng chứng",
+              "chứng minh"
+            ]
+          ]
+        },
+        {
+          "id": "e2",
+          "text": "Rà soát, xem xét định kỳ",
+          "patterns": [
+            [
+              "xem xét|rà soát",
+              "mỗi năm|hằng năm|định kỳ"
+            ]
+          ]
+        },
+        {
+          "id": "e3",
+          "text": "Báo cáo lãnh đạo",
+          "patterns": [
+            [
+              "báo cáo",
+              "lãnh đạo"
+            ]
+          ]
+        },
+        {
+          "id": "e4",
+          "text": "Đào tạo nhận thức cho người lao động",
+          "patterns": [
+            [
+              "đào tạo"
+            ]
+          ]
+        }
+      ]
+    }
+  }
+}
