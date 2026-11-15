@@ -14,7 +14,15 @@ from dataclasses import dataclass
 from typing import Protocol
 
 from .catalog import Element, Requirement
-from .loader import Segment
+from .loader import Segment, normalize
+
+MIN_QUOTE_CHARS = 20  # trích dẫn ngắn hơn bị coi là quá chung chung
+MIN_QUOTE_WORDS = 4
+
+
+def quote_long_enough(text: str) -> bool:
+    q = normalize(text)
+    return len(q) >= MIN_QUOTE_CHARS and len(q.split()) >= MIN_QUOTE_WORDS
 
 
 class JudgeError(RuntimeError):
@@ -44,6 +52,8 @@ class RuleJudge:
 
     def judge(self, req: Requirement, el: Element, candidates: list[Segment]) -> Verdict:
         for seg in candidates:
+            if not quote_long_enough(seg.text):
+                continue  # đoạn quá ngắn (ví dụ tiêu đề) không làm trích dẫn được; xét đoạn tiếp theo
             for alt in el.patterns:
                 if all(p.search(seg.text) for p in alt):
                     return Verdict(True, seg.text, seg.ref, "khớp mẫu")

@@ -93,6 +93,8 @@ def to_markdown(
         "",
         "Ưu tiên tạm tính theo loại yêu cầu (luật định trước) và số yếu tố còn thiếu; "
         "chưa tính mức phạt theo NĐ 330/2026 vì công cụ chưa có danh mục mức phạt.",
+        "Mẫu tham khảo nằm trong bộ công cụ bảo vệ dữ liệu cá nhân của dự án (DP-01..DP-07, thư mục `toolkits/dlcn/mau`"
+        " hoặc gói phát hành). Mẫu phải được điều chỉnh theo hoạt động thực tế của tổ chức trước khi dùng.",
         "",
     ]
     if not gaps:
@@ -103,6 +105,8 @@ def to_markdown(
             lines.append(f"   - Thiếu: {e.element.text}")
         if r.note:
             lines.append(f"   - {r.note}")
+        if r.req.mau and r.missing:
+            lines.append(f"   - Mẫu tham khảo để lấp: {'; '.join(r.req.mau)}")
     lines += ["", "## Chi tiết theo yêu cầu", ""]
     for r in results:
         lines.append(f"### {r.req.id} — {r.req.title}: {r.status}")

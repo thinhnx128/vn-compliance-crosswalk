@@ -20,6 +20,17 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
   ma trận (CSV) kèm trích dẫn nguyên văn. Bộ chấm theo luật chạy trên máy, không cần mạng; bộ chấm AI dùng khóa API
   của người dùng, chưa được đo độ chính xác. Danh mục ở `catalogs/ra-soat/`, hướng dẫn ở `docs/ra-soat/README.md`.
   Đánh giá sơ bộ, không phải kết luận pháp lý. Đối chiếu văn bản ngày 13/11/2026.
+- `vncc ra-soat`: mỗi khoảng trống trong báo cáo ghi mẫu và mục cụ thể trong bộ DP-01..07 có thể dùng để lấp
+  (`catalogs/ra-soat/vn-pdp-2025.mau.json`).
+- Mẫu DP-01: thêm mục 9 (dữ liệu trẻ em; ứng viên và người lao động; camera, ghi âm, sinh trắc học, vị trí, cookie;
+  trí tuệ nhân tạo và môi trường kiểm thử; mã hóa trên điện toán đám mây, sao lưu; danh sách bên xử lý) và nội dung
+  báo cáo lãnh đạo ở mục 12; các mục sau đánh số lại. Mẫu DP-05: thêm mục 8 về diễn tập. Phần ghi "thực tiễn tốt"
+  không phải nghĩa vụ luật định. Gói Word, Excel trong `toolkits/dlcn/phat-hanh/` chưa cập nhật theo, sẽ dựng lại
+  khi phát hành bản mới.
+
+### Sửa lỗi
+- `vncc ra-soat`: bộ chấm theo luật không còn dừng ở một tiêu đề ngắn khớp mẫu (trích dẫn quá ngắn bị loại) mà xét
+  tiếp các đoạn sau, nên không bỏ sót bằng chứng nằm ngay dưới tiêu đề.
 
 ### English
 - `toolkits/dlcn/README.md`: Vietnamese text edited and an English version added below it. No change to the
@@ -35,6 +46,11 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
   offline; the AI judge uses the user's own API key and its accuracy has not been measured. Catalog in
   `catalogs/ra-soat/`, guide in `docs/ra-soat/README.md`. Preliminary assessment, not legal advice. Legal texts
   checked on 13 November 2026.
+- `vncc ra-soat`: each gap in the report names the DP-01..07 template section that can fill it. Template DP-01
+  gains section 9 (children; job applicants and employees; cameras, recordings, biometric and location data,
+  cookies; AI and test environments; cloud encryption and backups; list of processors) and management reporting in
+  section 12; DP-05 gains section 8 on drills. The Word/Excel package under `toolkits/dlcn/phat-hanh/` is not yet
+  rebuilt. Fix: the rule judge no longer stops at a short matching heading whose quote is too short.
 
 ## [0.5.1] - 2026-11
 

@@ -62,3 +62,7 @@ Bảng này là công cụ nội bộ, không thay cho điều kiện thông bá
 # 7. Sau vi phạm
 
 Họp rút kinh nghiệm trong [● 10] ngày làm việc; cập nhật biện pháp bảo vệ; cập nhật hồ sơ đánh giá tác động nếu cần; theo dõi hành động khắc phục đến khi đóng.
+
+# 8. Diễn tập
+
+Diễn tập quy trình này ít nhất [● mỗi năm một lần] bằng một tình huống giả định (ví dụ gửi nhầm email chứa danh sách khách hàng). Mục tiêu: kiểm tra kênh báo cáo, thời gian từ khi phát hiện tới khi sẵn sàng thông báo, và việc nắm cách lập biên bản xác nhận ở bước 5. Kết quả ghi thành biên bản diễn tập kèm kế hoạch cải tiến, lưu cùng sổ REG-DP (thực tiễn tốt).
