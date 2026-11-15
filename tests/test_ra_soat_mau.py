@@ -112,3 +112,16 @@ def test_anh_xa_sai_cau_truc_bao_loi_ro(tmp_path, noi_dung):
 def test_thieu_tep_anh_xa_thi_bao_cao_van_chay(tmp_path):
     catalog = cat.load(mau_path=tmp_path / "khong-co.json")
     assert all(not r.mau for r in catalog.requirements)
+
+
+def test_truong_mau_muc_sai_kieu_bao_dung_thong_diep(tmp_path):
+    bad = tmp_path / "mau.json"
+    bad.write_text('{"mau": {"DP-01": "a.md"}, "requirements": {"VN-PDP-01": [{"mau": 1, "muc": "x"}]}}', encoding="utf-8")
+    with pytest.raises(ValueError, match="'mau' và 'muc' dạng chuỗi"):
+        cat.load(mau_path=bad)
+
+
+def test_bao_cao_khong_goi_y_mau_cho_yeu_cau_khong_con_thieu():
+    catalog = cat.load()
+    md = to_markdown(catalog, assess(catalog, _mau_segments(), RuleJudge()), "mau", "luat", "2026-11-15")
+    assert "Mẫu tham khảo để lấp" not in md.split("## Chi tiết theo yêu cầu")[0].split("## Khoảng trống")[1]
