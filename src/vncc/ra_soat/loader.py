@@ -68,7 +68,7 @@ def read_document(path: Path, root: Path) -> list[Segment]:
     heading = ""
     idx = 0
     for raw in lines:
-        text = unicodedata.normalize("NFC", raw).strip()
+        text = unicodedata.normalize("NFC", raw.replace("\x00", "")).strip()  # bỏ ký tự NUL
         if not text or re.fullmatch(r"\|?[\s:|-]+\|?", text):  # dòng trống, dòng kẻ bảng
             continue
         idx += 1

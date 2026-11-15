@@ -14,6 +14,8 @@ ORDER = [DAP_UNG, CAN_XAC_NHAN, MOT_PHAN, CHUA, KHONG_DU, KHONG_AP_DUNG]
 
 def _safe(s: str) -> str:
     """Chặn chèn công thức khi mở CSV bằng bảng tính."""
+    # Ký tự NUL làm mô-đun csv của Python 3.10 báo lỗi và không có nghĩa trong văn bản: bỏ đi
+    s = s.replace("\x00", "")
     # Kiểm tra cả sau khi bỏ khoảng trắng, ký tự điều khiển ở đầu (bảng tính có thể bỏ qua chúng)
     head = s.lstrip("".join(chr(c) for c in range(33)) + "\x7f")
     return "'" + s if s[:1] in ("=", "+", "-", "@", "\t", "\r") or head[:1] in ("=", "+", "-", "@") else s
@@ -36,11 +38,14 @@ def to_csv(results: list[RequirementResult]) -> str:
             "Ghi chú",
         ]
     )
+    def row(cells):  # mọi ô đều bỏ ký tự NUL (Python 3.10 không ghi được NUL vào CSV)
+        w.writerow([str(c).replace("\x00", "") for c in cells])
+
     for r in results:
         if not r.elements:
-            w.writerow([r.req.id, r.req.title, r.req.type, r.status, "", "", "", "", "", _safe(r.note)])
+            row([r.req.id, r.req.title, r.req.type, r.status, "", "", "", "", "", _safe(r.note)])
         for e in r.elements:
-            w.writerow(
+            row(
                 [
                     r.req.id,
                     r.req.title,

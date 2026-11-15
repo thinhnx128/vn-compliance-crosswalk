@@ -98,7 +98,19 @@ def test_csv_chan_cong_thuc_sau_khoang_trang_va_ky_tu_dieu_khien():
     for prefix in (" ", chr(9), chr(11) + chr(12), chr(0)):
         seg = Segment("a.md", 1, "", prefix + "=HYPERLINK(1) phân quyền truy cập theo vai trò")
         csv_text = to_csv(assess(catalog, [seg], _RuleLike()))
-        assert ("'" + prefix + "=HYPERLINK") in csv_text, repr(prefix)
+        kept = prefix.replace(chr(0), "")  # ký tự NUL bị bỏ (Python 3.10 không ghi được NUL vào CSV)
+        assert ("'" + kept + "=HYPERLINK") in csv_text, repr(prefix)
+        assert chr(0) not in csv_text
+
+
+def test_tai_lieu_chua_ky_tu_nul_van_doc_va_xuat_duoc(tmp_path):
+    from vncc.ra_soat.judges import RuleJudge
+    from vncc.ra_soat.loader import read_folder
+
+    (tmp_path / "a.md").write_text("Phân quyền" + chr(0) + " truy cập theo vai trò công việc." + chr(10), encoding="utf-8")
+    segs = read_folder(tmp_path)
+    assert segs and chr(0) not in segs[0].text
+    assert chr(0) not in to_csv(assess(cat.load(), segs, RuleJudge()))
 
 
 class _RuleLike:

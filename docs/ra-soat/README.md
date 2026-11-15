@@ -61,7 +61,8 @@ khi tổ chức đã cho phép và điều khoản dịch vụ của nhà cung c
 ## Cách chấm
 
 1. **Tách văn bản thành đoạn.** Mỗi dòng có nội dung (đoạn văn, mục danh sách, dòng bảng, tiêu đề) là một đoạn,
-   có tên tệp, số thứ tự và tiêu đề gần nhất.
+   có tên tệp, số thứ tự và tiêu đề gần nhất. Văn bản được chuẩn hóa Unicode (NFC) và bỏ ký tự NUL; trích dẫn được
+   so khớp trên văn bản đã chuẩn hóa này.
 2. **Tách yêu cầu thành yếu tố.** Mỗi yêu cầu có 2 đến 4 yếu tố kiểm được (ví dụ VN-PDP-16: phân quyền, xác thực đa
    yếu tố, nhật ký truy cập). Danh mục ở [`catalogs/ra-soat/`](../../catalogs/ra-soat/).
 3. **Chấm từng yếu tố.** Bộ chấm nhận các đoạn liên quan và trả lời có bằng chứng hay không, kèm trích dẫn.
@@ -150,7 +151,8 @@ python -m vncc.ra_soat danh-gia policies/  # same, from source
 On Windows set `PYTHONUTF8=1` first (PowerShell: `$env:PYTHONUTF8 = "1"`; CMD: `set PYTHONUTF8=1`). Exit codes: `0` success, `2` input error, `3` judge failure (no report is written).
 The AI judge sends your documents to Anthropic; only do this with your organisation's permission.
 
-**How scoring works.** Documents are split into segments (one per non-empty line). Each requirement is split into 2–4
+**How scoring works.** Documents are split into segments (one per non-empty line), normalised to Unicode NFC with NUL
+characters removed; quotes are matched against this normalised text. Each requirement is split into 2–4
 checkable elements (`catalogs/ra-soat/`). A judge decides per element whether evidence exists and quotes it. Requirement
 labels follow fixed rules: Sufficient evidence in the documents (all elements evidenced and confirmed by the rule
 judge), Needs manual review (any
