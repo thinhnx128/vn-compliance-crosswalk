@@ -12,7 +12,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 from .catalog import TYPE_WEIGHT, Catalog, Element, Requirement
-from .judges import Judge, Verdict
+from .judges import MIN_QUOTE_CHARS, MIN_QUOTE_WORDS, Judge, Verdict
 from .loader import Segment, normalize
 
 DAP_UNG = "Đủ bằng chứng trong văn bản"
@@ -23,8 +23,6 @@ KHONG_DU = "Văn bản không đề cập"
 KHONG_AP_DUNG = "Không áp dụng (người dùng khai báo)"
 
 BATCH = 25  # số đoạn mỗi lô gửi bộ chấm AI
-MIN_QUOTE_CHARS = 20  # trích dẫn ngắn hơn bị coi là quá chung chung
-MIN_QUOTE_WORDS = 4
 
 
 @dataclass

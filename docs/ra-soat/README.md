@@ -14,7 +14,9 @@ Lệnh `vncc ra-soat` đọc một thư mục chính sách, quy trình của t�
 trong [`toolkits/dlcn`](../../toolkits/dlcn/README.md)). Kết quả là hai tệp:
 
 - `bao-cao.md`: tổng hợp theo trạng thái, danh sách khoảng trống xếp theo ưu tiên, chi tiết từng yêu cầu kèm
-  **trích dẫn nguyên văn** và vị trí (`tên-tệp#số-đoạn`) của đoạn làm bằng chứng;
+  **trích dẫn nguyên văn** và vị trí (`tên-tệp#số-đoạn`) của đoạn làm bằng chứng. Mỗi khoảng trống ghi **mẫu tham
+  khảo để lấp**: mẫu và mục cụ thể trong bộ DP-01..07 của [`toolkits/dlcn/mau`](../../toolkits/dlcn/mau/)
+  (ánh xạ ở `catalogs/ra-soat/vn-pdp-2025.mau.json`). Mẫu cần điều chỉnh theo hoạt động thực tế trước khi dùng;
 - `ma-tran.csv`: ma trận yêu cầu, yếu tố, có bằng chứng hay không, vị trí, trích dẫn (mở được bằng Excel).
 
 Công cụ chỉ thấy nội dung văn bản được đưa vào. Văn bản có ghi không có nghĩa là tổ chức đã thực hiện; việc thực hiện
@@ -106,10 +108,11 @@ tests/data/ra_soat/cong-ty-abc.nhan.json`):
 
 | Bộ văn bản | Kết quả |
 |---|---|
-| Bộ mẫu DP-01..07 trong `toolkits/dlcn/mau/` | 14 đủ bằng chứng, 7 có bằng chứng một phần, 1 chưa tìm thấy bằng chứng |
+| Bộ mẫu DP-01..07 trong `toolkits/dlcn/mau/` | 22/22 đủ bằng chứng (trước khi bổ sung DP-01 mục 9, 12 và DP-05 mục 8: 14 đủ, 7 một phần, 1 chưa). Kiểm thử `tests/test_ra_soat_mau.py` giữ điều kiện này |
 | Bộ văn bản hư cấu "Công ty CP ABC" (`tests/data/ra_soat/`, 3 tệp, 65 yếu tố, viết bằng lời khác bộ mẫu, có bẫy) | Đúng 46/65 yếu tố (0,708); **0 dương tính giả**; 19 âm tính giả; độ phủ 0,296; nhãn yêu cầu khớp 12/22 |
 
-Bộ mẫu DP-01..07 là bộ đã dùng để viết mẫu chấm, nên kết quả trên bộ mẫu không nói lên độ chính xác. Bộ văn bản hư
+Bộ mẫu DP-01..07 là bộ đã dùng để viết mẫu chấm, nên kết quả trên bộ mẫu không nói lên độ chính xác; nó chỉ bảo
+đảm bộ mẫu của dự án lấp được mọi khoảng trống mà công cụ báo. Bộ văn bản hư
 cấu không dùng để chỉnh mẫu chấm. Nhãn của bộ này do một người gán, chưa được nhiều người đối chiếu.
 
 Nhận định: bộ luật đáng tin khi nói "có" nhưng bỏ sót phần lớn bằng chứng viết bằng lời khác mẫu. Vai trò của nó là
@@ -136,7 +139,8 @@ Gazette (No. 971+972 of 24 July 2025 for Law No. 91/2025/QH15; No. 18 of 18 Janu
 `vncc ra-soat` reads a folder of an organisation's policies and procedures (`.md`, `.txt`, `.docx`) and checks it
 against the 22 personal data protection requirements used by the [`toolkits/dlcn`](../../toolkits/dlcn/README.md)
 self-assessment. It writes `bao-cao.md` (summary, prioritised gaps, per-requirement detail with **verbatim quotes** and
-their location) and `ma-tran.csv` (requirement/element matrix). The tool only sees the text it is given; written policy
+their location, plus the template section from DP-01..07 in `toolkits/dlcn/mau` that can fill each gap) and
+`ma-tran.csv` (requirement/element matrix). The tool only sees the text it is given; written policy
 is not proof of practice.
 
 ```bash

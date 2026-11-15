@@ -1,0 +1,37 @@
+{
+  "_note": "Ánh xạ mỗi yêu cầu VN-PDP tới mục trong bộ mẫu toolkits/dlcn/mau (DP-01..07) có thể dùng để lấp khoảng trống. 'muc' là nguyên văn tiêu đề trong tệp mẫu (không có dấu #). Kiểm thử bảo đảm: đủ 22 yêu cầu, tệp và tiêu đề có thật, và bộ mẫu tự đạt 'Đủ bằng chứng trong văn bản' khi rà bằng bộ chấm theo luật.",
+  "thu_muc_mau": "toolkits/dlcn/mau",
+  "mau": {
+    "DP-01": "DP-01_chinh_sach_bao_ve_dlcn.md",
+    "DP-02": "DP-02_thong_bao_xu_ly_dlcn.md",
+    "DP-03": "DP-03_danh_gia_tac_dong.md",
+    "DP-04": "DP-04_quyen_chu_the_du_lieu.md",
+    "DP-05": "DP-05_xu_ly_vi_pham_dlcn.md",
+    "DP-06": "DP-06_thoa_thuan_xu_ly_dlcn.md",
+    "DP-07": "DP-07_mau_dong_y.md"
+  },
+  "requirements": {
+    "VN-PDP-01": [{"mau": "DP-01", "muc": "5. Tổ chức thực hiện"}],
+    "VN-PDP-02": [{"mau": "DP-01", "muc": "3. Vai trò của {{TEN_CONG_TY}}"}, {"mau": "DP-01", "muc": "5. Tổ chức thực hiện"}],
+    "VN-PDP-03": [{"mau": "DP-01", "muc": "4. Nguyên tắc xử lý"}, {"mau": "DP-02", "muc": "3. Mục đích và căn cứ"}],
+    "VN-PDP-04": [{"mau": "DP-07", "muc": "Mẫu 1 — Văn bản đồng ý"}, {"mau": "DP-07", "muc": "Mẫu 2 — Câu chữ cho biểu mẫu trực tuyến"}, {"mau": "DP-07", "muc": "Bằng chứng đồng ý cần lưu"}],
+    "VN-PDP-05": [{"mau": "DP-07", "muc": "Mẫu 3 — Yêu cầu rút lại đồng ý"}, {"mau": "DP-02", "muc": "6. Quyền của bạn"}, {"mau": "DP-04", "muc": "5. Hướng dẫn theo loại yêu cầu"}],
+    "VN-PDP-06": [{"mau": "DP-02", "muc": "1. Chúng tôi là ai"}, {"mau": "DP-02", "muc": "2. Dữ liệu chúng tôi xử lý"}, {"mau": "DP-02", "muc": "3. Mục đích và căn cứ"}, {"mau": "DP-02", "muc": "6. Quyền của bạn"}],
+    "VN-PDP-07": [{"mau": "DP-04", "muc": "2. Kênh tiếp nhận"}, {"mau": "DP-04", "muc": "3. Thời hạn theo luật"}, {"mau": "DP-04", "muc": "4. Các bước"}],
+    "VN-PDP-08": [{"mau": "DP-01", "muc": "6. Biện pháp bảo vệ"}],
+    "VN-PDP-09": [{"mau": "DP-01", "muc": "9.1 Dữ liệu cá nhân của trẻ em (Luật Điều 24)"}],
+    "VN-PDP-10": [{"mau": "DP-03", "muc": "1. Nghĩa vụ theo luật"}, {"mau": "DP-03", "muc": "5. Khung nội dung hồ sơ đánh giá tác động xử lý"}],
+    "VN-PDP-11": [{"mau": "DP-01", "muc": "8. Chia sẻ và chuyển dữ liệu xuyên biên giới"}, {"mau": "DP-03", "muc": "6. Khung nội dung hồ sơ chuyển dữ liệu cá nhân xuyên biên giới"}],
+    "VN-PDP-12": [{"mau": "DP-06", "muc": "Điều 2. Nghĩa vụ của Bên B"}, {"mau": "DP-01", "muc": "9.6 Bên xử lý (Luật Điều 37)"}],
+    "VN-PDP-13": [{"mau": "DP-01", "muc": "8. Chia sẻ và chuyển dữ liệu xuyên biên giới"}, {"mau": "DP-02", "muc": "4. Chia sẻ dữ liệu"}],
+    "VN-PDP-14": [{"mau": "DP-02", "muc": "3. Mục đích và căn cứ"}],
+    "VN-PDP-15": [{"mau": "DP-02", "muc": "5. Thời gian lưu trữ"}, {"mau": "DP-04", "muc": "5. Hướng dẫn theo loại yêu cầu"}],
+    "VN-PDP-16": [{"mau": "DP-01", "muc": "6. Biện pháp bảo vệ"}, {"mau": "DP-06", "muc": "Phụ lục biện pháp an toàn"}],
+    "VN-PDP-17": [{"mau": "DP-01", "muc": "6. Biện pháp bảo vệ"}, {"mau": "DP-01", "muc": "9.5 Mã hóa, sao lưu và điện toán đám mây (Luật Điều 12 khoản 3; NĐ 356 Điều 7 khoản 2, Điều 12 khoản 4)"}],
+    "VN-PDP-18": [{"mau": "DP-01", "muc": "9.4 Trí tuệ nhân tạo, dữ liệu lớn và môi trường kiểm thử (Luật Điều 30; NĐ 356 Điều 9, 10)"}],
+    "VN-PDP-19": [{"mau": "DP-05", "muc": "3. Các bước"}, {"mau": "DP-05", "muc": "8. Diễn tập"}],
+    "VN-PDP-20": [{"mau": "DP-01", "muc": "9.2 Dữ liệu của ứng viên và người lao động (Luật Điều 25)"}],
+    "VN-PDP-21": [{"mau": "DP-01", "muc": "9.3 Camera, ghi âm, sinh trắc học, vị trí và cookie (Luật Điều 29 khoản 3–4; Điều 31; Điều 32)"}],
+    "VN-PDP-22": [{"mau": "DP-01", "muc": "12. Xem xét và báo cáo"}, {"mau": "DP-01", "muc": "6. Biện pháp bảo vệ"}, {"mau": "DP-01", "muc": "5. Tổ chức thực hiện"}]
+  }
+}

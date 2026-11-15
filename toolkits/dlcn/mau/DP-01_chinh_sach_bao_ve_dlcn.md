@@ -73,16 +73,56 @@ Danh sách đầy đủ ở sheet "Hoạt động xử lý" của sổ REG-DP.
 - Chuyển giao dữ liệu nhạy cảm phải có biện pháp bảo mật vật lý, mã hóa, ẩn danh (NĐ 356 Điều 7 khoản 2). Chia sẻ giữa các bộ phận nội bộ phải có quy trình kiểm soát (khoản 4).
 - Chuyển dữ liệu cá nhân xuyên biên giới, kể cả lưu trên máy chủ hoặc dịch vụ điện toán đám mây của nhà cung cấp ở nước ngoài và dùng nền tảng đặt ngoài Việt Nam để xử lý (Luật Điều 20 khoản 1; NĐ 356 Điều 17 khoản 1), phải lập hồ sơ đánh giá tác động chuyển dữ liệu xuyên biên giới theo DP-03, trừ các trường hợp được miễn.
 
-# 9. Vi phạm
+# 9. Một số loại dữ liệu và hoạt động cần quy định riêng
+
+Các mục được ghi "thực tiễn tốt" không phải nghĩa vụ luật định; {{TEN_CONG_TY}} có thể điều chỉnh cho phù hợp quy mô.
+
+## 9.1 Dữ liệu cá nhân của trẻ em (Luật Điều 24)
+
+- Người đại diện theo pháp luật của trẻ em thực hiện các quyền của chủ thể dữ liệu đối với dữ liệu cá nhân của trẻ em, theo quy trình DP-04.
+- Việc công bố thông tin về đời sống riêng tư của trẻ từ đủ 07 tuổi phải có sự đồng ý của trẻ và của người đại diện theo pháp luật.
+- {{TEN_CONG_TY}} [● có / không] xử lý dữ liệu cá nhân của trẻ em. Nếu có: hoạt động xử lý được ghi trong sổ REG-DP và đánh giá theo DP-03.
+
+## 9.2 Dữ liệu của ứng viên và người lao động (Luật Điều 25)
+
+- Dữ liệu cá nhân của ứng viên không được tuyển dụng được xóa, hủy sau khi có kết quả tuyển dụng, trong thời hạn [● số ngày].
+- Dữ liệu cá nhân của người lao động được xóa, hủy khi chấm dứt hợp đồng lao động, trừ trường hợp có thỏa thuận với người lao động hoặc pháp luật khác quy định phải lưu giữ.
+- Biện pháp giám sát bằng công nghệ đối với người lao động (ví dụ camera tại nơi làm việc, giám sát thiết bị, tài khoản công việc) được thông báo rõ cho người lao động trước khi áp dụng: mục đích, phạm vi, thời gian lưu.
+
+## 9.3 Camera, ghi âm, sinh trắc học, vị trí và cookie (Luật Điều 29 khoản 3–4; Điều 31; Điều 32)
+
+- Khu vực có camera và cuộc gọi có ghi âm, ghi hình được thông báo hoặc có biển báo cho người bị ghi trước khi ghi; mục đích và thời gian lưu được ghi trong sổ REG-DP.
+- Dữ liệu sinh trắc học và dữ liệu vị trí được xử lý như dữ liệu nhạy cảm (mục 6); vi phạm liên quan tới các loại dữ liệu này được thông báo cho chủ thể theo DP-05.
+- Website, ứng dụng dùng cookie có thông báo về cookie; cookie không cần thiết cho việc cung cấp dịch vụ chỉ dùng khi người dùng đồng ý, và người dùng có lựa chọn từ chối. Bắt buộc trong các trường hợp luật quy định (Luật Điều 29 khoản 3–4 đối với mạng xã hội, dịch vụ truyền thông trực tuyến); với trường hợp khác là thực tiễn tốt.
+
+## 9.4 Trí tuệ nhân tạo, dữ liệu lớn và môi trường kiểm thử (Luật Điều 30; NĐ 356 Điều 9, 10)
+
+- Mỗi việc dùng dữ liệu cá nhân để huấn luyện, vận hành hệ thống trí tuệ nhân tạo hoặc phân tích dữ liệu lớn được ghi trong sổ REG-DP, có căn cứ pháp lý và mục đích rõ, được {{DPO}} xem xét rủi ro trước khi triển khai, và đánh giá tác động theo DP-03 khi thuộc diện phải lập.
+- Không đưa dữ liệu cá nhân của khách hàng, người lao động vào công cụ AI công cộng (chatbot, công cụ AI tạo sinh) khi công cụ đó chưa được {{DPO}} chấp thuận và chưa có điều khoản xử lý dữ liệu phù hợp (thực tiễn tốt).
+- Môi trường kiểm thử không dùng dữ liệu thật; dùng dữ liệu giả lập hoặc dữ liệu đã che giấu (thực tiễn tốt).
+
+## 9.5 Mã hóa, sao lưu và điện toán đám mây (Luật Điều 12 khoản 3; NĐ 356 Điều 7 khoản 2, Điều 12 khoản 4)
+
+- Dữ liệu cá nhân lưu trên dịch vụ điện toán đám mây được mã hóa; người quản lý khóa mã hóa: [●].
+- Dữ liệu được sao lưu định kỳ và kiểm tra khôi phục ít nhất [● mỗi 6 tháng] (thực tiễn tốt).
+
+## 9.6 Bên xử lý (Luật Điều 37)
+
+- Duy trì danh sách bên xử lý ở sheet "Bên xử lý & xuyên biên giới" của sổ REG-DP: tên, dịch vụ, loại dữ liệu, hợp đồng theo DP-06, ngày đánh giá gần nhất.
+- Đánh giá việc tuân thủ của bên xử lý định kỳ [● hằng năm] (thực tiễn tốt).
+
+# 10. Vi phạm
 
 Vi phạm DLCN được xử lý theo DP-05, gồm thông báo cho cơ quan chuyên trách chậm nhất 72 giờ kể từ khi phát hiện trong các trường hợp luật định (Luật Điều 23). Người lao động vi phạm chính sách bị xử lý kỷ luật theo nội quy, không loại trừ trách nhiệm pháp lý.
 
-# 10. Phạm vi áp dụng theo quy mô doanh nghiệp
+# 11. Phạm vi áp dụng theo quy mô doanh nghiệp
 
 Theo Luật Điều 38 khoản 2, 3 và NĐ 356 Điều 41: doanh nghiệp nhỏ, doanh nghiệp khởi nghiệp được quyền chọn thực hiện hoặc không thực hiện việc lập hồ sơ đánh giá tác động (Luật Điều 21, 22) và chỉ định bộ phận, nhân sự bảo vệ dữ liệu cá nhân (Điều 33 khoản 2) trong 05 năm kể từ 01/01/2026; hộ kinh doanh, doanh nghiệp siêu nhỏ không phải thực hiện các quy định đó. Không được miễn nếu kinh doanh dịch vụ xử lý dữ liệu cá nhân, trực tiếp xử lý dữ liệu cá nhân nhạy cảm, hoặc đã xử lý tích lũy từ 100 nghìn chủ thể dữ liệu trở lên.
 
 {{TEN_CONG_TY}} thuộc diện: [● phải thực hiện đầy đủ / được miễn theo Điều 38 và lý do]. Các nghĩa vụ khác của Luật vẫn áp dụng đầy đủ.
 
-# 11. Xem xét
+# 12. Xem xét và báo cáo
 
 Chính sách được xem xét ít nhất mỗi năm một lần hoặc khi pháp luật thay đổi.
+
+{{DPO}} báo cáo lãnh đạo ít nhất [● mỗi năm một lần] về tình hình bảo vệ dữ liệu cá nhân: hoạt động xử lý mới, yêu cầu của chủ thể, vi phạm và kết quả khắc phục, kết quả đào tạo, kết quả đánh giá bên xử lý (thực tiễn tốt).

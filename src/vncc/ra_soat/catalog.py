@@ -22,6 +22,7 @@ def data_dir() -> Path:
 
 DEFAULT_REQUIREMENTS = data_dir() / "vn-pdp-2025.requirements.json"
 DEFAULT_ELEMENTS = data_dir() / "vn-pdp-2025.elements.json"
+DEFAULT_MAU = data_dir() / "vn-pdp-2025.mau.json"  # ánh xạ yêu cầu -> mục trong bộ mẫu DP-01..07
 
 
 @dataclass
@@ -43,6 +44,7 @@ class Requirement:
     iso: list[str]
     topic: list[re.Pattern]
     elements: list[Element] = field(default_factory=list)
+    mau: list[str] = field(default_factory=list)  # mục mẫu tham khảo để lấp khoảng trống, ví dụ 'DP-01, mục "5. ..."'
 
 
 @dataclass
@@ -60,7 +62,30 @@ def _rx(s: str) -> re.Pattern:
     return re.compile(s, re.IGNORECASE)
 
 
-def load(requirements_path: Path = DEFAULT_REQUIREMENTS, elements_path: Path = DEFAULT_ELEMENTS) -> Catalog:
+def load_mau(path: Path, ids: set[str]) -> dict[str, list[str]]:
+    """Đọc ánh xạ yêu cầu -> mục mẫu. Không có tệp thì trả rỗng (báo cáo bỏ dòng gợi ý mẫu)."""
+    path = Path(path)
+    if not path.is_file():
+        return {}
+    d = json.loads(path.read_text(encoding="utf-8"))
+    files = d.get("mau", {})
+    extra = sorted(set(d["requirements"]) - ids)
+    if extra:
+        raise ValueError(f"Ánh xạ mẫu có mã yêu cầu không tồn tại: {extra}")
+    out: dict[str, list[str]] = {}
+    for rid, items in d["requirements"].items():
+        for x in items:
+            if x["mau"] not in files:
+                raise ValueError(f"{rid}: mẫu {x['mau']} không có trong danh sách tệp mẫu")
+        out[rid] = [f'{x["mau"]}, mục "{x["muc"]}"' for x in items]
+    return out
+
+
+def load(
+    requirements_path: Path = DEFAULT_REQUIREMENTS,
+    elements_path: Path = DEFAULT_ELEMENTS,
+    mau_path: Path = DEFAULT_MAU,
+) -> Catalog:
     req = json.loads(Path(requirements_path).read_text(encoding="utf-8"))
     ele = json.loads(Path(elements_path).read_text(encoding="utf-8"))
     emap = ele["requirements"]
@@ -70,6 +95,7 @@ def load(requirements_path: Path = DEFAULT_REQUIREMENTS, elements_path: Path = D
     extra = sorted(set(emap) - {r["id"] for r in req["requirements"]})
     if missing or extra:
         raise ValueError(f"Danh mục yếu tố lệch danh mục yêu cầu. Thiếu: {missing}; thừa: {extra}")
+    mau = load_mau(mau_path, {r["id"] for r in req["requirements"]})
     for r in req["requirements"]:
         e = emap[r["id"]]
         if not e.get("elements"):
@@ -95,6 +121,7 @@ def load(requirements_path: Path = DEFAULT_REQUIREMENTS, elements_path: Path = D
                 iso=r["iso27001_2022"],
                 topic=[_rx(t) for t in e["topic"]],
                 elements=elements,
+                mau=mau.get(r["id"], []),
             )
         )
     return Catalog(

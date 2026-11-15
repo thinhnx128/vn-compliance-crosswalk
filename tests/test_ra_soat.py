@@ -53,8 +53,9 @@ MAU_TEN = [
     "DP-06_thoa_thuan_xu_ly_dlcn.md",
     "DP-07_mau_dong_y.md",
 ]
-# Kết quả bộ luật trên bộ mẫu DP-01..07 công khai (tính lại trên mẫu của kho, không chỉnh mẫu chấm để khớp số)
-KET_QUA_BO_MAU = Counter({DAP_UNG: 14, MOT_PHAN: 7, CHUA: 1})
+# Kết quả bộ luật trên bộ mẫu DP-01..07 công khai (tính lại trên mẫu của kho, không chỉnh mẫu chấm để khớp số).
+# Trước V-12 (15/11/2026): 14 đủ, 7 một phần, 1 chưa. Sau khi bổ sung DP-01 mục 9, 12 và DP-05 mục 8: đủ 22/22.
+KET_QUA_BO_MAU = Counter({DAP_UNG: 22})
 runner = CliRunner()
 
 
