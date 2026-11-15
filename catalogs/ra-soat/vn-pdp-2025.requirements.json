@@ -1,0 +1,608 @@
+{
+  "framework": {
+    "id": "vn-pdp-2025",
+    "short_name": "VN PDP 2025",
+    "version": "0.1.1",
+    "title": {
+      "vi": "Bảo vệ dữ liệu cá nhân Việt Nam (Luật 91/2025/QH15 và Nghị định 356/2025/NĐ-CP)",
+      "en": "Vietnam Personal Data Protection (Law No. 91/2025/QH15 and Decree No. 356/2025/ND-CP)"
+    },
+    "description": {
+      "vi": "Bộ yêu cầu kiểm soát cho tổ chức xử lý dữ liệu cá nhân tại Việt Nam, diễn đạt lại từ Luật Bảo vệ dữ liệu cá nhân và Nghị định hướng dẫn. Mỗi yêu cầu ghi điều khoản căn cứ và đánh dấu phần luật định với phần thực tiễn tốt.",
+      "en": "Control requirements for organizations processing personal data in Vietnam, paraphrased from the Personal Data Protection Law and its implementing Decree. Each requirement cites the legal article and separates statutory obligations from recommended good practice."
+    },
+    "sources": [
+      {
+        "id": "LAW91",
+        "vi": "Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15, hiệu lực 01/01/2026 (Công báo số 971+972 ngày 24/7/2025)",
+        "en": "Law on Personal Data Protection No. 91/2025/QH15, effective 1 January 2026 (Official Gazette No. 971+972, 24 July 2025)"
+      },
+      {
+        "id": "DEC356",
+        "vi": "Nghị định 356/2025/NĐ-CP hướng dẫn Luật Bảo vệ dữ liệu cá nhân (Công báo số 18 ngày 18/01/2026)",
+        "en": "Decree No. 356/2025/ND-CP detailing the Personal Data Protection Law (Official Gazette No. 18, 18 January 2026)"
+      }
+    ],
+    "verified_on": "2026-11-13",
+    "legal_basis_note": {
+      "vi": "Căn cứ pháp lý đối chiếu bản Công báo ngày 13/11/2026. Ánh xạ ISO/IEC 27001:2022 là diễn giải chuyên môn của tác giả, chưa qua rà chéo.",
+      "en": "Legal references checked against the Official Gazette text on 13 Nov 2026. The ISO/IEC 27001:2022 mapping is the author's professional interpretation and has not yet been peer-reviewed."
+    },
+    "disclaimer": {
+      "vi": "Mẫu tham khảo, không phải tư vấn pháp lý. Đối chiếu văn bản pháp luật ngày 13/11/2026. Người dùng tự chịu trách nhiệm xác định nghĩa vụ áp dụng cho mình.",
+      "en": "Reference template, not legal advice. Legal texts checked on 13 November 2026. Users remain responsible for determining which obligations apply to them."
+    },
+    "type_labels": {
+      "LD": {
+        "vi": "Luật định",
+        "en": "Statutory"
+      },
+      "LD+TT": {
+        "vi": "Luật định + thực tiễn tốt",
+        "en": "Statutory + good practice"
+      },
+      "TT": {
+        "vi": "Thực tiễn tốt",
+        "en": "Good practice"
+      }
+    }
+  },
+  "sections": [
+    {
+      "id": "GOV",
+      "vi": "Tổ chức",
+      "en": "Governance"
+    },
+    {
+      "id": "LAW",
+      "vi": "Căn cứ xử lý và sự đồng ý",
+      "en": "Lawful basis and consent"
+    },
+    {
+      "id": "TRN",
+      "vi": "Minh bạch và quyền của chủ thể",
+      "en": "Transparency and data subject rights"
+    },
+    {
+      "id": "SPD",
+      "vi": "Dữ liệu đặc thù",
+      "en": "Special categories of data"
+    },
+    {
+      "id": "REG",
+      "vi": "Hồ sơ gửi cơ quan quản lý",
+      "en": "Regulatory filings"
+    },
+    {
+      "id": "TPR",
+      "vi": "Bên thứ ba",
+      "en": "Third parties"
+    },
+    {
+      "id": "LCM",
+      "vi": "Vòng đời dữ liệu",
+      "en": "Data lifecycle"
+    },
+    {
+      "id": "SEC",
+      "vi": "An toàn dữ liệu",
+      "en": "Data security"
+    },
+    {
+      "id": "INC",
+      "vi": "Sự cố và người lao động",
+      "en": "Incidents and workforce"
+    },
+    {
+      "id": "ACC",
+      "vi": "Trách nhiệm giải trình",
+      "en": "Accountability"
+    }
+  ],
+  "requirements": [
+    {
+      "id": "VN-PDP-01",
+      "section": "GOV",
+      "type": "LD+TT",
+      "source_question": 1,
+      "title": {
+        "vi": "Chỉ định nhân sự hoặc bộ phận bảo vệ dữ liệu cá nhân",
+        "en": "Designate personal data protection personnel or function"
+      },
+      "statement": {
+        "vi": "Tổ chức chỉ định bằng văn bản bộ phận hoặc nhân sự bảo vệ dữ liệu cá nhân đủ điều kiện, hoặc thuê dịch vụ bảo vệ dữ liệu cá nhân, và có chính sách bảo vệ dữ liệu cá nhân được lãnh đạo phê duyệt.",
+        "en": "The organization designates in writing a qualified personal data protection function or officer, or engages a personal data protection service provider, and maintains a personal data protection policy approved by management."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 33 khoản 2; NĐ 356 Điều 13 (khoản 2: trình độ cao đẳng trở lên, ít nhất 02 năm kinh nghiệm, đã được đào tạo), Điều 14. Phê duyệt của lãnh đạo là thực tiễn tốt.",
+        "en": "Law 91 Art. 33(2); Decree 356 Art. 13 (cl. 2: college degree or higher, at least 2 years of relevant experience, specialized training) and Art. 14. Management approval is good practice."
+      },
+      "applicability": {
+        "vi": "DN nhỏ, DN khởi nghiệp được chọn không thực hiện tới 01/01/2031; hộ kinh doanh, DN siêu nhỏ được miễn; trừ trường hợp kinh doanh dịch vụ xử lý dữ liệu cá nhân, xử lý dữ liệu nhạy cảm hoặc số lượng lớn (Luật 91 Điều 38; NĐ 356 Điều 41).",
+        "en": "Small enterprises and start-ups may opt out until 1 Jan 2031; household businesses and micro-enterprises are exempt; exemptions do not apply to personal data processing service businesses or those processing sensitive data or data of a large number of data subjects (Law 91 Art. 38; Decree 356 Art. 41)."
+      },
+      "iso27001_2022": [
+        "5.1",
+        "5.2",
+        "5.4",
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-02",
+      "section": "GOV",
+      "type": "TT",
+      "source_question": 2,
+      "title": {
+        "vi": "Duy trì sổ ghi nhận hoạt động xử lý",
+        "en": "Maintain a record of processing activities"
+      },
+      "statement": {
+        "vi": "Tổ chức duy trì và cập nhật sổ ghi nhận các hoạt động xử lý dữ liệu cá nhân.",
+        "en": "The organization maintains and keeps up to date a record of its personal data processing activities."
+      },
+      "legal": {
+        "vi": "Thực tiễn tốt; là đầu vào lập hồ sơ theo Luật 91 Điều 21. Riêng tài chính, ngân hàng, thông tin tín dụng: NĐ 356 Điều 8 khoản 1.",
+        "en": "Good practice; input for the impact assessment dossier under Law 91 Art. 21. For finance, banking and credit information: Decree 356 Art. 8(1)."
+      },
+      "iso27001_2022": [
+        "5.9",
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-03",
+      "section": "LAW",
+      "type": "LD",
+      "source_question": 3,
+      "title": {
+        "vi": "Xác định căn cứ cho từng hoạt động xử lý",
+        "en": "Establish a lawful basis for each processing activity"
+      },
+      "statement": {
+        "vi": "Mỗi hoạt động xử lý dữ liệu cá nhân có căn cứ: sự đồng ý của chủ thể có trước khi thu thập, hoặc thuộc trường hợp không cần sự đồng ý theo luật và có cơ chế giám sát.",
+        "en": "Each personal data processing activity has a lawful basis: the data subject's consent obtained before collection, or a statutory case where consent is not required, with an oversight mechanism in place."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 9; Điều 11 khoản 1; Điều 19.",
+        "en": "Law 91 Art. 9; Art. 11(1); Art. 19."
+      },
+      "iso27001_2022": [
+        "5.31",
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-04",
+      "section": "LAW",
+      "type": "LD",
+      "source_question": 4,
+      "title": {
+        "vi": "Lấy sự đồng ý theo từng mục đích và lưu bằng chứng",
+        "en": "Obtain purpose-specific consent and keep evidence"
+      },
+      "statement": {
+        "vi": "Sự đồng ý được lấy cho từng mục đích, không mặc định đồng ý, không coi im lặng là đồng ý, và tổ chức lưu được bằng chứng về sự đồng ý.",
+        "en": "Consent is obtained separately for each purpose, is never pre-selected, silence is not treated as consent, and the organization retains evidence of consent."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 9 khoản 2–4; NĐ 356 Điều 6.",
+        "en": "Law 91 Art. 9(2)–(4); Decree 356 Art. 6."
+      },
+      "iso27001_2022": [
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-05",
+      "section": "LAW",
+      "type": "LD",
+      "source_question": 5,
+      "title": {
+        "vi": "Xử lý yêu cầu rút lại sự đồng ý đúng hạn",
+        "en": "Handle consent withdrawal requests on time"
+      },
+      "statement": {
+        "vi": "Tổ chức có quy trình tiếp nhận yêu cầu rút lại sự đồng ý, phản hồi trong 02 ngày làm việc và thực hiện trong 15 ngày.",
+        "en": "The organization has a process to receive consent withdrawal requests, respond within 2 working days and complete the request within 15 days."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 10; NĐ 356 Điều 5 khoản 2.",
+        "en": "Law 91 Art. 10; Decree 356 Art. 5(2)."
+      },
+      "iso27001_2022": [
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-06",
+      "section": "TRN",
+      "type": "LD",
+      "source_question": 6,
+      "title": {
+        "vi": "Thông báo cho chủ thể trước khi đồng ý",
+        "en": "Inform data subjects before consent"
+      },
+      "statement": {
+        "vi": "Trước khi đồng ý, chủ thể được biết rõ loại dữ liệu, mục đích xử lý, bên kiểm soát và các quyền, nghĩa vụ của mình, thông qua thông báo hoặc chính sách công khai.",
+        "en": "Before giving consent, data subjects are clearly informed of the data types, processing purposes, the controller, and their rights and obligations, through a notice or published policy."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 4 khoản 1 điểm a; Điều 9 khoản 2.",
+        "en": "Law 91 Art. 4(1)(a); Art. 9(2)."
+      },
+      "iso27001_2022": [
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-07",
+      "section": "TRN",
+      "type": "LD",
+      "source_question": 7,
+      "title": {
+        "vi": "Quy trình thực hiện quyền của chủ thể",
+        "en": "Data subject rights process"
+      },
+      "statement": {
+        "vi": "Tổ chức có quy trình, thủ tục, biểu mẫu để chủ thể thực hiện quyền, và đáp ứng đúng thời hạn theo từng loại yêu cầu.",
+        "en": "The organization has procedures and forms enabling data subjects to exercise their rights, and meets the deadline applicable to each request type."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 4 khoản 5; NĐ 356 Điều 5.",
+        "en": "Law 91 Art. 4(5); Decree 356 Art. 5."
+      },
+      "iso27001_2022": [
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-08",
+      "section": "SPD",
+      "type": "LD",
+      "source_question": 8,
+      "title": {
+        "vi": "Kiểm soát dữ liệu cá nhân nhạy cảm",
+        "en": "Control sensitive personal data"
+      },
+      "statement": {
+        "vi": "Dữ liệu cá nhân nhạy cảm được nhận diện, có phân quyền giới hạn truy cập, quy trình xử lý và biện pháp bảo mật riêng; khi xin đồng ý, tổ chức báo rõ đó là dữ liệu nhạy cảm.",
+        "en": "Sensitive personal data is identified and subject to restricted access rights, dedicated handling procedures and security measures; when requesting consent, the organization states clearly that the data is sensitive."
+      },
+      "legal": {
+        "vi": "NĐ 356 Điều 4; Điều 6 khoản 4.",
+        "en": "Decree 356 Art. 4; Art. 6(4)."
+      },
+      "iso27001_2022": [
+        "5.12",
+        "5.15",
+        "8.3",
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-09",
+      "section": "SPD",
+      "type": "LD",
+      "source_question": 9,
+      "title": {
+        "vi": "Bảo vệ dữ liệu cá nhân của trẻ em",
+        "en": "Protect children's personal data"
+      },
+      "statement": {
+        "vi": "Với dữ liệu trẻ em, người đại diện theo pháp luật thực hiện quyền; việc công bố đời sống riêng tư của trẻ từ đủ 07 tuổi có sự đồng ý của trẻ và người đại diện.",
+        "en": "For children's data, rights are exercised by the legal representative; disclosure of the private life of a child aged 7 or older requires the consent of both the child and the legal representative."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 24.",
+        "en": "Law 91 Art. 24."
+      },
+      "iso27001_2022": [
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-10",
+      "section": "REG",
+      "type": "LD",
+      "source_question": 10,
+      "title": {
+        "vi": "Lập và gửi hồ sơ đánh giá tác động xử lý dữ liệu cá nhân",
+        "en": "Prepare and file the personal data processing impact assessment"
+      },
+      "statement": {
+        "vi": "Nếu thuộc diện phải thực hiện, tổ chức lập và gửi hồ sơ đánh giá tác động xử lý dữ liệu cá nhân trong 60 ngày kể từ ngày đầu tiên xử lý, và cập nhật khi có thay đổi.",
+        "en": "Where required, the organization prepares a personal data processing impact assessment dossier, files it with the competent authority within 60 days of first processing, and updates it when changes occur."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 21, 22, 38; NĐ 356 Điều 19, 20, 41 (Mẫu số 10).",
+        "en": "Law 91 Art. 21, 22, 38; Decree 356 Art. 19, 20, 41 (Form No. 10)."
+      },
+      "applicability": {
+        "vi": "Miễn trừ theo quy mô như VN-PDP-01 (Luật 91 Điều 38).",
+        "en": "Size-based exemptions as for VN-PDP-01 (Law 91 Art. 38)."
+      },
+      "iso27001_2022": [
+        "5.5",
+        "5.31",
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-11",
+      "section": "REG",
+      "type": "LD",
+      "source_question": 11,
+      "title": {
+        "vi": "Hồ sơ chuyển dữ liệu cá nhân xuyên biên giới",
+        "en": "Cross-border personal data transfer dossier"
+      },
+      "statement": {
+        "vi": "Tổ chức nhận diện mọi luồng chuyển dữ liệu cá nhân xuyên biên giới, kể cả dịch vụ đám mây của nhà cung cấp nước ngoài, và lập hồ sơ trong 60 ngày, trừ trường hợp được miễn.",
+        "en": "The organization identifies all cross-border personal data flows, including cloud services from foreign providers, and prepares the cross-border transfer impact assessment dossier for the competent authority within 60 days unless exempt."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 20; NĐ 356 Điều 17, 18 (Mẫu số 09).",
+        "en": "Law 91 Art. 20; Decree 356 Art. 17, 18 (Form No. 09)."
+      },
+      "iso27001_2022": [
+        "5.5",
+        "5.14",
+        "5.23",
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-12",
+      "section": "TPR",
+      "type": "LD+TT",
+      "source_question": 12,
+      "title": {
+        "vi": "Thỏa thuận xử lý dữ liệu với bên xử lý",
+        "en": "Data processing agreements with processors"
+      },
+      "statement": {
+        "vi": "Tổ chức có thỏa thuận hoặc hợp đồng về xử lý dữ liệu cá nhân trước khi giao dữ liệu cho bên xử lý, duy trì danh sách bên xử lý và đánh giá định kỳ.",
+        "en": "The organization concludes a personal data processing agreement or contract before handing data to a processor, maintains a list of processors and reviews them periodically."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 37 khoản 1 điểm a, đ; khoản 2 điểm a, b. Đánh giá định kỳ là thực tiễn tốt.",
+        "en": "Law 91 Art. 37(1)(a), (dd); Art. 37(2)(a), (b). Periodic review is good practice."
+      },
+      "iso27001_2022": [
+        "5.19",
+        "5.20",
+        "5.22"
+      ]
+    },
+    {
+      "id": "VN-PDP-13",
+      "section": "TPR",
+      "type": "LD",
+      "source_question": 13,
+      "title": {
+        "vi": "Chuyển giao dữ liệu cho bên khác đúng căn cứ",
+        "en": "Lawful transfer of data to other parties"
+      },
+      "statement": {
+        "vi": "Mỗi lần chuyển giao dữ liệu cho bên khác thuộc một trường hợp luật cho phép; chuyển giao theo sự đồng ý, khi tổ chức lại doanh nghiệp, hoặc cho bên xử lý, bên thứ ba có thỏa thuận đủ nội dung bắt buộc; chia sẻ nội bộ có quy trình kiểm soát.",
+        "en": "Every transfer of personal data to another party falls under a case permitted by law; where the law requires an agreement (transfers based on consent, on corporate restructuring, or to processors and third parties), the agreement contains the mandatory content; internal sharing follows a controlled procedure."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 17 khoản 1; NĐ 356 Điều 7 khoản 1 (thỏa thuận bắt buộc với các trường hợp tại điểm a, c, d khoản 1 Điều 17), khoản 4.",
+        "en": "Law 91 Art. 17(1); Decree 356 Art. 7(1) (agreement mandatory for the cases in Art. 17(1)(a), (c), (d)) and Art. 7(4)."
+      },
+      "iso27001_2022": [
+        "5.14",
+        "5.20"
+      ]
+    },
+    {
+      "id": "VN-PDP-14",
+      "section": "TPR",
+      "type": "LD",
+      "source_question": 14,
+      "title": {
+        "vi": "Quảng cáo, tiếp thị dựa trên sự đồng ý",
+        "en": "Consent-based advertising and marketing"
+      },
+      "statement": {
+        "vi": "Hoạt động quảng cáo, tiếp thị chỉ dùng dữ liệu của người đã đồng ý và có cách để họ từ chối.",
+        "en": "Advertising and marketing use only the data of individuals who have consented and provide a way to opt out."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 28.",
+        "en": "Law 91 Art. 28."
+      },
+      "iso27001_2022": [
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-15",
+      "section": "LCM",
+      "type": "LD",
+      "source_question": 15,
+      "title": {
+        "vi": "Thời hạn lưu và xóa, hủy an toàn",
+        "en": "Retention periods and secure deletion"
+      },
+      "statement": {
+        "vi": "Tổ chức xác định thời hạn lưu cho từng loại dữ liệu; xóa, hủy bằng biện pháp an toàn khi hết mục đích, hết hạn hoặc theo yêu cầu hợp lệ của chủ thể, trừ các trường hợp luật không cho xóa.",
+        "en": "The organization sets a retention period for each data type and securely deletes or destroys data when the purpose is fulfilled, the period expires or a valid data subject request is received, except where the law prohibits deletion."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 14 (ngoại lệ: khoản 2).",
+        "en": "Law 91 Art. 14 (exceptions: cl. 2)."
+      },
+      "iso27001_2022": [
+        "5.33",
+        "8.10",
+        "8.11"
+      ]
+    },
+    {
+      "id": "VN-PDP-16",
+      "section": "SEC",
+      "type": "LD+TT",
+      "source_question": 16,
+      "title": {
+        "vi": "Biện pháp quản lý, kỹ thuật bảo vệ dữ liệu",
+        "en": "Organizational and technical protection measures"
+      },
+      "statement": {
+        "vi": "Tổ chức áp dụng biện pháp quản lý, kỹ thuật phù hợp, như phân quyền theo nhu cầu, xác thực đa yếu tố, ghi nhật ký truy cập dữ liệu cá nhân.",
+        "en": "The organization applies appropriate organizational and technical measures such as need-based access rights, multi-factor authentication and logging of access to personal data."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 37 khoản 1 điểm c. Biện pháp cụ thể là thực tiễn tốt.",
+        "en": "Law 91 Art. 37(1)(c). The specific measures are good practice."
+      },
+      "iso27001_2022": [
+        "5.15",
+        "5.18",
+        "8.2",
+        "8.5",
+        "8.15"
+      ]
+    },
+    {
+      "id": "VN-PDP-17",
+      "section": "SEC",
+      "type": "LD+TT",
+      "source_question": 17,
+      "title": {
+        "vi": "Mã hóa và sao lưu",
+        "en": "Encryption and backup"
+      },
+      "statement": {
+        "vi": "Tổ chức quyết định việc mã hóa phù hợp với hoạt động xử lý; dữ liệu nhạy cảm được mã hóa khi chuyển giao, dữ liệu trên điện toán đám mây được mã hóa; sao lưu được kiểm tra khôi phục.",
+        "en": "The organization decides on encryption appropriate to each processing activity; sensitive data is encrypted when transferred and data in cloud computing is encrypted; backups are restore-tested."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 12 khoản 3; NĐ 356 Điều 7 khoản 2 (mã hóa khi chuyển giao dữ liệu nhạy cảm), Điều 12 khoản 4 (điện toán đám mây). Sao lưu là thực tiễn tốt.",
+        "en": "Law 91 Art. 12(3); Decree 356 Art. 7(2) (encryption when transferring sensitive data) and Art. 12(4) (cloud computing). Backup is good practice."
+      },
+      "iso27001_2022": [
+        "8.24",
+        "8.13",
+        "5.23"
+      ]
+    },
+    {
+      "id": "VN-PDP-18",
+      "section": "SEC",
+      "type": "LD+TT",
+      "source_question": 18,
+      "title": {
+        "vi": "Dữ liệu cá nhân trong trí tuệ nhân tạo và dữ liệu lớn",
+        "en": "Personal data in AI and big data"
+      },
+      "statement": {
+        "vi": "Việc dùng dữ liệu cá nhân cho trí tuệ nhân tạo, dữ liệu lớn có kiểm soát; không dùng dữ liệu thật ở môi trường kiểm thử và công cụ AI công cộng.",
+        "en": "Use of personal data for artificial intelligence and big data is controlled; real personal data is not used in test environments or public AI tools."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 30; NĐ 356 Điều 9, 10. Dữ liệu kiểm thử là thực tiễn tốt.",
+        "en": "Law 91 Art. 30; Decree 356 Art. 9, 10. Test data handling is good practice."
+      },
+      "iso27001_2022": [
+        "8.11",
+        "8.31",
+        "8.33"
+      ]
+    },
+    {
+      "id": "VN-PDP-19",
+      "section": "INC",
+      "type": "LD+TT",
+      "source_question": 19,
+      "title": {
+        "vi": "Xử lý và thông báo vi phạm trong 72 giờ",
+        "en": "Breach handling and 72-hour notification"
+      },
+      "statement": {
+        "vi": "Tổ chức có quy trình xử lý vi phạm: lập biên bản xác nhận; với vi phạm có thể gây tổn hại (an ninh, trật tự, tính mạng, sức khỏe, danh dự, nhân phẩm, tài sản của chủ thể) thì thông báo cơ quan chuyên trách chậm nhất 72 giờ kể từ khi phát hiện, theo Mẫu số 08; có diễn tập.",
+        "en": "The organization has a breach procedure: a confirmation record is drawn up; breaches that may cause harm (to security, public order, or the life, health, honour, dignity or property of data subjects) are notified to the competent authority within 72 hours of discovery using Form No. 08; the procedure is exercised."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 23; NĐ 356 Điều 28, 29. Diễn tập là thực tiễn tốt.",
+        "en": "Law 91 Art. 23; Decree 356 Art. 28, 29. Exercises are good practice."
+      },
+      "iso27001_2022": [
+        "5.5",
+        "5.24",
+        "5.25",
+        "5.26",
+        "5.27",
+        "6.8"
+      ]
+    },
+    {
+      "id": "VN-PDP-20",
+      "section": "INC",
+      "type": "LD",
+      "source_question": 20,
+      "title": {
+        "vi": "Dữ liệu ứng viên và người lao động",
+        "en": "Candidate and employee data"
+      },
+      "statement": {
+        "vi": "Dữ liệu ứng viên không được tuyển được xóa; dữ liệu người lao động được xóa khi chấm dứt hợp đồng, trừ trường hợp có thỏa thuận hoặc luật khác quy định; người lao động biết rõ các biện pháp giám sát bằng công nghệ.",
+        "en": "Data of unsuccessful candidates is deleted; employee data is deleted when the employment contract ends unless otherwise agreed between the parties or required by other laws; employees are clearly informed of technology-based monitoring."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 25.",
+        "en": "Law 91 Art. 25."
+      },
+      "iso27001_2022": [
+        "5.34",
+        "6.2"
+      ]
+    },
+    {
+      "id": "VN-PDP-21",
+      "section": "INC",
+      "type": "LD",
+      "source_question": 21,
+      "title": {
+        "vi": "Camera, sinh trắc học, vị trí và cookie",
+        "en": "CCTV, biometrics, location data and cookies"
+      },
+      "statement": {
+        "vi": "Camera, ghi âm ghi hình, dữ liệu sinh trắc học, dữ liệu vị trí và cookie được xử lý đúng quy định, có thông báo và lựa chọn từ chối khi luật yêu cầu.",
+        "en": "CCTV, audio and video recording, biometric data, location data and cookies are processed as required by law, with notice and an opt-out where the law requires."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 29 khoản 3–4 (mạng xã hội, dịch vụ truyền thông trực tuyến); Điều 31; Điều 32.",
+        "en": "Law 91 Art. 29(3)–(4) (social networks, online communication services); Art. 31; Art. 32."
+      },
+      "iso27001_2022": [
+        "5.34"
+      ]
+    },
+    {
+      "id": "VN-PDP-22",
+      "section": "ACC",
+      "type": "LD+TT",
+      "source_question": 22,
+      "title": {
+        "vi": "Hồ sơ chứng minh tuân thủ và đào tạo",
+        "en": "Compliance evidence and training"
+      },
+      "statement": {
+        "vi": "Tổ chức duy trì hồ sơ chứng minh tuân thủ, rà soát định kỳ, báo cáo lãnh đạo và đào tạo nhận thức cho người lao động.",
+        "en": "The organization keeps evidence of compliance, conducts periodic reviews, reports to management and provides awareness training to its workforce."
+      },
+      "legal": {
+        "vi": "Luật 91 Điều 37; NĐ 356 Điều 14. Báo cáo lãnh đạo, rà soát định kỳ, đào tạo toàn bộ người lao động là thực tiễn tốt.",
+        "en": "Law 91 Art. 37; Decree 356 Art. 14. Management reporting, periodic review and workforce-wide training are good practice."
+      },
+      "iso27001_2022": [
+        "5.35",
+        "5.36",
+        "6.3"
+      ]
+    }
+  ]
+}

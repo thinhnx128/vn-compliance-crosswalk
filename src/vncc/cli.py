@@ -341,6 +341,30 @@ def export_xlsx_cmd(
     typer.echo(f"Đã ghi: {target}")
 
 
+@app.command("ra-soat")
+def ra_soat_cmd(
+    thu_muc: Path = typer.Argument(
+        ..., help="Thư mục (hoặc một tệp) chính sách, quy trình: .md, .txt, .docx."
+    ),
+    bo_cham: str = typer.Option(
+        "luat", "--bo-cham", help="luat (không cần mạng) | ai (thử nghiệm, cần ANTHROPIC_API_KEY) | ca-hai."
+    ),
+    ra: Path = typer.Option(Path("ket-qua"), "--ra", help="Thư mục ghi bao-cao.md và ma-tran.csv."),
+    khong_ap_dung: list[str] | None = typer.Option(
+        None,
+        "--khong-ap-dung",
+        metavar="MA=LY_DO",
+        help='Khai báo yêu cầu không áp dụng, ví dụ VN-PDP-10="DN nhỏ (Điều 38)". Lặp được.',
+    ),
+) -> None:
+    """Rà soát khoảng trống bảo vệ dữ liệu cá nhân trên bộ văn bản của tổ chức (đánh giá sơ bộ)."""
+    from .ra_soat import __main__ as ra_soat_main
+
+    code = ra_soat_main.run(thu_muc, bo_cham, ra, khong_ap_dung or [])
+    if code:
+        raise typer.Exit(code)
+
+
 @app.command()
 def schema(out_dir: Path = typer.Option(Path("schemas"), "--out", "-o")) -> None:
     """Xuất JSON Schema cho catalog/mapping/assessment (dùng cho trình soạn YAML)."""

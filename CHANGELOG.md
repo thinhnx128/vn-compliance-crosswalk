@@ -15,6 +15,11 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
 ### Thêm mới
 - Mẫu issue "Yêu cầu hỗ trợ" và "Báo lỗi, góp ý" (song ngữ); liên kết liên hệ khi mở issue.
 - Email liên hệ me@nguyenxuanthinh.com trong README, cho nội dung không nên công khai.
+- Lệnh `vncc ra-soat <thư mục>` (thử nghiệm): rà chính sách, quy trình của tổ chức (`.md`, `.txt`, `.docx`) theo 22
+  yêu cầu bảo vệ dữ liệu cá nhân của Luật 91/2025/QH15 và NĐ 356/2025/NĐ-CP, xuất báo cáo khoảng trống (Markdown) và
+  ma trận (CSV) kèm trích dẫn nguyên văn. Bộ chấm theo luật chạy trên máy, không cần mạng; bộ chấm AI dùng khóa API
+  của người dùng, chưa được đo độ chính xác. Danh mục ở `catalogs/ra-soat/`, hướng dẫn ở `docs/ra-soat/README.md`.
+  Đánh giá sơ bộ, không phải kết luận pháp lý. Đối chiếu văn bản ngày 13/11/2026.
 
 ### English
 - `toolkits/dlcn/README.md`: Vietnamese text edited and an English version added below it. No change to the
@@ -24,6 +29,12 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
   English version matching the notes on the release page.
 - New bilingual issue forms, "Support request" and "Error report, feedback", with contact links.
 - Contact email me@nguyenxuanthinh.com in the README, for matters that should not be public.
+- New `vncc ra-soat <folder>` command (experimental): checks an organisation's policies and procedures (`.md`,
+  `.txt`, `.docx`) against 22 personal data protection requirements of Law No. 91/2025/QH15 and Decree No.
+  356/2025/ND-CP and writes a gap report (Markdown) and a matrix (CSV) with verbatim quotes. The rule judge runs
+  offline; the AI judge uses the user's own API key and its accuracy has not been measured. Catalog in
+  `catalogs/ra-soat/`, guide in `docs/ra-soat/README.md`. Preliminary assessment, not legal advice. Legal texts
+  checked on 13 November 2026.
 
 ## [0.5.1] - 2026-11
 

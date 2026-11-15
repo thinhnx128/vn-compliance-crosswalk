@@ -18,6 +18,13 @@ và tự sinh Tuyên bố áp dụng (SoA), báo cáo khoảng cách.**
 | **Kiểm tra nhanh bảo vệ dữ liệu cá nhân** | 10 câu, 3 phút, theo Luật 91/2025/QH15 và NĐ 356/2025/NĐ-CP. Chạy trên trình duyệt, không gửi dữ liệu đi đâu. | [Mở trang](https://thinhnx128.github.io/vn-compliance-crosswalk/kiem-tra-nhanh/) |
 | **Bộ công cụ bảo vệ dữ liệu cá nhân** | Bộ tự kiểm tra 22 câu có căn cứ điều khoản, sổ theo dõi tự tính hạn, 8 mẫu chính sách và quy trình cho doanh nghiệp vừa và nhỏ. | [Xem `toolkits/dlcn`](toolkits/dlcn/README.md) |
 
+### Rà soát khoảng trống bảo vệ dữ liệu cá nhân (thử nghiệm, cần cài đặt)
+
+`vncc ra-soat <thư mục>` đọc chính sách, quy trình của tổ chức (`.md`, `.txt`, `.docx`), đối chiếu với 22 yêu cầu theo
+Luật 91/2025/QH15 và NĐ 356/2025/NĐ-CP, xuất báo cáo khoảng trống kèm trích dẫn nguyên văn. Chạy trên máy, không cần
+mạng (bộ chấm AI tùy chọn là thử nghiệm). Đánh giá sơ bộ, không phải kết luận pháp lý. Xem
+[docs/ra-soat/README.md](docs/ra-soat/README.md).
+
 ## Vì sao có dự án này
 
 Doanh nghiệp Việt Nam vận hành ISMS theo ISO/IEC 27001 đồng thời phải tuân thủ quy định trong nước
@@ -229,6 +236,9 @@ for Decree 331/2026 (runs fully in the browser) and an
 attached to every release. `vncc conflicts` surfaces overlapping deadlines across laws (e.g. a
 24-hour cybersecurity incident notice under Decree 331/2026 vs a 72-hour personal-data breach notice
 under Law 91/2025), and every requirement carries suggested audit evidence.
+
+`vncc ra-soat <folder>` (experimental) checks an organisation's policies (`.md`, `.txt`, `.docx`) against 22 personal
+data protection requirements and reports gaps with verbatim quotes; see [docs/ra-soat](docs/ra-soat/README.md).
 
 ```bash
 pip install "git+https://github.com/thinhnx128/vn-compliance-crosswalk"
