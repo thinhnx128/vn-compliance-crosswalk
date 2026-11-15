@@ -91,6 +91,24 @@ def test_anh_xa_sai_ma_bi_tu_choi(tmp_path):
         cat.load(mau_path=bad)
 
 
+@pytest.mark.parametrize(
+    "noi_dung",
+    [
+        "{khong phai json",
+        "[]",
+        '{"mau": {"DP-01": "a.md"}}',
+        '{"mau": {"DP-01": "a.md"}, "requirements": {"VN-PDP-01": []}}',
+        '{"mau": {"DP-01": "a.md"}, "requirements": {"VN-PDP-01": [{"mau": "DP-01"}]}}',
+        '{"mau": {"DP-01": "a.md"}, "requirements": {"VN-PDP-01": ["DP-01"]}}',
+    ],
+)
+def test_anh_xa_sai_cau_truc_bao_loi_ro(tmp_path, noi_dung):
+    bad = tmp_path / "mau.json"
+    bad.write_text(noi_dung, encoding="utf-8")
+    with pytest.raises(ValueError):
+        cat.load(mau_path=bad)
+
+
 def test_thieu_tep_anh_xa_thi_bao_cao_van_chay(tmp_path):
     catalog = cat.load(mau_path=tmp_path / "khong-co.json")
     assert all(not r.mau for r in catalog.requirements)

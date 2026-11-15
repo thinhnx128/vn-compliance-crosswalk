@@ -75,40 +75,46 @@ Danh sách đầy đủ ở sheet "Hoạt động xử lý" của sổ REG-DP.
 
 # 9. Một số loại dữ liệu và hoạt động cần quy định riêng
 
-Các mục được ghi "thực tiễn tốt" không phải nghĩa vụ luật định; {{TEN_CONG_TY}} có thể điều chỉnh cho phù hợp quy mô.
+Mỗi gạch đầu dòng ghi căn cứ. Phần ghi "thực tiễn tốt" là biện pháp quản trị nội bộ, không phải nghĩa vụ luật định; {{TEN_CONG_TY}} có thể điều chỉnh cho phù hợp quy mô.
 
 ## 9.1 Dữ liệu cá nhân của trẻ em (Luật Điều 24)
 
-- Người đại diện theo pháp luật của trẻ em thực hiện các quyền của chủ thể dữ liệu đối với dữ liệu cá nhân của trẻ em, theo quy trình DP-04.
-- Việc công bố thông tin về đời sống riêng tư của trẻ từ đủ 07 tuổi phải có sự đồng ý của trẻ và của người đại diện theo pháp luật.
-- {{TEN_CONG_TY}} [● có / không] xử lý dữ liệu cá nhân của trẻ em. Nếu có: hoạt động xử lý được ghi trong sổ REG-DP và đánh giá theo DP-03.
+- Người đại diện theo pháp luật thay mặt trẻ em thực hiện các quyền của chủ thể dữ liệu, trừ các trường hợp tại Luật Điều 19 khoản 1 (Luật Điều 24 khoản 2). Yêu cầu được giải quyết theo DP-04.
+- Xử lý dữ liệu cá nhân của trẻ em từ đủ 07 tuổi trở lên nhằm công bố, tiết lộ thông tin về đời sống riêng tư, bí mật cá nhân của trẻ phải có sự đồng ý của trẻ và của người đại diện theo pháp luật (Luật Điều 24 khoản 2).
+- Ngừng xử lý khi người đã đồng ý rút lại sự đồng ý hoặc khi cơ quan có thẩm quyền yêu cầu, trừ trường hợp pháp luật có quy định khác (Luật Điều 24 khoản 3).
+- {{TEN_CONG_TY}} [● có / không] xử lý dữ liệu cá nhân của trẻ em. Nếu có: ghi hoạt động xử lý vào sổ REG-DP (thực tiễn tốt) và lập hồ sơ đánh giá tác động theo DP-03 khi thuộc diện phải lập.
 
 ## 9.2 Dữ liệu của ứng viên và người lao động (Luật Điều 25)
 
-- Dữ liệu cá nhân của ứng viên không được tuyển dụng được xóa, hủy sau khi có kết quả tuyển dụng, trong thời hạn [● số ngày].
-- Dữ liệu cá nhân của người lao động được xóa, hủy khi chấm dứt hợp đồng lao động, trừ trường hợp có thỏa thuận với người lao động hoặc pháp luật khác quy định phải lưu giữ.
-- Biện pháp giám sát bằng công nghệ đối với người lao động (ví dụ camera tại nơi làm việc, giám sát thiết bị, tài khoản công việc) được thông báo rõ cho người lao động trước khi áp dụng: mục đích, phạm vi, thời gian lưu.
+- Chỉ yêu cầu ứng viên cung cấp thông tin phục vụ mục đích tuyển dụng, và chỉ dùng cho mục đích đó hoặc mục đích khác theo thỏa thuận (Luật Điều 25 khoản 1 điểm a).
+- Phải xóa, hủy thông tin ứng viên đã cung cấp khi không tuyển dụng, trừ trường hợp có thỏa thuận khác với ứng viên (Luật Điều 25 khoản 1 điểm c). Thời hạn xóa, hủy do {{TEN_CONG_TY}} quy định: [● số ngày kể từ khi có kết quả tuyển dụng].
+- Dữ liệu cá nhân của người lao động được lưu trong thời hạn pháp luật quy định hoặc theo thỏa thuận; phải xóa, hủy khi chấm dứt hợp đồng, trừ trường hợp theo thỏa thuận hoặc pháp luật có quy định khác (Luật Điều 25 khoản 2 điểm b, c).
+- Biện pháp công nghệ, kỹ thuật dùng để giám sát, quản lý người lao động (ví dụ camera tại nơi làm việc, phần mềm giám sát thiết bị, tài khoản công việc) chỉ được áp dụng khi phù hợp pháp luật và trên cơ sở người lao động biết rõ biện pháp đó (Luật Điều 25 khoản 3 điểm a). Thông báo bằng văn bản về mục đích, phạm vi và thời gian lưu trước khi áp dụng (thực tiễn tốt).
 
-## 9.3 Camera, ghi âm, sinh trắc học, vị trí và cookie (Luật Điều 29 khoản 3–4; Điều 31; Điều 32)
+## 9.3 Ghi âm, ghi hình, dữ liệu vị trí, sinh trắc học và cookie (Luật Điều 29, 31, 32)
 
-- Khu vực có camera và cuộc gọi có ghi âm, ghi hình được thông báo hoặc có biển báo cho người bị ghi trước khi ghi; mục đích và thời gian lưu được ghi trong sổ REG-DP.
-- Dữ liệu sinh trắc học và dữ liệu vị trí được xử lý như dữ liệu nhạy cảm (mục 6); vi phạm liên quan tới các loại dữ liệu này được thông báo cho chủ thể theo DP-05.
-- Website, ứng dụng dùng cookie có thông báo về cookie; cookie không cần thiết cho việc cung cấp dịch vụ chỉ dùng khi người dùng đồng ý, và người dùng có lựa chọn từ chối. Bắt buộc trong các trường hợp luật quy định (Luật Điều 29 khoản 3–4 đối với mạng xã hội, dịch vụ truyền thông trực tuyến); với trường hợp khác là thực tiễn tốt.
+- Ghi âm, ghi hình tại nơi công cộng, hoạt động công cộng (ví dụ camera ở sảnh, cửa hàng, hội nghị): thông báo hoặc dùng hình thức thông tin khác, như biển báo, để người bị ghi biết mình đang bị ghi âm, ghi hình; chỉ dùng đúng mục đích và chỉ lưu trong thời gian cần thiết, hết thời hạn thì xóa, hủy (Luật Điều 32 khoản 2, 3, 4). Thời gian lưu: [● số ngày].
+- Camera tại nơi làm việc: thực hiện theo mục 9.2. Ghi âm cuộc gọi với khách hàng: thông báo cho khách hàng trước khi ghi (thực tiễn tốt).
+- Dữ liệu sinh trắc học và dữ liệu vị trí là dữ liệu nhạy cảm (NĐ 356 Điều 4 khoản 1 điểm đ, h), áp dụng mục 6. Với dữ liệu sinh trắc học: bảo mật vật lý thiết bị lưu trữ và truyền tải, hạn chế quyền truy cập, có hệ thống theo dõi để phát hiện xâm phạm (Luật Điều 31 khoản 4). Không theo dõi định vị khi chưa có sự đồng ý của chủ thể, trừ trường hợp luật định (Luật Điều 31 khoản 3). Vi phạm liên quan tới hai loại dữ liệu này được thông báo cho chủ thể theo DP-05.
+- Cookie: nếu {{TEN_CONG_TY}} cung cấp dịch vụ mạng xã hội, dịch vụ truyền thông trực tuyến thì phải cho người dùng lựa chọn từ chối thu thập và chia sẻ cookie (Luật Điều 29 khoản 3). Với website, ứng dụng khác: có thông báo về cookie và chỉ dùng cookie không thiết yếu khi người dùng đồng ý (thực tiễn tốt).
 
 ## 9.4 Trí tuệ nhân tạo, dữ liệu lớn và môi trường kiểm thử (Luật Điều 30; NĐ 356 Điều 9, 10)
 
-- Mỗi việc dùng dữ liệu cá nhân để huấn luyện, vận hành hệ thống trí tuệ nhân tạo hoặc phân tích dữ liệu lớn được ghi trong sổ REG-DP, có căn cứ pháp lý và mục đích rõ, được {{DPO}} xem xét rủi ro trước khi triển khai, và đánh giá tác động theo DP-03 khi thuộc diện phải lập.
-- Không đưa dữ liệu cá nhân của khách hàng, người lao động vào công cụ AI công cộng (chatbot, công cụ AI tạo sinh) khi công cụ đó chưa được {{DPO}} chấp thuận và chưa có điều khoản xử lý dữ liệu phù hợp (thực tiễn tốt).
-- Môi trường kiểm thử không dùng dữ liệu thật; dùng dữ liệu giả lập hoặc dữ liệu đã che giấu (thực tiễn tốt).
+- Dữ liệu cá nhân dùng trong dữ liệu lớn, trí tuệ nhân tạo, điện toán đám mây phải được xử lý đúng mục đích, giới hạn trong phạm vi cần thiết (Luật Điều 30 khoản 1); hệ thống phải có biện pháp bảo mật, xác thực và phân quyền truy cập phù hợp (khoản 3); xử lý bằng trí tuệ nhân tạo phải phân loại theo mức độ rủi ro để có biện pháp bảo vệ phù hợp (khoản 4).
+- Mỗi việc dùng dữ liệu cá nhân cho trí tuệ nhân tạo hoặc dữ liệu lớn được ghi vào sổ REG-DP kèm mục đích, trường hợp xử lý theo Luật (sự đồng ý hoặc trường hợp không cần sự đồng ý) và mức rủi ro, được {{DPO}} xem xét trước khi triển khai (thực tiễn tốt).
+- Không đưa dữ liệu cá nhân của khách hàng, người lao động vào công cụ AI công cộng (chatbot, công cụ AI tạo sinh) khi công cụ đó chưa được {{DPO}} chấp thuận (thực tiễn tốt).
+- Môi trường kiểm thử ưu tiên dùng dữ liệu giả lập. Nếu phải dùng dữ liệu đã che giấu hoặc ẩn danh từ dữ liệu thật: đánh giá khả năng nhận diện lại và áp dụng kiểm soát như với dữ liệu thật (thực tiễn tốt).
 
 ## 9.5 Mã hóa, sao lưu và điện toán đám mây (Luật Điều 12 khoản 3; NĐ 356 Điều 7 khoản 2, Điều 12 khoản 4)
 
-- Dữ liệu cá nhân lưu trên dịch vụ điện toán đám mây được mã hóa; người quản lý khóa mã hóa: [●].
+- {{TEN_CONG_TY}} quyết định việc mã hóa phù hợp với hoạt động xử lý (Luật Điều 12 khoản 3); dữ liệu nhạy cảm khi chuyển giao được mã hóa theo mục 8.
+- Dữ liệu cá nhân trên điện toán đám mây phải được mã hóa ở trạng thái lưu trữ và khi truyền, kèm phân quyền truy cập nghiêm ngặt (NĐ 356 Điều 12 khoản 4). Người quản lý khóa mã hóa: [●].
 - Dữ liệu được sao lưu định kỳ và kiểm tra khôi phục ít nhất [● mỗi 6 tháng] (thực tiễn tốt).
 
 ## 9.6 Bên xử lý (Luật Điều 37)
 
-- Duy trì danh sách bên xử lý ở sheet "Bên xử lý & xuyên biên giới" của sổ REG-DP: tên, dịch vụ, loại dữ liệu, hợp đồng theo DP-06, ngày đánh giá gần nhất.
+- Có hợp đồng xử lý dữ liệu theo DP-06 trước khi giao dữ liệu cho bên xử lý.
+- Duy trì danh sách bên xử lý ở sheet "Bên xử lý & xuyên biên giới" của sổ REG-DP: tên, dịch vụ, loại dữ liệu, hợp đồng, ngày đánh giá gần nhất (thực tiễn tốt).
 - Đánh giá việc tuân thủ của bên xử lý định kỳ [● hằng năm] (thực tiễn tốt).
 
 # 10. Vi phạm

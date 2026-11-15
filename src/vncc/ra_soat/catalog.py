@@ -67,14 +67,23 @@ def load_mau(path: Path, ids: set[str]) -> dict[str, list[str]]:
     path = Path(path)
     if not path.is_file():
         return {}
-    d = json.loads(path.read_text(encoding="utf-8"))
-    files = d.get("mau", {})
-    extra = sorted(set(d["requirements"]) - ids)
+    try:
+        d = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as exc:
+        raise ValueError(f"Tệp ánh xạ mẫu {path.name} không phải JSON hợp lệ: {exc}") from exc
+    files, reqs = (d.get("mau"), d.get("requirements")) if isinstance(d, dict) else (None, None)
+    if not isinstance(files, dict) or not isinstance(reqs, dict):
+        raise ValueError(f"Tệp ánh xạ mẫu {path.name} thiếu 'mau' hoặc 'requirements' dạng đối tượng")
+    extra = sorted(set(reqs) - ids)
     if extra:
         raise ValueError(f"Ánh xạ mẫu có mã yêu cầu không tồn tại: {extra}")
     out: dict[str, list[str]] = {}
-    for rid, items in d["requirements"].items():
+    for rid, items in reqs.items():
+        if not isinstance(items, list) or not items:
+            raise ValueError(f"{rid}: ánh xạ mẫu phải là danh sách không rỗng")
         for x in items:
+            if not (isinstance(x, dict) and isinstance(x.get("mau"), str) and isinstance(x.get("muc"), str) and x["muc"]):
+                raise ValueError(f"{rid}: mỗi mục ánh xạ cần 'mau' và 'muc' dạng chuỗi")
             if x["mau"] not in files:
                 raise ValueError(f"{rid}: mẫu {x['mau']} không có trong danh sách tệp mẫu")
         out[rid] = [f'{x["mau"]}, mục "{x["muc"]}"' for x in items]

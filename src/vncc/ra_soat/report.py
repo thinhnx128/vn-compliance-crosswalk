@@ -105,7 +105,7 @@ def to_markdown(
             lines.append(f"   - Thiếu: {e.element.text}")
         if r.note:
             lines.append(f"   - {r.note}")
-        if r.req.mau:
+        if r.req.mau and r.missing:
             lines.append(f"   - Mẫu tham khảo để lấp: {'; '.join(r.req.mau)}")
     lines += ["", "## Chi tiết theo yêu cầu", ""]
     for r in results:
