@@ -114,9 +114,10 @@ def test_thieu_tep_anh_xa_thi_bao_cao_van_chay(tmp_path):
     assert all(not r.mau for r in catalog.requirements)
 
 
-def test_truong_mau_muc_sai_kieu_bao_dung_thong_diep(tmp_path):
+@pytest.mark.parametrize("muc_json", ['{"mau": 1, "muc": "x"}', '{"mau": "DP-01", "muc": 2}', '{"mau": "DP-01", "muc": ""}'])
+def test_truong_mau_muc_sai_kieu_bao_dung_thong_diep(tmp_path, muc_json):
     bad = tmp_path / "mau.json"
-    bad.write_text('{"mau": {"DP-01": "a.md"}, "requirements": {"VN-PDP-01": [{"mau": 1, "muc": "x"}]}}', encoding="utf-8")
+    bad.write_text('{"mau": {"DP-01": "a.md"}, "requirements": {"VN-PDP-01": [' + muc_json + "]}}", encoding="utf-8")
     with pytest.raises(ValueError, match="'mau' và 'muc' dạng chuỗi"):
         cat.load(mau_path=bad)
 

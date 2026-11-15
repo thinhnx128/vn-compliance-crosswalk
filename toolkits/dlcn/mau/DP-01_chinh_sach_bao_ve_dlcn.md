@@ -81,7 +81,7 @@ Mỗi gạch đầu dòng ghi căn cứ. Phần ghi "thực tiễn tốt" là bi
 
 - Người đại diện theo pháp luật thay mặt trẻ em thực hiện các quyền của chủ thể dữ liệu, trừ các trường hợp tại Luật Điều 19 khoản 1 (Luật Điều 24 khoản 2). Yêu cầu được giải quyết theo DP-04.
 - Xử lý dữ liệu cá nhân của trẻ em từ đủ 07 tuổi trở lên nhằm công bố, tiết lộ thông tin về đời sống riêng tư, bí mật cá nhân của trẻ phải có sự đồng ý của trẻ và của người đại diện theo pháp luật (Luật Điều 24 khoản 2).
-- Ngừng xử lý khi người đã đồng ý rút lại sự đồng ý hoặc khi cơ quan có thẩm quyền yêu cầu, trừ trường hợp pháp luật có quy định khác (Luật Điều 24 khoản 3).
+- Ngừng xử lý khi người đã đồng ý rút lại sự đồng ý, hoặc khi cơ quan có thẩm quyền yêu cầu và có đủ căn cứ chứng minh việc xử lý có thể xâm phạm quyền, lợi ích hợp pháp của trẻ em; trừ trường hợp pháp luật có quy định khác (Luật Điều 24 khoản 3).
 - {{TEN_CONG_TY}} [● có / không] xử lý dữ liệu cá nhân của trẻ em. Nếu có: ghi hoạt động xử lý vào sổ REG-DP (thực tiễn tốt) và lập hồ sơ đánh giá tác động theo DP-03 khi thuộc diện phải lập.
 
 ## 9.2 Dữ liệu của ứng viên và người lao động (Luật Điều 25)
@@ -93,9 +93,9 @@ Mỗi gạch đầu dòng ghi căn cứ. Phần ghi "thực tiễn tốt" là bi
 
 ## 9.3 Ghi âm, ghi hình, dữ liệu vị trí, sinh trắc học và cookie (Luật Điều 29, 31, 32)
 
-- Ghi âm, ghi hình tại nơi công cộng, hoạt động công cộng (ví dụ camera ở sảnh, cửa hàng, hội nghị): thông báo hoặc dùng hình thức thông tin khác, như biển báo, để người bị ghi biết mình đang bị ghi âm, ghi hình; chỉ dùng đúng mục đích và chỉ lưu trong thời gian cần thiết, hết thời hạn thì xóa, hủy (Luật Điều 32 khoản 2, 3, 4). Thời gian lưu: [● số ngày].
+- Ghi âm, ghi hình tại nơi công cộng, hoạt động công cộng (ví dụ hội nghị, hội thảo, sự kiện công khai; xác định khu vực nào của {{TEN_CONG_TY}} là nơi công cộng: [●]): thông báo hoặc dùng hình thức thông tin khác, như biển báo, để người bị ghi biết mình đang bị ghi âm, ghi hình; chỉ dùng đúng mục đích và chỉ lưu trong thời gian cần thiết, hết thời hạn thì xóa, hủy (Luật Điều 32 khoản 2, 3, 4). Thời gian lưu: [● số ngày].
 - Camera tại nơi làm việc: thực hiện theo mục 9.2. Ghi âm cuộc gọi: nếu {{TEN_CONG_TY}} cung cấp dịch vụ mạng xã hội, dịch vụ truyền thông trực tuyến thì không ghi âm cuộc gọi khi không có sự đồng ý của chủ thể, trừ trường hợp pháp luật có quy định khác (Luật Điều 29 khoản 5). Doanh nghiệp khác: xác định trường hợp xử lý theo mục 4 và thông báo cho người gọi trước khi ghi (thực tiễn tốt).
-- Dữ liệu sinh trắc học và dữ liệu vị trí là dữ liệu nhạy cảm (NĐ 356 Điều 4 khoản 1 điểm đ, h), áp dụng mục 6. Với dữ liệu sinh trắc học: bảo mật vật lý thiết bị lưu trữ và truyền tải, hạn chế quyền truy cập, có hệ thống theo dõi để phòng ngừa, phát hiện hành vi xâm phạm; xử lý gây thiệt hại cho chủ thể thì phải thông báo cho chủ thể (Luật Điều 31 khoản 4). Không theo dõi định vị khi chưa có sự đồng ý của chủ thể, trừ trường hợp luật định (Luật Điều 31 khoản 3). Vi phạm liên quan tới hai loại dữ liệu này được thông báo cho chủ thể bị ảnh hưởng không quá 72 giờ kể từ khi phát hiện, theo DP-05 (NĐ 356 Điều 29 khoản 1).
+- Dữ liệu sinh trắc học và dữ liệu vị trí của cá nhân được xác định qua dịch vụ định vị là dữ liệu nhạy cảm (NĐ 356 Điều 4 khoản 1 điểm đ, h), áp dụng mục 6. Với dữ liệu sinh trắc học: bảo mật vật lý thiết bị lưu trữ và truyền tải, hạn chế quyền truy cập, có hệ thống theo dõi để phòng ngừa, phát hiện hành vi xâm phạm; xử lý gây thiệt hại cho chủ thể thì phải thông báo cho chủ thể (Luật Điều 31 khoản 4). Không theo dõi định vị khi chưa có sự đồng ý của chủ thể, trừ trường hợp có yêu cầu của cơ quan có thẩm quyền hoặc pháp luật có quy định khác (Luật Điều 31 khoản 3). Khi {{TEN_CONG_TY}} là bên kiểm soát (hoặc bên kiểm soát và xử lý), vi phạm liên quan tới hai loại dữ liệu này được thông báo cho chủ thể bị ảnh hưởng không quá 72 giờ kể từ khi phát hiện, theo DP-05 (NĐ 356 Điều 29 khoản 1); khi là bên xử lý thì thông báo cho bên kiểm soát theo DP-05.
 - Cookie: nếu {{TEN_CONG_TY}} cung cấp dịch vụ mạng xã hội, dịch vụ truyền thông trực tuyến thì phải cho người dùng lựa chọn từ chối thu thập và chia sẻ cookie (Luật Điều 29 khoản 3). Với website, ứng dụng khác: có thông báo về cookie và chỉ dùng cookie không thiết yếu khi người dùng đồng ý (thực tiễn tốt).
 
 ## 9.4 Trí tuệ nhân tạo, dữ liệu lớn và môi trường kiểm thử (Luật Điều 30; NĐ 356 Điều 9, 10)
@@ -107,7 +107,7 @@ Mỗi gạch đầu dòng ghi căn cứ. Phần ghi "thực tiễn tốt" là bi
 
 ## 9.5 Mã hóa, sao lưu và điện toán đám mây (Luật Điều 12 khoản 3; NĐ 356 Điều 7 khoản 2, Điều 12 khoản 4)
 
-- {{TEN_CONG_TY}} quyết định việc mã hóa phù hợp với hoạt động xử lý (Luật Điều 12 khoản 3); dữ liệu nhạy cảm khi chuyển giao phải có biện pháp mã hóa, ẩn danh và bảo mật khác theo mục 8 (NĐ 356 Điều 7 khoản 2).
+- {{TEN_CONG_TY}} quyết định việc mã hóa phù hợp với hoạt động xử lý (Luật Điều 12 khoản 3); dữ liệu nhạy cảm khi chuyển giao phải có biện pháp bảo mật vật lý đối với thiết bị lưu trữ và truyền tải, biện pháp mã hóa, ẩn danh và biện pháp bảo mật khác (NĐ 356 Điều 7 khoản 2; mục 8).
 - Dữ liệu cá nhân trên điện toán đám mây phải được mã hóa ở trạng thái lưu trữ và khi truyền, kèm phân quyền truy cập nghiêm ngặt (NĐ 356 Điều 12 khoản 4). Người quản lý khóa mã hóa: [●].
 - Dữ liệu được sao lưu định kỳ và kiểm tra khôi phục ít nhất [● mỗi 6 tháng] (thực tiễn tốt).
 
