@@ -25,9 +25,9 @@ Luật 91/2025/QH15 và NĐ 356/2025/NĐ-CP, xuất báo cáo khoảng trống k
 mạng (bộ chấm AI tùy chọn là thử nghiệm). Đánh giá sơ bộ, không phải kết luận pháp lý. Xem
 [docs/ra-soat/README.md](docs/ra-soat/README.md).
 
-Chế tài của lĩnh vực bảo vệ dữ liệu cá nhân nằm ở **NĐ 330/2026/NĐ-CP ngày 19/8/2026** (xử phạt vi phạm hành chính trong
-lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân, hiệu lực từ 19/8/2026). Các công cụ ở đây **chưa đối chiếu hành vi với
-mức phạt**; báo cáo khoảng trống không nói một thiếu sót sẽ bị phạt bao nhiêu.
+Xử phạt vi phạm hành chính của lĩnh vực bảo vệ dữ liệu cá nhân nằm ở **NĐ 330/2026/NĐ-CP ngày 19/8/2026** (xử phạt vi
+phạm hành chính trong lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân, hiệu lực từ 19/8/2026). Các công cụ ở đây **chưa
+đối chiếu hành vi với mức phạt**; báo cáo khoảng trống không nói một thiếu sót sẽ bị phạt bao nhiêu.
 
 ## Vì sao có dự án này
 
