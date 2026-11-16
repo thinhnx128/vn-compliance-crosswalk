@@ -8,17 +8,23 @@ Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định 356
 
 **Xử phạt vi phạm hành chính của lĩnh vực này nằm ở một văn bản riêng:** Nghị định số 330/2026/NĐ-CP ngày 19/8/2026 quy
 định xử phạt vi phạm hành chính trong lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân, **có hiệu lực từ ngày 19/8/2026**
-(Điều 80 của Nghị định). Bộ công cụ này **chưa đối chiếu từng hành vi với mức phạt cụ thể**; khi cần biết một thiếu sót
-có thể bị xử phạt ra sao, hãy đọc thẳng nghị định đó. Ngoài xử phạt hành chính, một hành vi còn có thể phát sinh trách
-nhiệm dân sự hoặc hình sự theo pháp luật khác — bộ công cụ không xét các loại trách nhiệm đó.
+(Điều 80 của Nghị định). **Bộ công cụ này chưa đối chiếu các thiếu sót với hành vi vi phạm và chế tài trong nghị định
+đó** — không chỉ thiếu số tiền phạt, mà chưa làm việc đối chiếu nào cả. Ngoài xử phạt hành chính, một hành vi còn có thể
+phát sinh trách nhiệm dân sự hoặc hình sự theo pháp luật khác; bộ công cụ không xét các loại trách nhiệm đó.
 Nguồn: [trang văn bản trên cổng Chính phủ](https://vanban.chinhphu.vn/?pageid=27160&docid=219266) ·
 [bản ký số (PDF)](https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/8/330_2026_nd-cp_19082026-signed.signed.pdf).
 
+*Gặp một khoảng trống và muốn biết nó có bị phạt không?* Việc cần làm trước tiên vẫn là **bịt khoảng trống đó** bằng mẫu
+tương ứng trong bộ công cụ. Nếu cần biết khả năng bị xử phạt: ghi lại hành vi thực tế của đơn vị, xác định nghĩa vụ nào
+đang thiếu theo Luật 91/2025 và Nghị định 356/2025, rồi đối chiếu với điều khoản tương ứng của Nghị định 330/2026 —
+việc này nên có người phụ trách pháp chế hoặc tư vấn pháp lý kiểm tra trước khi kết luận.
+
 > **Lưu ý.** Đây là mẫu tham khảo và là diễn giải chuyên môn của tác giả, **không phải tư vấn pháp lý**. Việc dùng
 > bộ công cụ không bảo đảm doanh nghiệp đã tuân thủ. Căn cứ theo bản đăng Công báo, đối chiếu ngày
-> **13/11/2026**; rà soát văn bản mới gần nhất ngày **16/11/2026** (lần rà đó bổ sung dẫn chiếu Nghị định 330/2026
-> và không tìm thấy văn bản nào sửa đổi Luật 91/2025 hay Nghị định 356/2025). Văn bản có thể được sửa đổi hoặc có
-> hướng dẫn mới sau ngày này; hãy kiểm tra văn bản đang có hiệu lực trước khi dùng.
+> **13/11/2026**; rà soát văn bản mới gần nhất ngày **16/11/2026** (lần rà đó bổ sung dẫn chiếu Nghị định 330/2026;
+> **trong phạm vi tra cứu của tác giả, chưa ghi nhận** văn bản nào sửa đổi Luật 91/2025 hay Nghị định 356/2025 — đây
+> không phải bảo đảm rằng không có). Văn bản có thể được sửa đổi hoặc có hướng dẫn mới sau ngày này; **hãy tự kiểm tra
+> văn bản đang có hiệu lực tại thời điểm áp dụng.**
 
 ## Bắt đầu
 
@@ -110,19 +116,25 @@ Decree). The templates and the quick check are in Vietnamese; this section summa
 
 **Administrative penalties for this field sit in a separate instrument:** Decree No. 330/2026/ND-CP of 19 August 2026 on
 administrative penalties in the fields of cybersecurity and personal data protection, **in force from 19 August 2026**
-(Article 80 of that Decree). This toolkit **does not yet map individual shortcomings to specific penalty amounts**; to
-find out how a given gap may be penalised, read that Decree directly. Beyond administrative penalties, an act may also
-give rise to civil or criminal liability under other laws, which this toolkit does not address.
+(Article 80 of that Decree). **This toolkit does not map its findings to the violations or the sanctions set out in that
+Decree** — not merely the fine amounts, but no such mapping at all. Sanctions there include fines, additional sanctions
+and remedial measures. Beyond administrative penalties, conduct may also give rise to civil or criminal liability under
+other laws, which this toolkit does not address.
 Sources: [document page on the Government portal](https://vanban.chinhphu.vn/?pageid=27160&docid=219266) ·
 [signed text (PDF)](https://datafiles.chinhphu.vn/cpp/files/vbpq/2026/8/330_2026_nd-cp_19082026-signed.signed.pdf).
+
+*Found a gap and wondering whether it is penalised?* The first thing to do is still to **close the gap**, using the
+matching template. If you do need to know the exposure: record what your organisation actually does, identify which
+obligation under Law 91/2025 and Decree 356/2025 is missing, then check it against the corresponding provision of Decree
+330/2026 — have legal counsel review that before drawing a conclusion.
 
 > **Notice.** These are reference templates reflecting the author's professional interpretation. They are
 > **not legal advice**, and using the toolkit does not guarantee compliance. References follow the texts published
 > in the Official Gazette, checked on **13 November 2026**; the most recent review for new instruments was on
-> **16 November 2026** (that review added the reference to Decree 330/2026 and found nothing amending Law 91/2025 or
-> Decree 356/2025). The texts may be amended or supplemented by new guidance after that date; verify the provisions
-> currently in force before relying on them. Where this summary and the Vietnamese section differ, the Vietnamese
-> section prevails.
+> **16 November 2026** (that review added the reference to Decree 330/2026; **within the sources the author checked,
+> no instrument amending Law 91/2025 or Decree 356/2025 was found** — this is not an assurance that none exists).
+> The texts may be amended or supplemented by new guidance after that date; **check the provisions in force at the time
+> you rely on them.** Where this summary and the Vietnamese section differ, the Vietnamese section prevails.
 
 ### Getting started
 
