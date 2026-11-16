@@ -40,8 +40,11 @@ gói này). Mã băm SHA-256 của gói trong kho, cũng ghi ở `phat-hanh/SHA2
 
 Gói này được dựng lại ngày 16/11/2026. So với gói trong bản phát hành v0.5.1: các mẫu DP-01 đến DP-07 đã bổ sung
 mục để lấp khoảng trống theo kết quả rà soát; DP-00 và SP-02 có dẫn chiếu Nghị định 330/2026/NĐ-CP; SP-01 và SP-02
-ghi email liên hệ thay cho chỉ trang Issues. **Tệp đính kèm của bản phát hành v0.5.1 vẫn là gói cũ** — bản phát hành
-trên GitHub không sửa được sau khi công bố.
+ghi email liên hệ thay cho chỉ trang Issues.
+
+**Tệp đính kèm của bản phát hành v0.5.1 hiện vẫn là gói cũ.** Bản mới nhất là gói trong kho, tải ở liên kết trên
+hoặc tại [`phat-hanh/`](phat-hanh/). Hai gói khác nhau thì mã băm cũng khác nhau; mã băm của gói trong kho ghi ngay
+trên đây và trong `phat-hanh/SHA256SUMS`.
 
 ## Thành phần
 
@@ -154,7 +157,10 @@ include it). The SHA-256 checksum of the copy in the repository is given above a
 
 That copy was rebuilt on 16 November 2026: templates DP-01 to DP-07 gained sections for closing the gaps the review
 reports point to, DP-00 and SP-02 now cite Decree 330/2026/ND-CP, and SP-01 and SP-02 carry the contact email.
-**The file attached to release v0.5.1 is still the earlier build** — GitHub releases cannot be changed once published.
+
+**The file attached to release v0.5.1 is still the earlier build.** The current package is the one in the repository:
+download it from the link above or from [`phat-hanh/`](phat-hanh/). The two differ, and so do their checksums; the
+checksum of the copy in the repository is the one given above and in `phat-hanh/SHA256SUMS`.
 
 ### Contents
 

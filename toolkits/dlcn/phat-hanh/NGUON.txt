@@ -1,0 +1,16 @@
+# Mẫu nguồn mà gói zip trong thư mục này được dựng ra từ đó.
+# Dựng lại gói mỗi khi một trong các tệp dưới đây đổi, rồi cập nhật tệp này và SHA256SUMS.
+# Mã băm tính sau khi bỏ BOM và đưa mọi xuống dòng về LF, nên không phụ thuộc máy.
+# Kiểm tra tự động: tests/test_goi_phat_hanh.py
+# Lần dựng gần nhất: 16/11/2026
+
+4790cd11be5eb61ae53af35be4f6ee0fc62e591f15a9859a0d4744485f49d09d  mau/DP-00_bao_cao_chan_doan.md
+177bdf60d5e88a41fd8dda8f22b6ade3449a82ffb857b93a1ea8804efd9da098  mau/DP-01_chinh_sach_bao_ve_dlcn.md
+58b73832773c249edd8577a04aa04a839450934af28fc97b46686a6891a5625c  mau/DP-02_thong_bao_xu_ly_dlcn.md
+05c325bc603fec267ea085a7ebf22b5c201cb63da42d5cbe4d6316e0ac86f7f4  mau/DP-03_danh_gia_tac_dong.md
+949cf915d5e7f75749361884099c3d61a6e1bd352baefa28e5f6810c481ffc52  mau/DP-04_quyen_chu_the_du_lieu.md
+d6444b07b3aa3b6553e4c6e4986ccbfa742efbe3218772a2acc693ef097d231b  mau/DP-05_xu_ly_vi_pham_dlcn.md
+806c8e08baa68e22c7e937320b922077986261cbd6c3c98dc57fb34c30e8125a  mau/DP-06_thoa_thuan_xu_ly_dlcn.md
+aa531525652c29657e23ec4cfa57507b38a60f3c79636592e882c99e51d75e07  mau/DP-07_mau_dong_y.md
+768ba06f51fc34186e4ff4395764312b93ad32b156ffae2fa71f9d3da7b72471  mau/SP-01_huong_dan_su_dung.md
+21e6f8ad404378376ced7d3e5dcde6e8c16c2f158978ba72340f3971b6cb9527  mau/SP-02_dieu_khoan_su_dung.md
