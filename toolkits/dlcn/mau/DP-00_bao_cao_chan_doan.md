@@ -22,7 +22,10 @@ phan_loai: MẬT
 - Phạm vi: [● đơn vị, hệ thống, hoạt động xử lý được đánh giá]. Ngoài phạm vi: [●].
 - Thời gian thực hiện: [●]. Phỏng vấn [●] người: [● chức danh]. Tài liệu đã xem: [●].
 - Thang chấm mức đáp ứng: 0 chưa có · 1 làm tạm, không văn bản · 2 có văn bản nhưng chưa áp dụng đều · 3 áp dụng nhất quán · 4 có đo lường, rà soát · 5 cải tiến liên tục.
-- Mức rủi ro của khoảng cách: Cao (có thể bị xử phạt hoặc gây hại cho chủ thể dữ liệu), Trung bình, Thấp.
+- Mức rủi ro của khoảng cách: Cao (hành vi có thể thuộc diện xử phạt vi phạm hành chính theo Nghị định 330/2026/NĐ-CP
+  ngày 19/8/2026, hoặc có thể gây hại cho chủ thể dữ liệu), Trung bình, Thấp. **Không phải khoảng cách nào cũng bị phạt:**
+  việc một thiếu sót có bị xử phạt hay không, và ở mức nào, phải đối chiếu với đúng điều khoản của Nghị định 330/2026;
+  báo cáo này không làm việc đối chiếu đó.
 - Giới hạn: báo cáo dựa trên thông tin {{TEN_CONG_TY}} cung cấp tại thời điểm đánh giá; đây là đánh giá tuân thủ về quản trị, không phải ý kiến pháp lý của luật sư.
 
 # 3. Bức tranh xử lý dữ liệu cá nhân

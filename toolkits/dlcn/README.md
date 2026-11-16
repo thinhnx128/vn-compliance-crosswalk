@@ -6,10 +6,17 @@ Bộ mẫu biểu và công cụ tiếng Việt, miễn phí, mã nguồn mở, 
 Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định 356/2025/NĐ-CP (cùng có hiệu lực từ 01/01/2026 theo
 Điều 38 của Luật và Điều 42 của Nghị định).
 
+**Chế tài của lĩnh vực này nằm ở một văn bản riêng:** Nghị định số 330/2026/NĐ-CP ngày 19/8/2026 quy định xử phạt vi
+phạm hành chính trong lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân, **có hiệu lực từ ngày 19/8/2026** (Điều 80 của
+Nghị định). Bộ công cụ này **chưa đối chiếu từng hành vi với mức phạt cụ thể**; khi cần biết một thiếu sót có thể bị xử
+phạt ra sao, hãy đọc thẳng nghị định đó. Bản ký số trên cổng Chính phủ:
+[vanban.chinhphu.vn, văn bản 330/2026/NĐ-CP](https://vanban.chinhphu.vn/?pageid=27160&docid=219266).
+
 > **Lưu ý.** Đây là mẫu tham khảo và là diễn giải chuyên môn của tác giả, **không phải tư vấn pháp lý**. Việc dùng
 > bộ công cụ không bảo đảm doanh nghiệp đã tuân thủ. Căn cứ theo bản đăng Công báo, đối chiếu ngày
-> **13/11/2026**. Văn bản có thể được sửa đổi hoặc có hướng dẫn mới sau ngày này; hãy kiểm tra văn bản đang có
-> hiệu lực trước khi dùng.
+> **13/11/2026**; rà soát văn bản mới gần nhất ngày **16/11/2026** (lần rà đó bổ sung dẫn chiếu Nghị định 330/2026
+> và không tìm thấy văn bản nào sửa đổi Luật 91/2025 hay Nghị định 356/2025). Văn bản có thể được sửa đổi hoặc có
+> hướng dẫn mới sau ngày này; hãy kiểm tra văn bản đang có hiệu lực trước khi dùng.
 
 ## Bắt đầu
 
@@ -99,11 +106,19 @@ practices and prepare documentation under Vietnam's Law on Personal Data Protect
 Decree No. 356/2025/ND-CP (both in force from 1 January 2026, per Article 38 of the Law and Article 42 of the
 Decree). The templates and the quick check are in Vietnamese; this section summarises them for English readers.
 
+**Penalties sit in a separate instrument:** Decree No. 330/2026/ND-CP of 19 August 2026 on administrative penalties in
+the fields of cybersecurity and personal data protection, **in force from 19 August 2026** (Article 80 of that Decree).
+This toolkit **does not yet map individual shortcomings to specific penalty amounts**; to find out how a given gap may be
+penalised, read that Decree directly. Signed text on the Government portal:
+[vanban.chinhphu.vn, document 330/2026/ND-CP](https://vanban.chinhphu.vn/?pageid=27160&docid=219266).
+
 > **Notice.** These are reference templates reflecting the author's professional interpretation. They are
 > **not legal advice**, and using the toolkit does not guarantee compliance. References follow the texts published
-> in the Official Gazette, checked on **13 November 2026**. The texts may be amended or supplemented by new
-> guidance after that date; verify the provisions currently in force before relying on them. Where this summary
-> and the Vietnamese section differ, the Vietnamese section prevails.
+> in the Official Gazette, checked on **13 November 2026**; the most recent review for new instruments was on
+> **16 November 2026** (that review added the reference to Decree 330/2026 and found nothing amending Law 91/2025 or
+> Decree 356/2025). The texts may be amended or supplemented by new guidance after that date; verify the provisions
+> currently in force before relying on them. Where this summary and the Vietnamese section differ, the Vietnamese
+> section prevails.
 
 ### Getting started
 
