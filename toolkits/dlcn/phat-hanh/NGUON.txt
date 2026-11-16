@@ -1,6 +1,11 @@
 # Mẫu nguồn mà gói zip trong thư mục này được dựng ra từ đó.
 # Dựng lại gói mỗi khi một trong các tệp dưới đây đổi, rồi cập nhật tệp này và SHA256SUMS.
-# Mã băm tính sau khi bỏ BOM và đưa mọi xuống dòng về LF, nên không phụ thuộc máy.
+# CHÚ Ý: đây KHÔNG phải SHA-256 của byte tệp trên đĩa. Mã băm dưới đây tính trên nội dung văn bản
+# đã chuẩn hoá: bỏ dấu thứ tự byte (BOM) nếu có, rồi đưa mọi CRLF và CR đơn lẻ về LF, sau đó băm
+# chuỗi byte UTF-8 thu được. Phải làm vậy vì kho đặt core.autocrlf=true, nên cùng một tệp nằm trên
+# đĩa dưới dạng CRLF ở Windows và LF trong CI chạy Linux. Chạy `sha256sum` thẳng trên tệp sẽ ra số
+# khác, đó là bình thường, không phải tệp bị sửa. Cách tính nằm trong tests/test_goi_phat_hanh.py.
+# Mã băm của chính gói zip thì là SHA-256 thường, ghi ở SHA256SUMS.
 # Kiểm tra tự động: tests/test_goi_phat_hanh.py
 # Lần dựng gần nhất: 16/11/2026
 

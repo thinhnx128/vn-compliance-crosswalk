@@ -100,6 +100,102 @@ def test_mau_nguon_khong_doi_ke_tu_lan_dung_goi() -> None:
     )
 
 
+MAU_UNG_VOI_TEP = {
+    "mau/DP-00_bao_cao_chan_doan.md": "DP-00_bao_cao_chan_doan.docx",
+    "mau/DP-01_chinh_sach_bao_ve_dlcn.md": "DP-01_chinh_sach_bao_ve_dlcn.docx",
+    "mau/DP-02_thong_bao_xu_ly_dlcn.md": "DP-02_thong_bao_xu_ly_dlcn.docx",
+    "mau/DP-03_danh_gia_tac_dong.md": "DP-03_danh_gia_tac_dong.docx",
+    "mau/DP-04_quyen_chu_the_du_lieu.md": "DP-04_quyen_chu_the_du_lieu.docx",
+    "mau/DP-05_xu_ly_vi_pham_dlcn.md": "DP-05_xu_ly_vi_pham_dlcn.docx",
+    "mau/DP-06_thoa_thuan_xu_ly_dlcn.md": "DP-06_thoa_thuan_xu_ly_dlcn.docx",
+    "mau/DP-07_mau_dong_y.md": "DP-07_mau_dong_y.docx",
+    "mau/SP-01_huong_dan_su_dung.md": "SP-01_huong_dan_su_dung.docx",
+    "mau/SP-02_dieu_khoan_su_dung.md": "SP-02_dieu_khoan_su_dung.docx",
+}
+
+
+def _chuan_hoa(van_ban: str) -> str:
+    """Bỏ cách đánh dấu của Markdown và gộp khoảng trắng, để so câu chữ với bản Word."""
+    import re
+
+    van_ban = van_ban.replace("**", "").replace("`", "").replace("*", "")
+    return re.sub(r"\s+", " ", van_ban).strip()
+
+
+def _cau_dac_trung(duong_dan: Path, so_cau: int = 3) -> list[str]:
+    """Vài câu văn xuôi đủ dài trong mẫu, dùng để nhận ra bản Word có đúng mẫu này không.
+
+    Bỏ qua dòng hướng dẫn nội bộ, dòng bảng, tiêu đề, và dòng có ô thay thế `{{...}}` hoặc `[●`,
+    vì trình đóng gói biến đổi những dòng đó.
+    """
+    ra: list[str] = []
+    cac_dong = duong_dan.read_text(encoding="utf-8").splitlines()
+
+    # Bỏ khối front-matter YAML ở đầu tệp: trình đóng gói dựng nó thành bảng thông tin tài liệu,
+    # không giữ nguyên câu chữ, nên không dùng để đối chiếu được.
+    if cac_dong and cac_dong[0].strip() == "---":
+        for vi_tri, dong in enumerate(cac_dong[1:], start=1):
+            if dong.strip() == "---":
+                cac_dong = cac_dong[vi_tri + 1 :]
+                break
+
+    import re as _re
+
+    for dong in cac_dong:
+        dong = dong.strip()
+        if not dong or dong.startswith(("#", "|", ">", "---")) or "{{" in dong or "[●" in dong:
+            continue
+        # Dòng danh sách vẫn dùng được: bỏ dấu đầu dòng, giữ lại câu chữ.
+        dong = _re.sub(r"^(?:[-*+]\s+|\d+[.)]\s+)", "", dong)
+        cau = _chuan_hoa(dong)
+        if len(cau) >= 60:
+            ra.append(cau)
+        if len(ra) >= so_cau:
+            break
+    return ra
+
+
+def _van_ban_trong_docx(du_lieu: bytes) -> str:
+    import io
+    import re
+    import xml.etree.ElementTree as ET
+
+    with zipfile.ZipFile(io.BytesIO(du_lieu)) as tep:
+        xml = tep.read("word/document.xml").decode("utf-8")
+    goc = ET.fromstring(xml)
+
+    # Trong một đoạn, các đoạn chữ (w:t) phải nối liền nhau vì Word hay cắt một từ thành nhiều
+    # đoạn; giữa hai đoạn văn thì chèn dấu cách, nếu không câu cuối đoạn trên sẽ dính câu đầu
+    # đoạn dưới.
+    cac_doan = []
+    for doan in goc.iter():
+        if doan.tag.endswith("}p"):
+            cac_doan.append("".join(n.text or "" for n in doan.iter() if n.tag.endswith("}t")))
+    return re.sub(r"\s+", " ", _chuan_hoa(" ".join(cac_doan)))
+
+
+@pytest.mark.parametrize("ten_mau,ten_docx", sorted(MAU_UNG_VOI_TEP.items()))
+def test_noi_dung_trong_goi_dung_mau_hien_tai(ten_mau: str, ten_docx: str) -> None:
+    """Nối gói với mẫu: câu chữ của mẫu phải có thật trong tệp Word tương ứng trong gói.
+
+    `NGUON.txt` chỉ chứng minh `mau/` không đổi kể từ lần dựng; nó **không** chứng minh gói được
+    dựng từ chính các mẫu đó. Nếu ai cập nhật mẫu và `NGUON.txt` nhưng quên dựng lại gói thì các
+    kiểm tra kia vẫn xanh. Kiểm tra này đọc thẳng câu chữ bên trong tệp Word nên bắt được ca đó.
+    """
+    duong_dan_mau = DLCN / ten_mau
+    cau_can_co = _cau_dac_trung(duong_dan_mau)
+    assert cau_can_co, f"{ten_mau}: không lấy được câu đặc trưng nào để đối chiếu"
+
+    with zipfile.ZipFile(ZIP) as goi:
+        van_ban = _van_ban_trong_docx(goi.read(ten_docx))
+
+    thieu = [c for c in cau_can_co if c not in van_ban]
+    assert not thieu, (
+        f"{ten_docx} trong gói không chứa câu chữ của {ten_mau} — gói nhiều khả năng là bản cũ. "
+        f"Dựng lại gói. Câu thiếu: {thieu[0][:120]}"
+    )
+
+
 @pytest.mark.parametrize("ten_tep", sorted(TEP_TRONG_GOI))
 def test_tep_office_mo_duoc(ten_tep: str) -> None:
     """Mỗi tệp Word, Excel trong gói phải là OOXML hợp lệ và tự đủ.
