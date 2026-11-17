@@ -5,6 +5,8 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
 
 ## [Unreleased]
 
+## [0.5.2] - 2026-11-17
+
 ### Thay đổi
 - `toolkits/dlcn/README.md`: biên tập lại phần tiếng Việt và thêm bản tiếng Anh ở cuối trang. Nội dung pháp lý
   không đổi.
@@ -25,8 +27,23 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
 - Mẫu DP-01: thêm mục 9 (dữ liệu trẻ em; ứng viên và người lao động; camera, ghi âm, sinh trắc học, vị trí, cookie;
   trí tuệ nhân tạo và môi trường kiểm thử; mã hóa trên điện toán đám mây, sao lưu; danh sách bên xử lý) và nội dung
   báo cáo lãnh đạo ở mục 12; các mục sau đánh số lại. Mẫu DP-05: thêm mục 8 về diễn tập. Phần ghi "thực tiễn tốt"
-  không phải nghĩa vụ luật định. Gói Word, Excel trong `toolkits/dlcn/phat-hanh/` chưa cập nhật theo, sẽ dựng lại
-  khi phát hành bản mới.
+  không phải nghĩa vụ luật định.
+- **Gói Word, Excel trong `toolkits/dlcn/phat-hanh/` đã dựng lại** theo mẫu hiện tại (12 tệp, mã băm mới ghi ở
+  `SHA256SUMS` và trong `toolkits/dlcn/README.md`). Gói trong bản phát hành 0.5.1 thiếu các mục bổ sung nói trên;
+  gói trong bản này có. Tệp đính kèm của bản phát hành 0.5.1 không đổi, bản này là bản mới.
+- Mẫu SP-01 và SP-02 trong gói nay ghi email liên hệ `me@nguyenxuanthinh.com` bên cạnh trang Issues; gói 0.5.1
+  chỉ ghi trang Issues.
+
+### Thêm mới (so với 0.5.1, ngoài các mục ở trên)
+- Dẫn chiếu **Nghị định 330/2026/NĐ-CP ngày 19/8/2026** (xử phạt vi phạm hành chính trong lĩnh vực an ninh mạng và
+  bảo vệ dữ liệu cá nhân, hiệu lực từ 19/8/2026) trong `README.md`, `toolkits/dlcn/README.md` và các mẫu DP-00,
+  SP-02. **Chỉ dẫn chiếu:** bộ công cụ không đối chiếu khoảng trống với hành vi vi phạm và chế tài trong nghị định
+  đó, và không kết luận gì về khả năng bị xử phạt. Mẫu DP-00 tách tiêu chí mức rủi ro khỏi khả năng bị xử phạt.
+  Rà soát văn bản mới ngày 16/11/2026 không tìm thấy văn bản nào sửa đổi Luật 91/2025 hay NĐ 356/2025, trong phạm
+  vi tra cứu của tác giả.
+- `toolkits/dlcn/phat-hanh/NGUON.txt` và `tests/test_goi_phat_hanh.py`: chốt chặn để gói zip không lệch mẫu nguồn.
+  Kiểm tra mã băm gói, danh sách 12 tệp, mẫu không đổi kể từ lần dựng, cấu trúc OOXML của từng tệp, và câu chữ bên
+  trong tệp Word phải khớp mẫu hiện tại.
 
 ### Sửa lỗi
 - `vncc ra-soat`: bộ chấm theo luật không còn dừng ở một tiêu đề ngắn khớp mẫu (trích dẫn quá ngắn bị loại) mà xét
@@ -49,8 +66,19 @@ Dữ liệu (danh mục, đối chiếu) có số phiên bản riêng trong từ
 - `vncc ra-soat`: each gap in the report names the DP-01..07 template section that can fill it. Template DP-01
   gains section 9 (children; job applicants and employees; cameras, recordings, biometric and location data,
   cookies; AI and test environments; cloud encryption and backups; list of processors) and management reporting in
-  section 12; DP-05 gains section 8 on drills. The Word/Excel package under `toolkits/dlcn/phat-hanh/` is not yet
-  rebuilt. Fix: the rule judge no longer stops at a short matching heading whose quote is too short.
+  section 12; DP-05 gains section 8 on drills. Fix: the rule judge no longer stops at a short matching heading whose
+  quote is too short.
+- **The Word/Excel package under `toolkits/dlcn/phat-hanh/` has been rebuilt** from the current templates (12 files,
+  new checksum in `SHA256SUMS` and in `toolkits/dlcn/README.md`). The package attached to release 0.5.1 lacks the
+  additions above; this one has them. SP-01 and SP-02 now carry the contact email alongside the Issues page.
+- Reference to **Decree No. 330/2026/ND-CP of 19 August 2026** on administrative penalties in the fields of
+  cybersecurity and personal data protection, in force from 19 August 2026, in `README.md`,
+  `toolkits/dlcn/README.md` and templates DP-00 and SP-02. **Reference only:** the toolkit does not map its findings
+  to the violations or sanctions in that Decree and draws no conclusion about exposure to penalties. A review of new
+  instruments on 16 November 2026 found nothing amending Law 91/2025 or Decree 356/2025, within the sources checked.
+- `toolkits/dlcn/phat-hanh/NGUON.txt` and `tests/test_goi_phat_hanh.py`: guards against the zip drifting from the
+  templates — package checksum, the 12 expected files, templates unchanged since the build, each file's OOXML
+  structure, and the text inside each Word file matching the current template.
 
 ## [0.5.1] - 2026-11
 
