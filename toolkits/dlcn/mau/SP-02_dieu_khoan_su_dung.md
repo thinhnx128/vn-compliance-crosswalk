@@ -22,6 +22,8 @@ Cách ghi nguồn: "vn-compliance-crosswalk" của Nguyễn Xuân Thịnh, https
 
 Bộ công cụ dẫn chiếu Luật Bảo vệ dữ liệu cá nhân số 91/2025/QH15 và Nghị định 356/2025/NĐ-CP theo bản đăng Công báo, **đối chiếu ngày {{NGAY_DOI_CHIEU}}**. Văn bản có thể được sửa đổi, bổ sung hoặc có hướng dẫn mới sau ngày này. Người dùng có trách nhiệm kiểm tra văn bản đang có hiệu lực tại thời điểm sử dụng.
 
+Xử phạt vi phạm hành chính của lĩnh vực này quy định tại **Nghị định số 330/2026/NĐ-CP ngày 19/8/2026** (xử phạt vi phạm hành chính trong lĩnh vực an ninh mạng và bảo vệ dữ liệu cá nhân), có hiệu lực từ 19/8/2026. Bộ công cụ **không đối chiếu** các thiếu sót với hành vi vi phạm và chế tài trong nghị định đó, và **không kết luận gì về khả năng bị xử phạt**. Ngoài xử phạt hành chính, một hành vi còn có thể phát sinh trách nhiệm dân sự hoặc hình sự theo pháp luật khác.
+
 Các mục ghi "thực tiễn tốt" là khuyến nghị của tác giả, không phải nghĩa vụ do pháp luật quy định.
 
 # 4. Không bảo đảm

@@ -35,8 +35,16 @@ việc này nên có người phụ trách pháp chế hoặc tư vấn pháp l�
 
 Gói zip nằm trong kho tại [`phat-hanh/`](phat-hanh/) và được đính kèm vào các
 [bản phát hành](https://github.com/thinhnx128/vn-compliance-crosswalk/releases) từ v0.5.1 (bản v0.5.0 không có
-gói này). Mã băm SHA-256 của gói, cũng ghi ở `phat-hanh/SHA256SUMS`:
-`770bc24a0de64ce86d8e4ee80c0b151a6d008b8586b686e4bf4b6a283d8a1fba`
+gói này). Mã băm SHA-256 của gói trong kho, cũng ghi ở `phat-hanh/SHA256SUMS`:
+`107a6e35d1c9e75682f02c7436ec0f671b4e744540bb4cea73b8d8be27887d73`
+
+Gói này được dựng lại ngày 16/11/2026. So với gói trong bản phát hành v0.5.1: các mẫu DP-01 đến DP-07 đã bổ sung
+mục để lấp khoảng trống theo kết quả rà soát; DP-00 và SP-02 có dẫn chiếu Nghị định 330/2026/NĐ-CP; SP-01 và SP-02
+ghi email liên hệ thay cho chỉ trang Issues.
+
+**Tệp đính kèm của bản phát hành v0.5.1 hiện vẫn là gói cũ.** Bản mới nhất là gói trong kho, tải ở liên kết trên
+hoặc tại [`phat-hanh/`](phat-hanh/). Hai gói khác nhau thì mã băm cũng khác nhau; mã băm của gói trong kho ghi ngay
+trên đây và trong `phat-hanh/SHA256SUMS`.
 
 ## Thành phần
 
@@ -145,7 +153,14 @@ obligation under Law 91/2025 and Decree 356/2025 is missing, then check it again
 
 The zip is stored in the repository under [`phat-hanh/`](phat-hanh/) and attached to every
 [release](https://github.com/thinhnx128/vn-compliance-crosswalk/releases) from v0.5.1 onwards (v0.5.0 does not
-include it). Its SHA-256 checksum is given above and in `phat-hanh/SHA256SUMS`.
+include it). The SHA-256 checksum of the copy in the repository is given above and in `phat-hanh/SHA256SUMS`.
+
+That copy was rebuilt on 16 November 2026: templates DP-01 to DP-07 gained sections for closing the gaps the review
+reports point to, DP-00 and SP-02 now cite Decree 330/2026/ND-CP, and SP-01 and SP-02 carry the contact email.
+
+**The file attached to release v0.5.1 is still the earlier build.** The current package is the one in the repository:
+download it from the link above or from [`phat-hanh/`](phat-hanh/). The two differ, and so do their checksums; the
+checksum of the copy in the repository is the one given above and in `phat-hanh/SHA256SUMS`.
 
 ### Contents
 
